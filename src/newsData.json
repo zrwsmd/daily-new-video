@@ -6,12 +6,12 @@
       "source": "人民日报",
       "shots": [
         {
-          "image": "media/china-flag.jpg",
+          "image": "media/beijing-tiananmen.jpg",
           "subtitle": "今日是中国共产党成立105周年纪念日",
           "durationSeconds": 4
         },
         {
-          "image": "media/ceremony-hall.jpg",
+          "image": "media/auditorium.jpg",
           "subtitle": "党中央在人民大会堂举行庆祝大会",
           "durationSeconds": 4
         }
@@ -23,12 +23,12 @@
       "source": "央视新闻",
       "shots": [
         {
-          "image": "media/large-conference.jpg",
+          "image": "media/business-conference.jpg",
           "subtitle": "李强总理出席2026年夏季达沃斯论坛开幕式",
           "durationSeconds": 4
         },
         {
-          "image": "media/keynote-speech.jpg",
+          "image": "media/conference-speaker.jpg",
           "subtitle": "在开幕式上发表主旨演讲",
           "durationSeconds": 3
         }
@@ -40,7 +40,7 @@
       "source": "环球网",
       "shots": [
         {
-          "image": "media/airplane-sky.jpg",
+          "image": "media/commercial-aircraft.jpg",
           "subtitle": "国产C909支线客机商运十周年",
           "durationSeconds": 4
         },
@@ -57,12 +57,12 @@
       "source": "路透社",
       "shots": [
         {
-          "image": "media/japanese-yen.jpg",
+          "image": "media/currency-finance.jpg",
           "subtitle": "日本外汇官员表示两个月前的货币干预有效",
           "durationSeconds": 4
         },
         {
-          "image": "media/forex-trading.jpg",
+          "image": "media/financial-chart.jpg",
           "subtitle": "美国官员对日本干预行动表示支持",
           "durationSeconds": 4
         }
@@ -74,12 +74,12 @@
       "source": "路透社",
       "shots": [
         {
-          "image": "media/eu-flags.jpg",
+          "image": "media/container-port.jpg",
           "subtitle": "欧盟与美国贸易协议今日正式生效",
           "durationSeconds": 4
         },
         {
-          "image": "media/container-port.jpg",
+          "image": "media/cargo-trade.jpg",
           "subtitle": "这将进一步促进跨大西洋贸易往来",
           "durationSeconds": 4
         }

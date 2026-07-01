@@ -1,0 +1,123 @@
+{
+  "stories": [
+    {
+      "id": "worldcup1",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/worldcup-stadium.jpg",
+          "subtitle": "2026美加墨世界杯1/16决赛激战正酣",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/worldcup-action.jpg",
+          "subtitle": "多场精彩对决同时上演",
+          "durationSeconds": 3
+        }
+      ]
+    },
+    {
+      "id": "worldcup2",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/norway-celebration.jpg",
+          "subtitle": "挪威队2-1战胜科特迪瓦",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/norway-victory.jpg",
+          "subtitle": "时隔28年重返世界杯16强",
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "worldcup3",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/haaland-goal.jpg",
+          "subtitle": "哈兰德第86分钟打入制胜球",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/haaland-celebration.jpg",
+          "subtitle": "赛后戴上维京头盔与球迷同庆",
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "worldcup4",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/viking-row.jpg",
+          "subtitle": "挪威队长厄德高带领全队表演维京划船庆祝",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/norway-fans.jpg",
+          "subtitle": "这一庆祝动作已成为本届世界杯的标志性场面",
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "worldcup5",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/worldcup-action.jpg",
+          "subtitle": "法国队3-0大胜瑞典晋级",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/mbappe-action.jpg",
+          "subtitle": "姆巴佩梅开二度表现出色",
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "worldcup6",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/mbappe-celebration.jpg",
+          "subtitle": "姆巴佩世界杯总进球数达到18个",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/mbappe-record.jpg",
+          "subtitle": "仅落后梅西1球，领跑本届金靴榜",
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "worldcup7",
+      "category": "世界杯快报",
+      "source": "环球体育",
+      "shots": [
+        {
+          "image": "media/worldcup-bracket.jpg",
+          "subtitle": "挪威将在16强对阵巴西",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/worldcup-closing.jpg",
+          "subtitle": "法国将迎战巴拉圭，敬请期待更多精彩赛事",
+          "durationSeconds": 4
+        }
+      ]
+    }
+  ]
+}

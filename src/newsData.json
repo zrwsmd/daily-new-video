@@ -1,0 +1,60 @@
+{
+  "stories": [
+    {
+      "id": "story1",
+      "category": "国内新闻",
+      "source": "环球时报",
+      "shots": [
+        {
+          "image": "media/hongkong-skyline.jpg",
+          "subtitle": "香港特区政府今日举行升旗仪式",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/flag-sky.jpg",
+          "subtitle": "庆祝香港回归祖国29周年",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/helicopter.jpg",
+          "subtitle": "飞行服务队直升机编队飞越维港",
+          "durationSeconds": 3
+        }
+      ]
+    },
+    {
+      "id": "story2",
+      "category": "国内新闻",
+      "source": "新华社",
+      "shots": [
+        {
+          "image": "media/beijing-tiananmen.jpg",
+          "subtitle": "庆祝中国共产党成立105周年大会在人民大会堂隆重举行",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/auditorium.jpg",
+          "subtitle": "习近平向七一勋章获得者颁授勋章并发表重要讲话",
+          "durationSeconds": 5
+        }
+      ]
+    },
+    {
+      "id": "story3",
+      "category": "国际新闻",
+      "source": "路透社",
+      "shots": [
+        {
+          "image": "media/earthquake-damage.jpg",
+          "subtitle": "委内瑞拉发生强烈地震，死亡人数已升至1450人",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/rescue-team.jpg",
+          "subtitle": "中国驻委使馆确认7名中国公民遇难",
+          "durationSeconds": 5
+        }
+      ]
+    }
+  ]
+}

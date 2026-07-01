@@ -1,0 +1,17 @@
+{
+  "resolution": "1920x1080",
+  "target_runtime_seconds": 240,
+  "narration": false,
+  "tts_provider": null,
+  "domestic_sources": ["news.cn", "news.cctv.com", "people.com.cn"],
+  "international_sources": ["reuters.com", "apnews.com", "bbc.com/news"],
+  "story_count": {
+    "domestic": 6,
+    "international": 6
+  },
+  "branding": {
+    "title": "每日新闻速览",
+    "primary_color": "#E8B84B"
+  },
+  "show_on_screen_citations": false
+}

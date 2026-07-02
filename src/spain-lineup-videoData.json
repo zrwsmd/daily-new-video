@@ -1,0 +1,83 @@
+{
+  "title": "西班牙队2026世界杯主力阵容全解析",
+  "date": "2026年7月2日",
+  "category": "体育",
+  "source": "Wikipedia Commons",
+  "segments": [
+    {
+      "id": "spain-lineup-2026",
+      "category": "世界杯",
+      "source": "2026世界杯",
+      "shots": [
+        {
+          "image": "media/spain-lineup/spain-flag.jpg",
+          "subtitle": "西班牙队2026世界杯小组赛三战全胜强势晋级",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/spain-lineup/unai-simon.jpg",
+          "subtitle": "门将乌奈·西蒙经验丰富,防守稳健",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/pedro-porro.jpg",
+          "subtitle": "右后卫佩德罗·波罗助攻能力出色",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/pau-cubarsi.jpg",
+          "subtitle": "中卫保·库巴西年轻有为,后防新星",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/aymeric-laporte.jpg",
+          "subtitle": "中卫拉波尔特经验丰富,防线核心",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/marc-cucurella.jpg",
+          "subtitle": "左后卫库库雷利亚攻守兼备",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/rodri.jpg",
+          "subtitle": "后腰罗德里拦截能力强,中场指挥官",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/dani-olmo.jpg",
+          "subtitle": "中场奥尔莫技术细腻,组织进攻",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/pedri.jpg",
+          "subtitle": "中场佩德里传球精准,控球大师",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/lamine-yamal.jpg",
+          "subtitle": "右边锋拉明·亚马尔年仅18岁,对阵沙特首发即破门",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/spain-lineup/mikel-oyarzabal.jpg",
+          "subtitle": "中锋米克尔·奥亚萨瓦尔终结能力强",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/spain-lineup/alex-baena.jpg",
+          "subtitle": "左边锋亚历克斯·贝纳突破犀利",
+          "durationSeconds": 3
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalDuration": 38,
+    "totalShots": 12,
+    "imageSource": "Wikimedia Commons (开放授权)",
+    "formation": "4-3-3",
+    "coach": "路易斯·德拉富恩特",
+    "lineup": "完整11人首发阵容"
+  }
+}

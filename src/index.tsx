@@ -7,6 +7,7 @@ import videoData from "./videoData.json";
 import worldcupJuly2Data from "./worldcup-july2-data.json";
 import franceLineupData from "./france-lineup-videoData.json";
 import spainLineupData from "./spain-lineup-videoData.json";
+import argentinaLineupData from "./argentina-lineup-videoData.json";
 
 // 通用类型定义
 interface Shot {
@@ -73,6 +74,7 @@ const TaiyuanNews: React.FC = () => <GenericVideo data={videoData} />;
 const WorldCupJuly2: React.FC = () => <GenericVideo data={worldcupJuly2Data} />;
 const FranceLineup: React.FC = () => <GenericVideo data={franceLineupData} />;
 const SpainLineup: React.FC = () => <GenericVideo data={spainLineupData} />;
+const ArgentinaLineup: React.FC = () => <GenericVideo data={argentinaLineupData} />;
 
 // 通用时长计算函数
 const calculateDuration = (data: VideoData): number => {
@@ -92,6 +94,7 @@ export const RemotionRoot: React.FC = () => {
   const worldcupJuly2Duration = calculateDuration(worldcupJuly2Data);
   const franceLineupDuration = calculateDuration(franceLineupData);
   const spainLineupDuration = calculateDuration(spainLineupData);
+  const argentinaLineupDuration = calculateDuration(argentinaLineupData);
 
   return (
     <>
@@ -139,6 +142,14 @@ export const RemotionRoot: React.FC = () => {
         id="SpainLineup"
         component={SpainLineup}
         durationInFrames={spainLineupDuration}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ArgentinaLineup"
+        component={ArgentinaLineup}
+        durationInFrames={argentinaLineupDuration}
         fps={30}
         width={1920}
         height={1080}

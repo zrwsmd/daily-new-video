@@ -1,0 +1,83 @@
+{
+  "title": "阿根廷队2026世界杯主力阵容全解析",
+  "date": "2026年7月2日",
+  "category": "体育",
+  "source": "Wikipedia Commons",
+  "segments": [
+    {
+      "id": "argentina-lineup-2026",
+      "category": "世界杯",
+      "source": "2026世界杯",
+      "shots": [
+        {
+          "image": "media/argentina-lineup/argentina-flag.jpg",
+          "subtitle": "阿根廷队2026世界杯卫冕之路强势开启",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/argentina-lineup/emiliano-martinez.jpg",
+          "subtitle": "门将马丁内斯世界杯金手套得主,防守稳如磐石",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/nahuel-molina.jpg",
+          "subtitle": "右后卫莫利纳速度快,助攻能力强",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/cristian-romero.jpg",
+          "subtitle": "中卫罗梅罗防守凶悍,空中优势明显",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/lisandro-martinez.jpg",
+          "subtitle": "中卫利桑德罗·马丁内斯身材虽矮但斗志顽强",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/nicolas-tagliafico.jpg",
+          "subtitle": "左后卫塔利亚菲科经验丰富,攻防兼备",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/rodrigo-de-paul.jpg",
+          "subtitle": "中场德保罗跑动积极,是梅西的得力助手",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/enzo-fernandez.jpg",
+          "subtitle": "中场恩佐·费尔南德斯年轻有为,传球视野开阔",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/alexis-mac-allister.jpg",
+          "subtitle": "中场麦卡利斯特技术细腻,组织能力出色",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/julian-alvarez.jpg",
+          "subtitle": "前锋阿尔瓦雷斯速度快跑位灵活",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/lautaro-martinez.jpg",
+          "subtitle": "前锋劳塔罗·马丁内斯终结能力强",
+          "durationSeconds": 3
+        },
+        {
+          "image": "media/argentina-lineup/lionel-messi.jpg",
+          "subtitle": "队长梅西对约旦替补登场任意球破门,连续7场世界杯进球创历史纪录",
+          "durationSeconds": 5
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalDuration": 39,
+    "totalShots": 12,
+    "imageSource": "Wikimedia Commons (开放授权)",
+    "formation": "4-3-3",
+    "coach": "利昂内尔·斯卡洛尼",
+    "lineup": "完整11人首发阵容"
+  }
+}

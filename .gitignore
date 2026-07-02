@@ -24,3 +24,8 @@ npm-debug.log*
 # 临时文件
 .remotion/
 .cache/
+
+# 临时脚本和数据
+download-*.js
+src/*-data.json
+src/videoData.json

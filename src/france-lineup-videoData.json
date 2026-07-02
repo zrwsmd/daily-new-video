@@ -10,15 +10,9 @@
       "source": "2026世界杯",
       "shots": [
         {
-          "image": "media/france-lineup/france-flag.jpg",
-          "subtitle": "法国队2026世界杯小组赛三战全胜昂首晋级",
-          "durationSeconds": 4,
-          "verification": {
-            "source": "Pexels - France flag",
-            "content": "法国国旗",
-            "match": "✅ 符合法国队主题",
-            "status": "verified"
-          }
+          "image": "media/france-lineup/didier-deschamps.jpg",
+          "subtitle": "主教练德尚率领法国队征战2026世界杯",
+          "durationSeconds": 4
         },
         {
           "image": "media/france-lineup/mike-maignan.jpg",

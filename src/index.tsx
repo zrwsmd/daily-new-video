@@ -6,26 +6,53 @@ import worldcupData from "./worldcupData.json";
 import videoData from "./videoData.json";
 import worldcupJuly2Data from "./worldcup-july2-data.json";
 
-const DailyNews: React.FC = () => {
+// 通用类型定义
+interface Shot {
+  image: string;
+  subtitle: string;
+  durationSeconds: number;
+}
+
+interface Story {
+  id: string;
+  category: string;
+  source: string;
+  shots: Shot[];
+}
+
+interface VideoData {
+  stories?: Story[];
+  segments?: Story[];
+}
+
+interface GenericVideoProps {
+  data: VideoData;
+}
+
+// 通用视频组件 - 处理所有数据格式
+const GenericVideo: React.FC<GenericVideoProps> = ({ data }) => {
   const fps = 30;
   let currentFrame = 0;
 
+  // 自动检测数据格式 (stories 或 segments)
+  const items: Story[] = data.stories || data.segments || [];
+
   return (
     <div style={{ width: "100%", height: "100%", backgroundColor: "#000" }}>
-      {newsData.stories.map((story) => {
-        return story.shots.map((shot, shotIndex) => {
+      {items.map((item: Story) => {
+        return item.shots.map((shot: Shot, shotIndex: number) => {
           const durationInFrames = shot.durationSeconds * fps;
           const sequence = (
             <Sequence
-              key={`${story.id}-shot${shotIndex}`}
+              key={`${item.id}-shot${shotIndex}`}
               from={currentFrame}
               durationInFrames={durationInFrames}
             >
               <ShotCard
                 subtitle={shot.subtitle}
-                category={story.category}
+                category={item.category}
                 image={shot.image}
-                source={story.source}
+                source={item.source}
               />
             </Sequence>
           );
@@ -37,124 +64,28 @@ const DailyNews: React.FC = () => {
   );
 };
 
-const WorldCupNews: React.FC = () => {
-  const fps = 30;
-  let currentFrame = 0;
+// 为了保持向后兼容，保留原有的组件名称（作为包装器）
+const DailyNews: React.FC = () => <GenericVideo data={newsData} />;
+const WorldCupNews: React.FC = () => <GenericVideo data={worldcupData} />;
+const TaiyuanNews: React.FC = () => <GenericVideo data={videoData} />;
+const WorldCupJuly2: React.FC = () => <GenericVideo data={worldcupJuly2Data} />;
 
-  return (
-    <div style={{ width: "100%", height: "100%", backgroundColor: "#000" }}>
-      {worldcupData.stories.map((story) => {
-        return story.shots.map((shot, shotIndex) => {
-          const durationInFrames = shot.durationSeconds * fps;
-          const sequence = (
-            <Sequence
-              key={`${story.id}-shot${shotIndex}`}
-              from={currentFrame}
-              durationInFrames={durationInFrames}
-            >
-              <ShotCard
-                subtitle={shot.subtitle}
-                category={story.category}
-                image={shot.image}
-                source={story.source}
-              />
-            </Sequence>
-          );
-          currentFrame += durationInFrames;
-          return sequence;
-        });
-      })}
-    </div>
-  );
-};
-
-const TaiyuanNews: React.FC = () => {
-  const fps = 30;
-  let currentFrame = 0;
-
-  return (
-    <div style={{ width: "100%", height: "100%", backgroundColor: "#000" }}>
-      {videoData.segments.map((segment) => {
-        return segment.shots.map((shot, shotIndex) => {
-          const durationInFrames = shot.durationSeconds * fps;
-          const sequence = (
-            <Sequence
-              key={`${segment.id}-shot${shotIndex}`}
-              from={currentFrame}
-              durationInFrames={durationInFrames}
-            >
-              <ShotCard
-                subtitle={shot.subtitle}
-                category={segment.category}
-                image={shot.image}
-                source={segment.source}
-              />
-            </Sequence>
-          );
-          currentFrame += durationInFrames;
-          return sequence;
-        });
-      })}
-    </div>
-  );
-};
-
-const WorldCupJuly2: React.FC = () => {
-  const fps = 30;
-  let currentFrame = 0;
-
-  return (
-    <div style={{ width: "100%", height: "100%", backgroundColor: "#000" }}>
-      {worldcupJuly2Data.stories.map((story) => {
-        return story.shots.map((shot, shotIndex) => {
-          const durationInFrames = shot.durationSeconds * fps;
-          const sequence = (
-            <Sequence
-              key={`${story.id}-shot${shotIndex}`}
-              from={currentFrame}
-              durationInFrames={durationInFrames}
-            >
-              <ShotCard
-                subtitle={shot.subtitle}
-                category={story.category}
-                image={shot.image}
-                source={story.source}
-              />
-            </Sequence>
-          );
-          currentFrame += durationInFrames;
-          return sequence;
-        });
-      })}
-    </div>
+// 通用时长计算函数
+const calculateDuration = (data: VideoData): number => {
+  const items: Story[] = data.stories || data.segments || [];
+  return items.reduce(
+    (sum, item) =>
+      sum + item.shots.reduce((shotSum, shot) => shotSum + shot.durationSeconds * 30, 0),
+    0
   );
 };
 
 export const RemotionRoot: React.FC = () => {
-  // 计算总时长
-  const totalDuration = newsData.stories.reduce(
-    (sum, story) =>
-      sum + story.shots.reduce((shotSum, shot) => shotSum + shot.durationSeconds * 30, 0),
-    0
-  );
-
-  const worldcupDuration = worldcupData.stories.reduce(
-    (sum, story) =>
-      sum + story.shots.reduce((shotSum, shot) => shotSum + shot.durationSeconds * 30, 0),
-    0
-  );
-
-  const taiyuanDuration = videoData.segments.reduce(
-    (sum, segment) =>
-      sum + segment.shots.reduce((shotSum, shot) => shotSum + shot.durationSeconds * 30, 0),
-    0
-  );
-
-  const worldcupJuly2Duration = worldcupJuly2Data.stories.reduce(
-    (sum, story) =>
-      sum + story.shots.reduce((shotSum, shot) => shotSum + shot.durationSeconds * 30, 0),
-    0
-  );
+  // 使用通用函数计算时长
+  const totalDuration = calculateDuration(newsData);
+  const worldcupDuration = calculateDuration(worldcupData);
+  const taiyuanDuration = calculateDuration(videoData);
+  const worldcupJuly2Duration = calculateDuration(worldcupJuly2Data);
 
   return (
     <>

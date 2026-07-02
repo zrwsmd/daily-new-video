@@ -1,0 +1,33 @@
+{
+  "stories": [
+    {
+      "id": "story1",
+      "category": "分类标签",
+      "source": "来源",
+      "shots": [
+        {
+          "image": "media/image1.jpg",
+          "subtitle": "第一个镜头的字幕内容",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/image2.jpg",
+          "subtitle": "第二个镜头的字幕内容",
+          "durationSeconds": 4
+        }
+      ]
+    },
+    {
+      "id": "story2",
+      "category": "另一个分类",
+      "source": "另一个来源",
+      "shots": [
+        {
+          "image": "media/image3.jpg",
+          "subtitle": "第三个镜头的字幕内容",
+          "durationSeconds": 4
+        }
+      ]
+    }
+  ]
+}

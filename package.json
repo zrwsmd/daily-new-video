@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "main": "download-posters.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "studio": "remotion studio src/index.tsx",
+    "list": "remotion compositions src/index.tsx",
+    "generate": "node scripts/generate-video.js",
+    "render:worldcup": "remotion render src/index.tsx WorldCupNews out/worldcup-news.mp4",
+    "render:daily": "remotion render src/index.tsx DailyNews out/daily-news.mp4",
+    "render:taiyuan": "remotion render src/index.tsx TaiyuanNews out/taiyuan-news.mp4",
+    "render:all": "npm run render:worldcup && npm run render:daily && npm run render:taiyuan"
   },
   "keywords": [],
   "author": "",

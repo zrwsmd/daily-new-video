@@ -5,6 +5,7 @@ import newsData from "./newsData.json";
 import worldcupData from "./worldcupData.json";
 import videoData from "./videoData.json";
 import worldcupJuly2Data from "./worldcup-july2-data.json";
+import franceLineupData from "./france-lineup-videoData.json";
 
 // 通用类型定义
 interface Shot {
@@ -69,6 +70,7 @@ const DailyNews: React.FC = () => <GenericVideo data={newsData} />;
 const WorldCupNews: React.FC = () => <GenericVideo data={worldcupData} />;
 const TaiyuanNews: React.FC = () => <GenericVideo data={videoData} />;
 const WorldCupJuly2: React.FC = () => <GenericVideo data={worldcupJuly2Data} />;
+const FranceLineup: React.FC = () => <GenericVideo data={franceLineupData} />;
 
 // 通用时长计算函数
 const calculateDuration = (data: VideoData): number => {
@@ -86,6 +88,7 @@ export const RemotionRoot: React.FC = () => {
   const worldcupDuration = calculateDuration(worldcupData);
   const taiyuanDuration = calculateDuration(videoData);
   const worldcupJuly2Duration = calculateDuration(worldcupJuly2Data);
+  const franceLineupDuration = calculateDuration(franceLineupData);
 
   return (
     <>
@@ -117,6 +120,14 @@ export const RemotionRoot: React.FC = () => {
         id="WorldCupJuly2"
         component={WorldCupJuly2}
         durationInFrames={worldcupJuly2Duration}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FranceLineup"
+        component={FranceLineup}
+        durationInFrames={franceLineupDuration}
         fps={30}
         width={1920}
         height={1080}

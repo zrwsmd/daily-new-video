@@ -48,7 +48,7 @@ export const ShotCard: React.FC<ShotProps> = ({ subtitle, category, image, sourc
           position: "absolute",
           width: "100%",
           height: "100%",
-          objectFit: "cover",
+          objectFit: "contain",
           transform: `scale(${scale})`,
         }}
       />

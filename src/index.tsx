@@ -5,6 +5,7 @@ import newsData from "./newsData.json";
 import worldcupData from "./worldcupData.json";
 import videoData from "./videoData.json";
 import worldcupJuly2Data from "./worldcup-july2-data.json";
+import worldcupJuly2DetailedData from "./worldcup-july2-detailed.json";
 import franceLineupData from "./france-lineup-videoData.json";
 import spainLineupData from "./spain-lineup-videoData.json";
 import argentinaLineupData from "./argentina-lineup-videoData.json";
@@ -73,6 +74,7 @@ const DailyNews: React.FC = () => <GenericVideo data={newsData} />;
 const WorldCupNews: React.FC = () => <GenericVideo data={worldcupData} />;
 const TaiyuanNews: React.FC = () => <GenericVideo data={videoData} />;
 const WorldCupJuly2: React.FC = () => <GenericVideo data={worldcupJuly2Data} />;
+const WorldCupJuly2Detailed: React.FC = () => <GenericVideo data={worldcupJuly2DetailedData} />;
 const FranceLineup: React.FC = () => <GenericVideo data={franceLineupData} />;
 const SpainLineup: React.FC = () => <GenericVideo data={spainLineupData} />;
 const ArgentinaLineup: React.FC = () => <GenericVideo data={argentinaLineupData} />;
@@ -94,6 +96,7 @@ export const RemotionRoot: React.FC = () => {
   const worldcupDuration = calculateDuration(worldcupData);
   const taiyuanDuration = calculateDuration(videoData);
   const worldcupJuly2Duration = calculateDuration(worldcupJuly2Data);
+  const worldcupJuly2DetailedDuration = calculateDuration(worldcupJuly2DetailedData);
   const franceLineupDuration = calculateDuration(franceLineupData);
   const spainLineupDuration = calculateDuration(spainLineupData);
   const argentinaLineupDuration = calculateDuration(argentinaLineupData);
@@ -129,6 +132,14 @@ export const RemotionRoot: React.FC = () => {
         id="WorldCupJuly2"
         component={WorldCupJuly2}
         durationInFrames={worldcupJuly2Duration}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="WorldCupJuly2Detailed"
+        component={WorldCupJuly2Detailed}
+        durationInFrames={worldcupJuly2DetailedDuration}
         fps={30}
         width={1920}
         height={1080}

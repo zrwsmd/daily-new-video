@@ -1,0 +1,77 @@
+{
+  "date": "2026年7月2日",
+  "segments": [
+    {
+      "id": "segment1",
+      "category": "2026世界杯",
+      "source": "综合报道",
+      "shots": [
+        {
+          "image": "media/worldcup-stadium.jpg",
+          "subtitle": "北京时间7月2日 世界杯32强淘汰赛激战",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/spain-match.jpg",
+          "subtitle": "西班牙对阵奥地利 洛杉矶SoFi体育场",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/spain-match.jpg",
+          "subtitle": "西班牙主力：亚马尔 佩德里 罗德里领衔",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/spain-match.jpg",
+          "subtitle": "奥地利第96分钟绝杀晋级 状态火热",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/portugal-match.jpg",
+          "subtitle": "葡萄牙迎战克罗地亚 多伦多体育场",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/portugal-match.jpg",
+          "subtitle": "C罗对决莫德里奇 两大传奇队长交锋",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/portugal-match.jpg",
+          "subtitle": "40岁C罗第六次世界杯 小组赛梅开二度",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/portugal-match.jpg",
+          "subtitle": "葡萄牙5-0狂胜乌兹别克 火力全开",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/switzerland-match.jpg",
+          "subtitle": "瑞士面对阿尔及利亚 温哥华BC体育场",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/switzerland-match.jpg",
+          "subtitle": "瑞士小组头名出线 7分2胜1平不败",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/switzerland-match.jpg",
+          "subtitle": "阿尔及利亚3-3战平奥地利 惊险晋级",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/worldcup-48teams.jpg",
+          "subtitle": "本届世界杯首次48队参赛 创造历史",
+          "durationSeconds": 4
+        },
+        {
+          "image": "media/worldcup-trophy.jpg",
+          "subtitle": "三场焦点战役 16强席位今日揭晓",
+          "durationSeconds": 4
+        }
+      ]
+    }
+  ]
+}

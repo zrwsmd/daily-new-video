@@ -31,3 +31,6 @@ npm-debug.log*
 download-*.js
 src/*-data.json
 src/videoData.json
+
+# 环境变量和API密钥
+.env

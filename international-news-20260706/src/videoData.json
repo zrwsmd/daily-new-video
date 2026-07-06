@@ -1,0 +1,172 @@
+{
+  "date": "2026年7月6日",
+  "segments": [
+    {
+      "id": "segment1",
+      "category": "国际新闻",
+      "source": "综合报道",
+      "shots": [
+        {
+          "image": "media/tehran-mosque.jpg",
+          "subtitle": "伊朗当局预计超过1000万人从全国各地前往德黑兰",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/tehran-mosque.jpg",
+          "subtitle": "悼念哈梅内伊 当局实施严密安全保障措施",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/venezuela-earthquake.jpg",
+          "subtitle": "委内瑞拉北部发生7.2级和7.5级连续强震",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/venezuela-earthquake.jpg",
+          "subtitle": "地震已造成至少920人死亡 超过6万人失联",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/russia-ukraine.jpg",
+          "subtitle": "俄罗斯指出乌克兰拒绝停火提议",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/russia-ukraine.jpg",
+          "subtitle": "俄乌冲突持续 双方在谈判问题上仍存在分歧",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/diplomacy-meeting.jpg",
+          "subtitle": "中国外交部长王毅会见芬兰总统",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/diplomacy-meeting.jpg",
+          "subtitle": "希望芬兰为推动欧中关系健康稳定发展发挥积极作用",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/norway-flag.jpg",
+          "subtitle": "2026世界杯16强赛 挪威2-1战胜科特迪瓦",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/brazil-football.jpg",
+          "subtitle": "巴西队2-1击败日本队晋级 将对阵挪威队",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/football-stadium.jpg",
+          "subtitle": "英格兰队主帅表示已准备好应对墨西哥队主场氛围",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/football-stadium.jpg",
+          "subtitle": "2026世界杯正在美国、加拿大、墨西哥三国激烈进行",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/england-summer.jpg",
+          "subtitle": "英格兰地区遭遇有系统观测以来最热的6月",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/england-summer.jpg",
+          "subtitle": "气候变化问题再次引发全球关注",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/tech-conference.jpg",
+          "subtitle": "2026全球数字经济大会7月3日在北京国家会议中心举行",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/tech-conference.jpg",
+          "subtitle": "大会聚焦数字经济机遇与智能驱动商业模式创新",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/renewable-energy.jpg",
+          "subtitle": "中国国务院常务会议通过十五五碳达峰行动方案",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/renewable-energy.jpg",
+          "subtitle": "推动经济社会发展全面绿色转型",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/drone-sky.jpg",
+          "subtitle": "中国低空经济正式确立为国家新兴支柱产业",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/drone-sky.jpg",
+          "subtitle": "无人机保有量突破500万架 市场规模预计突破万亿元",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/semiconductor-chip.jpg",
+          "subtitle": "韩国政府半导体和人工智能发展规划",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/semiconductor-chip.jpg",
+          "subtitle": "因缺乏基础条件保障方案受到韩国媒体质疑",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/worldcup-stadium.jpg",
+          "subtitle": "本届世界杯首次由三国联合举办 共设16座比赛场馆",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/worldcup-48teams.jpg",
+          "subtitle": "48支球队参赛创历史新高 赛制改革引发全球关注",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/portugal-match.jpg",
+          "subtitle": "葡萄牙队小组赛表现出色 C罗领衔球队向冠军发起冲击",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/spain-match.jpg",
+          "subtitle": "西班牙队展现强大中场控制力 成为夺冠热门球队之一",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/renewable-energy.jpg",
+          "subtitle": "全球可再生能源投资持续增长",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/renewable-energy.jpg",
+          "subtitle": "多国承诺2030年前实现碳排放大幅削减",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/tech-conference.jpg",
+          "subtitle": "人工智能技术在各行业加速应用落地",
+          "durationSeconds": 5
+        },
+        {
+          "image": "media/diplomacy-meeting.jpg",
+          "subtitle": "国际社会呼吁通过对话解决地区争端",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/worldcup-trophy.jpg",
+          "subtitle": "世界杯淘汰赛即将开战 大力神杯花落谁家备受期待",
+          "durationSeconds": 6
+        },
+        {
+          "image": "media/football-stadium.jpg",
+          "subtitle": "以上是今日国际新闻 感谢收看",
+          "durationSeconds": 6
+        }
+      ]
+    }
+  ]
+}

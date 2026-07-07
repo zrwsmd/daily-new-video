@@ -1,0 +1,84 @@
+{
+  "date": "2026年7月6日",
+  "segments": [
+    {
+      "id": "harry-shanxi-journey",
+      "category": "奇幻旅行",
+      "source": "哈利·波特的山西奇幻之旅",
+      "shots": [
+        {
+          "image": "media/image1.png",
+          "subtitle": "哈利手握神秘车票,踏上前往山西的魔法旅程",
+          "durationSeconds": 4,
+          "animationType": "zoom-in"
+        },
+        {
+          "image": "media/image2.png",
+          "subtitle": "抵达平遥古城,开启晋商文化探索之旅",
+          "durationSeconds": 4,
+          "animationType": "pan-right"
+        },
+        {
+          "image": "media/image3.png",
+          "subtitle": "走进乔家大院,感受晋商建筑的精妙艺术",
+          "durationSeconds": 4,
+          "animationType": "zoom-pan"
+        },
+        {
+          "image": "media/image4.png",
+          "subtitle": "惊叹于面点师傅制作刀削面的精湛技艺",
+          "durationSeconds": 4,
+          "animationType": "zoom-in"
+        },
+        {
+          "image": "media/image5.png",
+          "subtitle": "骑着火弩箭飞越壶口,领略黄河磅礴气势",
+          "durationSeconds": 4,
+          "animationType": "zoom-out"
+        },
+        {
+          "image": "media/image6.png",
+          "subtitle": "攀登千年悬空寺,赞叹古人的建筑智慧",
+          "durationSeconds": 4,
+          "animationType": "pan-left"
+        },
+        {
+          "image": "media/image7.png",
+          "subtitle": "站在云冈石窟佛像前,感受庄严与神圣",
+          "durationSeconds": 4,
+          "animationType": "zoom-in"
+        },
+        {
+          "image": "media/image8.png",
+          "subtitle": "在晋祠圣母殿虔诚祈福,体验传统文化",
+          "durationSeconds": 4,
+          "animationType": "zoom-pan"
+        },
+        {
+          "image": "media/image9.png",
+          "subtitle": "夜幕下的平遥古城,灯火璀璨如梦如幻",
+          "durationSeconds": 4,
+          "animationType": "pan-right"
+        },
+        {
+          "image": "media/image10.png",
+          "subtitle": "带着满满回忆,在太原站踏上归途",
+          "durationSeconds": 4,
+          "animationType": "zoom-out"
+        },
+        {
+          "image": "media/image11.png",
+          "subtitle": "回到霍格沃茨,向好友分享山西奇遇",
+          "durationSeconds": 4,
+          "animationType": "zoom-in"
+        },
+        {
+          "image": "media/image12.png",
+          "subtitle": "哈利·波特的山西奇幻之旅",
+          "durationSeconds": 3,
+          "animationType": "zoom-pan"
+        }
+      ]
+    }
+  ]
+}

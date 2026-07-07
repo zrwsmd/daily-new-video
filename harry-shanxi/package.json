@@ -1,0 +1,21 @@
+{
+  "name": "harry-shanxi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "preview": "remotion preview src/index.tsx",
+    "render": "remotion render src/index.tsx Video out/harry-shanxi.mp4 --codec h264"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "remotion": "^4.0.485",
+    "typescript": "^6.0.3"
+  }
+}

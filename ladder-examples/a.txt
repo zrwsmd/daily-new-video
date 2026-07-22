@@ -1,0 +1,1789 @@
+[{
+	"segmentList": [{
+		"id": "segment-12345678-1784685000001",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["contact-1"]
+			},
+			"contact-1": {
+				"id": "contact-1",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Estop",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-2"]
+			},
+			"contact-2": {
+				"id": "contact-2",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "M1_OL",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-1"],
+				"targetIds": ["contact-3"]
+			},
+			"contact-3": {
+				"id": "contact-3",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "M2_OL",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-2"],
+				"targetIds": ["contact-4"]
+			},
+			"contact-4": {
+				"id": "contact-4",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "M3_OL",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-3"],
+				"targetIds": ["contact-5"]
+			},
+			"contact-5": {
+				"id": "contact-5",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "M4_OL",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-4"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-5"],
+				"targetIds": ["setCoil-1"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"setCoil-1": {
+				"id": "setCoil-1",
+				"type": "setCoil",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 600,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-23456789-1784685000002",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["contact-6"]
+			},
+			"contact-6": {
+				"id": "contact-6",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-6"],
+				"targetIds": ["coil-1"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"coil-1": {
+				"id": "coil-1",
+				"type": "coil",
+				"varName": {
+					"name": "",
+					"value": "Alarm",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 315,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-34567890-1784685000003",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["contact-7"]
+			},
+			"contact-7": {
+				"id": "contact-7",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Reset",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-7"],
+				"targetIds": ["resetCoil-1"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"resetCoil-1": {
+				"id": "resetCoil-1",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 315,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-45678901-1784685000004",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-1"]
+			},
+			"negatedContact-1": {
+				"id": "negatedContact-1",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["negatedContact-2"]
+			},
+			"negatedContact-2": {
+				"id": "negatedContact-2",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Stop",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-1"],
+				"targetIds": ["risingContact-1"]
+			},
+			"risingContact-1": {
+				"id": "risingContact-1",
+				"type": "risingContact",
+				"varName": {
+					"name": "",
+					"value": "Start",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-2"],
+				"targetIds": ["contact-8", "contact-9"]
+			},
+			"contact-8": {
+				"id": "contact-8",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["risingContact-1"],
+				"targetIds": ["contact-10"]
+			},
+			"contact-10": {
+				"id": "contact-10",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-8"],
+				"targetIds": ["contact-11"]
+			},
+			"contact-11": {
+				"id": "contact-11",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-10"],
+				"targetIds": ["contact-12"]
+			},
+			"contact-12": {
+				"id": "contact-12",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-11"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"contact-9": {
+				"id": "contact-9",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["risingContact-1"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-12", "contact-9"],
+				"targetIds": ["setCoil-2"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"setCoil-2": {
+				"id": "setCoil-2",
+				"type": "setCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 150,
+		"width": 800,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-56789012-1784685000005",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-3"]
+			},
+			"negatedContact-3": {
+				"id": "negatedContact-3",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-13"]
+			},
+			"contact-13": {
+				"id": "contact-13",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-3"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-13"],
+				"targetIds": ["coil-2", "FBD-compartment-TON-1"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"coil-2": {
+				"id": "coil-2",
+				"type": "coil",
+				"varName": {
+					"name": "",
+					"value": "M1_Run",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"FBD-compartment-TON-1": {
+				"id": "FBD-compartment-TON-1",
+				"type": "FBDCompartment",
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": [],
+				"childrenNode": {
+					"type": "TON",
+					"isFunction": false,
+					"portInputs": [{
+						"name": "EN",
+						"value": "",
+						"scope": "",
+						"type": ""
+					}, {
+						"name": "IN",
+						"value": "Step_1",
+						"scope": "VAR",
+						"type": "BOOL"
+					}, {
+						"name": "PT",
+						"value": "T#5S",
+						"scope": "VAR",
+						"type": "TIME"
+					}],
+					"portOutputs": [{
+						"name": "ENO",
+						"value": "",
+						"scope": "",
+						"type": ""
+					}, {
+						"name": "Q",
+						"value": "Timer_M1_Q",
+						"scope": "VAR",
+						"type": "BOOL"
+					}, {
+						"name": "ET",
+						"value": "Timer_M1_ET",
+						"scope": "VAR",
+						"type": "TIME"
+					}],
+					"varName": {
+						"name": "",
+						"value": "Timer_M1",
+						"type": "TON",
+						"scope": "VAR"
+					}
+				}
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 600,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-67890123-1784685000006",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-4"]
+			},
+			"negatedContact-4": {
+				"id": "negatedContact-4",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-14"]
+			},
+			"contact-14": {
+				"id": "contact-14",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Timer_M1_Q",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-4"],
+				"targetIds": ["contact-15"]
+			},
+			"contact-15": {
+				"id": "contact-15",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-14"],
+				"targetIds": ["contact-16", "contact-17"]
+			},
+			"contact-16": {
+				"id": "contact-16",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-15"],
+				"targetIds": ["contact-18"]
+			},
+			"contact-18": {
+				"id": "contact-18",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-16"],
+				"targetIds": ["contact-19"]
+			},
+			"contact-19": {
+				"id": "contact-19",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-18"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"contact-17": {
+				"id": "contact-17",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-15"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-19", "contact-17"],
+				"targetIds": ["setCoil-3", "resetCoil-2"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"setCoil-3": {
+				"id": "setCoil-3",
+				"type": "setCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"resetCoil-2": {
+				"id": "resetCoil-2",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 150,
+		"width": 900,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-78901234-1784685000007",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-5"]
+			},
+			"negatedContact-5": {
+				"id": "negatedContact-5",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-20"]
+			},
+			"contact-20": {
+				"id": "contact-20",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-5"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-20"],
+				"targetIds": ["coil-3", "FBD-compartment-TON-2"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"coil-3": {
+				"id": "coil-3",
+				"type": "coil",
+				"varName": {
+					"name": "",
+					"value": "M2_Run",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"FBD-compartment-TON-2": {
+				"id": "FBD-compartment-TON-2",
+				"type": "FBDCompartment",
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": [],
+				"childrenNode": {
+					"type": "TON",
+					"isFunction": false,
+					"portInputs": [{
+						"name": "EN",
+						"value": "",
+						"scope": "",
+						"type": ""
+					}, {
+						"name": "IN",
+						"value": "Step_2",
+						"scope": "VAR",
+						"type": "BOOL"
+					}, {
+						"name": "PT",
+						"value": "T#5S",
+						"scope": "VAR",
+						"type": "TIME"
+					}],
+					"portOutputs": [{
+						"name": "ENO",
+						"value": "",
+						"scope": "",
+						"type": ""
+					}, {
+						"name": "Q",
+						"value": "Timer_M2_Q",
+						"scope": "VAR",
+						"type": "BOOL"
+					}, {
+						"name": "ET",
+						"value": "Timer_M2_ET",
+						"scope": "VAR",
+						"type": "TIME"
+					}],
+					"varName": {
+						"name": "",
+						"value": "Timer_M2",
+						"type": "TON",
+						"scope": "VAR"
+					}
+				}
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 600,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-89012345-1784685000008",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-6"]
+			},
+			"negatedContact-6": {
+				"id": "negatedContact-6",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-21"]
+			},
+			"contact-21": {
+				"id": "contact-21",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Timer_M2_Q",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-6"],
+				"targetIds": ["contact-22"]
+			},
+			"contact-22": {
+				"id": "contact-22",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-21"],
+				"targetIds": ["contact-23", "contact-24"]
+			},
+			"contact-23": {
+				"id": "contact-23",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-22"],
+				"targetIds": ["contact-25"]
+			},
+			"contact-25": {
+				"id": "contact-25",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-23"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"contact-24": {
+				"id": "contact-24",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-22"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-25", "contact-24"],
+				"targetIds": ["setCoil-4", "resetCoil-3"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"setCoil-4": {
+				"id": "setCoil-4",
+				"type": "setCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"resetCoil-3": {
+				"id": "resetCoil-3",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 150,
+		"width": 900,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-90123456-1784685000009",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-7"]
+			},
+			"negatedContact-7": {
+				"id": "negatedContact-7",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-26"]
+			},
+			"contact-26": {
+				"id": "contact-26",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-7"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-26"],
+				"targetIds": ["coil-4", "FBD-compartment-TON-3"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"coil-4": {
+				"id": "coil-4",
+				"type": "coil",
+				"varName": {
+					"name": "",
+					"value": "M3_Run",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"FBD-compartment-TON-3": {
+				"id": "FBD-compartment-TON-3",
+				"type": "FBDCompartment",
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": [],
+				"childrenNode": {
+					"type": "TON",
+					"isFunction": false,
+					"portInputs": [{
+						"name": "EN",
+						"value": "",
+						"scope": "",
+						"type": ""
+					}, {
+						"name": "IN",
+						"value": "Step_3",
+						"scope": "VAR",
+						"type": "BOOL"
+					}, {
+						"name": "PT",
+						"value": "T#5S",
+						"scope": "VAR",
+						"type": "TIME"
+					}],
+					"portOutputs": [{
+						"name": "ENO",
+						"value": "",
+						"scope": "",
+						"type": ""
+					}, {
+						"name": "Q",
+						"value": "Timer_M3_Q",
+						"scope": "VAR",
+						"type": "BOOL"
+					}, {
+						"name": "ET",
+						"value": "Timer_M3_ET",
+						"scope": "VAR",
+						"type": "TIME"
+					}],
+					"varName": {
+						"name": "",
+						"value": "Timer_M3",
+						"type": "TON",
+						"scope": "VAR"
+					}
+				}
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 600,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-01234567-1784685000010",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-8"]
+			},
+			"negatedContact-8": {
+				"id": "negatedContact-8",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-27"]
+			},
+			"contact-27": {
+				"id": "contact-27",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Timer_M3_Q",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-8"],
+				"targetIds": ["contact-28"]
+			},
+			"contact-28": {
+				"id": "contact-28",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-27"],
+				"targetIds": ["contact-29", "contact-30"]
+			},
+			"contact-29": {
+				"id": "contact-29",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-28"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"contact-30": {
+				"id": "contact-30",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["contact-28"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-29", "contact-30"],
+				"targetIds": ["setCoil-5", "resetCoil-4"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"setCoil-5": {
+				"id": "setCoil-5",
+				"type": "setCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"resetCoil-4": {
+				"id": "resetCoil-4",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 150,
+		"width": 900,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-12345678-1784685000011",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-9"]
+			},
+			"negatedContact-9": {
+				"id": "negatedContact-9",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-31"]
+			},
+			"contact-31": {
+				"id": "contact-31",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-9"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-31"],
+				"targetIds": ["coil-5"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"coil-5": {
+				"id": "coil-5",
+				"type": "coil",
+				"varName": {
+					"name": "",
+					"value": "M4_Run",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 82,
+		"width": 315,
+		"label": "",
+		"note": ""
+	}, {
+		"id": "segment-23456789-1784685000012",
+		"nodesObj": {
+			"start-node-line": {
+				"id": "start-node-line",
+				"type": "startLine",
+				"Xlayer": 0,
+				"Ylayer": 0,
+				"sourceIds": [],
+				"targetIds": ["negatedContact-10"]
+			},
+			"negatedContact-10": {
+				"id": "negatedContact-10",
+				"type": "negatedContact",
+				"varName": {
+					"name": "",
+					"value": "Fault_Latch",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["start-node-line"],
+				"targetIds": ["contact-32"]
+			},
+			"contact-32": {
+				"id": "contact-32",
+				"type": "contact",
+				"varName": {
+					"name": "",
+					"value": "Stop",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["negatedContact-10"],
+				"targetIds": ["edit-node-rect"]
+			},
+			"edit-node-rect": {
+				"id": "edit-node-rect",
+				"type": "editRect",
+				"sourceIds": ["contact-32"],
+				"targetIds": ["resetCoil-5", "resetCoil-6", "resetCoil-7", "resetCoil-8"],
+				"children": [{
+					"id": "edit-node-rect-left-port",
+					"type": "node:edgePort",
+					"side": "left",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-left-port"],
+					"position": {
+						"x": -45,
+						"y": 0
+					},
+					"size": {
+						"width": 45,
+						"height": 22
+					}
+				}, {
+					"id": "edit-node-rect-bottom-port",
+					"type": "node:edgeBottomPort",
+					"side": "bottom",
+					"parentId": "edit-node-rect",
+					"cssClasses": ["contact-bottom-port"],
+					"position": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 70,
+						"height": 22
+					}
+				}]
+			},
+			"resetCoil-5": {
+				"id": "resetCoil-5",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_1",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"resetCoil-6": {
+				"id": "resetCoil-6",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_2",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"resetCoil-7": {
+				"id": "resetCoil-7",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_3",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			},
+			"resetCoil-8": {
+				"id": "resetCoil-8",
+				"type": "resetCoil",
+				"varName": {
+					"name": "",
+					"value": "Step_4",
+					"type": "BOOL",
+					"scope": "VAR"
+				},
+				"sourceIds": ["edit-node-rect"],
+				"targetIds": []
+			}
+		},
+		"edgesObj": {},
+		"isExpand": true,
+		"height": 120,
+		"width": 600,
+		"label": "",
+		"note": ""
+	}],
+	"variableList": [{
+		"scope": "VAR",
+		"name": "Start",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "启动按钮",
+		"pathLabels": ["base", "BOOL"],
+		"id": "START",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Stop",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "停止按钮",
+		"pathLabels": ["base", "BOOL"],
+		"id": "STOP",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Reset",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "复位按钮",
+		"pathLabels": ["base", "BOOL"],
+		"id": "RESET",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Estop",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "急停按钮",
+		"pathLabels": ["base", "BOOL"],
+		"id": "ESTOP",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M1_OL",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机1过载",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M1_OL",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M2_OL",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机2过载",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M2_OL",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M3_OL",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机3过载",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M3_OL",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M4_OL",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机4过载",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M4_OL",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M1_Run",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机1运行",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M1_RUN",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M2_Run",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机2运行",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M2_RUN",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M3_Run",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机3运行",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M3_RUN",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "M4_Run",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "电机4运行",
+		"pathLabels": ["base", "BOOL"],
+		"id": "M4_RUN",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Alarm",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "报警输出",
+		"pathLabels": ["base", "BOOL"],
+		"id": "ALARM",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Fault_Latch",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "故障锁存",
+		"pathLabels": ["base", "BOOL"],
+		"id": "FAULT_LATCH",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Step_1",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "步进1（M1运行）",
+		"pathLabels": ["base", "BOOL"],
+		"id": "STEP_1",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Step_2",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "步进2（M2运行）",
+		"pathLabels": ["base", "BOOL"],
+		"id": "STEP_2",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Step_3",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "步进3（M3运行）",
+		"pathLabels": ["base", "BOOL"],
+		"id": "STEP_3",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Step_4",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "步进4（M4运行）",
+		"pathLabels": ["base", "BOOL"],
+		"id": "STEP_4",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M1",
+		"type": "TON",
+		"initValue": "",
+		"address": "",
+		"comment": "M1延时定时器",
+		"pathLabels": ["Standard function blocks", "TON"],
+		"id": "TIMER_M1",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M1_Q",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "M1定时器完成位",
+		"pathLabels": ["base", "BOOL"],
+		"id": "TIMER_M1_Q",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M1_ET",
+		"type": "TIME",
+		"initValue": "",
+		"address": "",
+		"comment": "M1定时器当前值",
+		"pathLabels": ["base", "TIME"],
+		"id": "TIMER_M1_ET",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M2",
+		"type": "TON",
+		"initValue": "",
+		"address": "",
+		"comment": "M2延时定时器",
+		"pathLabels": ["Standard function blocks", "TON"],
+		"id": "TIMER_M2",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M2_Q",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "M2定时器完成位",
+		"pathLabels": ["base", "BOOL"],
+		"id": "TIMER_M2_Q",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M2_ET",
+		"type": "TIME",
+		"initValue": "",
+		"address": "",
+		"comment": "M2定时器当前值",
+		"pathLabels": ["base", "TIME"],
+		"id": "TIMER_M2_ET",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M3",
+		"type": "TON",
+		"initValue": "",
+		"address": "",
+		"comment": "M3延时定时器",
+		"pathLabels": ["Standard function blocks", "TON"],
+		"id": "TIMER_M3",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M3_Q",
+		"type": "BOOL",
+		"initValue": "",
+		"address": "",
+		"comment": "M3定时器完成位",
+		"pathLabels": ["base", "BOOL"],
+		"id": "TIMER_M3_Q",
+		"isShow": true
+	}, {
+		"scope": "VAR",
+		"name": "Timer_M3_ET",
+		"type": "TIME",
+		"initValue": "",
+		"address": "",
+		"comment": "M3定时器当前值",
+		"pathLabels": ["base", "TIME"],
+		"id": "TIMER_M3_ET",
+		"isShow": true
+	}],
+	"pouType": "PROGRAM",
+	"pouName": "MotorSequenceControl",
+	"extensionPath": ""
+}]

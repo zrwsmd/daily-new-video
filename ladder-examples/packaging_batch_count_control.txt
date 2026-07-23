@@ -1,0 +1,1704 @@
+[
+  {
+    "segmentList": [
+      {
+        "id": "segment-40000006-1784940780006",
+        "label": "急停缺料温度过载故障锁存",
+        "note": "急停、缺料、封口温度异常或传送带过载时立即停机并锁存故障。",
+        "height": 300,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-40000001-1784940780001",
+              "contact-40000001-1784940780001",
+              "contact-40000002-1784940780002",
+              "contact-40000002-1784940780002",
+              "contact-40000003-1784940780003",
+              "contact-40000003-1784940780003",
+              "contact-40000004-1784940780004",
+              "contact-40000004-1784940780004"
+            ]
+          },
+          "contact-40000001-1784940780001": {
+            "id": "contact-40000001-1784940780001",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000002-1784940780002": {
+            "id": "contact-40000002-1784940780002",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Material_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000003-1784940780003": {
+            "id": "contact-40000003-1784940780003",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Seal_Temperature_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000004-1784940780004": {
+            "id": "contact-40000004-1784940780004",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Conveyor_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-40000005-1784940780005": {
+            "id": "setCoil-40000005-1784940780005",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-40000001-1784940780001",
+              "contact-40000002-1784940780002",
+              "contact-40000003-1784940780003",
+              "contact-40000004-1784940780004"
+            ],
+            "targetIds": [
+              "setCoil-40000005-1784940780005"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000013-1784940780013",
+        "label": "故障确认复位",
+        "note": "仅在急停释放且全部故障条件恢复后允许确认复位。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-40000007-1784940780007",
+              "risingContact-40000007-1784940780007"
+            ]
+          },
+          "risingContact-40000007-1784940780007": {
+            "id": "risingContact-40000007-1784940780007",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-40000008-1784940780008"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Reset_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000008-1784940780008": {
+            "id": "negatedContact-40000008-1784940780008",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-40000007-1784940780007"
+            ],
+            "targetIds": [
+              "negatedContact-40000009-1784940780009"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000009-1784940780009": {
+            "id": "negatedContact-40000009-1784940780009",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000008-1784940780008"
+            ],
+            "targetIds": [
+              "negatedContact-40000010-1784940780010"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Material_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000010-1784940780010": {
+            "id": "negatedContact-40000010-1784940780010",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000009-1784940780009"
+            ],
+            "targetIds": [
+              "negatedContact-40000011-1784940780011"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Seal_Temperature_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000011-1784940780011": {
+            "id": "negatedContact-40000011-1784940780011",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000010-1784940780010"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Conveyor_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-40000012-1784940780012": {
+            "id": "resetCoil-40000012-1784940780012",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-40000011-1784940780011"
+            ],
+            "targetIds": [
+              "resetCoil-40000012-1784940780012"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000025-1784940780025",
+        "label": "包装机启动自保持",
+        "note": "批次完成后禁止再次启动，需由操作员确认并复位批次。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "negatedContact-40000014-1784940780014",
+              "negatedContact-40000014-1784940780014",
+              "negatedContact-40000019-1784940780019",
+              "negatedContact-40000019-1784940780019"
+            ]
+          },
+          "negatedContact-40000014-1784940780014": {
+            "id": "negatedContact-40000014-1784940780014",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-40000015-1784940780015"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000015-1784940780015": {
+            "id": "negatedContact-40000015-1784940780015",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000014-1784940780014"
+            ],
+            "targetIds": [
+              "negatedContact-40000016-1784940780016"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000016-1784940780016": {
+            "id": "negatedContact-40000016-1784940780016",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000015-1784940780015"
+            ],
+            "targetIds": [
+              "negatedContact-40000017-1784940780017"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000017-1784940780017": {
+            "id": "negatedContact-40000017-1784940780017",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000016-1784940780016"
+            ],
+            "targetIds": [
+              "contact-40000018-1784940780018"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000018-1784940780018": {
+            "id": "contact-40000018-1784940780018",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-40000017-1784940780017"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Start_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000019-1784940780019": {
+            "id": "negatedContact-40000019-1784940780019",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-40000020-1784940780020"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000020-1784940780020": {
+            "id": "negatedContact-40000020-1784940780020",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000019-1784940780019"
+            ],
+            "targetIds": [
+              "negatedContact-40000021-1784940780021"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000021-1784940780021": {
+            "id": "negatedContact-40000021-1784940780021",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000020-1784940780020"
+            ],
+            "targetIds": [
+              "negatedContact-40000022-1784940780022"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-40000022-1784940780022": {
+            "id": "negatedContact-40000022-1784940780022",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-40000021-1784940780021"
+            ],
+            "targetIds": [
+              "contact-40000023-1784940780023"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000023-1784940780023": {
+            "id": "contact-40000023-1784940780023",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-40000022-1784940780022"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Machine_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-40000024-1784940780024": {
+            "id": "setCoil-40000024-1784940780024",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Machine_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-40000018-1784940780018",
+              "contact-40000023-1784940780023"
+            ],
+            "targetIds": [
+              "setCoil-40000024-1784940780024"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000031-1784940780031",
+        "label": "停止急停故障批次完成停机",
+        "note": "",
+        "height": 300,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-40000026-1784940780026",
+              "contact-40000026-1784940780026",
+              "contact-40000027-1784940780027",
+              "contact-40000027-1784940780027",
+              "contact-40000028-1784940780028",
+              "contact-40000028-1784940780028",
+              "contact-40000029-1784940780029",
+              "contact-40000029-1784940780029"
+            ]
+          },
+          "contact-40000026-1784940780026": {
+            "id": "contact-40000026-1784940780026",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000027-1784940780027": {
+            "id": "contact-40000027-1784940780027",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000028-1784940780028": {
+            "id": "contact-40000028-1784940780028",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000029-1784940780029": {
+            "id": "contact-40000029-1784940780029",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-40000030-1784940780030": {
+            "id": "resetCoil-40000030-1784940780030",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Machine_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-40000026-1784940780026",
+              "contact-40000027-1784940780027",
+              "contact-40000028-1784940780028",
+              "contact-40000029-1784940780029"
+            ],
+            "targetIds": [
+              "resetCoil-40000030-1784940780030"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000035-1784940780035",
+        "label": "产品完成计数触发",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-40000032-1784940780032",
+              "contact-40000032-1784940780032"
+            ]
+          },
+          "contact-40000032-1784940780032": {
+            "id": "contact-40000032-1784940780032",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "risingContact-40000033-1784940780033"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Machine_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "risingContact-40000033-1784940780033": {
+            "id": "risingContact-40000033-1784940780033",
+            "type": "risingContact",
+            "sourceIds": [
+              "contact-40000032-1784940780032"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Product_Photoeye",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-40000034-1784940780034": {
+            "id": "coil-40000034-1784940780034",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Product_Count_Trigger",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "risingContact-40000033-1784940780033"
+            ],
+            "targetIds": [
+              "coil-40000034-1784940780034"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000039-1784940780039",
+        "label": "批次CTU计数",
+        "note": "产品光电上升沿触发一次计数；CTU 的 Q 与 CV 仅由功能块输出写入。",
+        "height": 182,
+        "width": 1100,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-40000037-1784940780037",
+              "contact-40000037-1784940780037"
+            ]
+          },
+          "contact-40000037-1784940780037": {
+            "id": "contact-40000037-1784940780037",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-CTU-40000036-1784940780036"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Product_Count_Trigger",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-CTU-40000036-1784940780036": {
+            "id": "FBD-compartment-CTU-40000036-1784940780036",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-40000037-1784940780037"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "CTU",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "CU",
+                  "value": "Product_Count_Trigger",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "R",
+                  "value": "Counter_Reset",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PV",
+                  "value": "Int_Batch_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "INT"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Batch_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "CV",
+                  "value": "Int_Batch_Count",
+                  "scope": "VAR_OUTPUT",
+                  "type": "INT"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ctu_Batch_Count",
+                "type": "CTU",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-40000038-1784940780038": {
+            "id": "end-node-line-40000038-1784940780038",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-CTU-40000036-1784940780036"
+            ],
+            "targetIds": [
+              "end-node-line-40000038-1784940780038"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000042-1784940780042",
+        "label": "批次完成停机",
+        "note": "CTU 计数达到批次设定值后，Batch_Done 自动为 TRUE 并停止包装机。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-40000040-1784940780040",
+              "contact-40000040-1784940780040"
+            ]
+          },
+          "contact-40000040-1784940780040": {
+            "id": "contact-40000040-1784940780040",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-40000041-1784940780041": {
+            "id": "resetCoil-40000041-1784940780041",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Machine_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-40000040-1784940780040"
+            ],
+            "targetIds": [
+              "resetCoil-40000041-1784940780041"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000046-1784940780046",
+        "label": "人工清零批次计数",
+        "note": "手动清零向 CTU 复位端发送一个扫描周期脉冲，并清除批次完成状态。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-40000043-1784940780043",
+              "risingContact-40000043-1784940780043"
+            ]
+          },
+          "risingContact-40000043-1784940780043": {
+            "id": "risingContact-40000043-1784940780043",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Manual_Clear_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-40000044-1784940780044": {
+            "id": "coil-40000044-1784940780044",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Counter_Reset",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-40000045-1784940780045": {
+            "id": "resetCoil-40000045-1784940780045",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "risingContact-40000043-1784940780043"
+            ],
+            "targetIds": [
+              "coil-40000044-1784940780044",
+              "resetCoil-40000045-1784940780045"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000051-1784940780051",
+        "label": "批次确认开始下一批",
+        "note": "操作员确认已完成批次后，清零计数并允许启动下一批。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-40000047-1784940780047",
+              "risingContact-40000047-1784940780047"
+            ]
+          },
+          "risingContact-40000047-1784940780047": {
+            "id": "risingContact-40000047-1784940780047",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-40000048-1784940780048"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Confirm_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-40000048-1784940780048": {
+            "id": "contact-40000048-1784940780048",
+            "type": "contact",
+            "sourceIds": [
+              "risingContact-40000047-1784940780047"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-40000049-1784940780049": {
+            "id": "coil-40000049-1784940780049",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Counter_Reset",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-40000050-1784940780050": {
+            "id": "resetCoil-40000050-1784940780050",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Batch_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-40000048-1784940780048"
+            ],
+            "targetIds": [
+              "coil-40000049-1784940780049",
+              "resetCoil-40000050-1784940780050"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-40000054-1784940780054",
+        "label": "故障报警输出",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-40000052-1784940780052",
+              "contact-40000052-1784940780052"
+            ]
+          },
+          "contact-40000052-1784940780052": {
+            "id": "contact-40000052-1784940780052",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-40000053-1784940780053": {
+            "id": "coil-40000053-1784940780053",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-40000052-1784940780052"
+            ],
+            "targetIds": [
+              "coil-40000053-1784940780053"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      }
+    ],
+    "variableList": [
+      {
+        "scope": "VAR",
+        "name": "Start_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "启动按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "START_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Stop_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "停止按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "STOP_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Confirm_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "批次确认按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "CONFIRM_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Reset_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障复位按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RESET_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Manual_Clear_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "批次计数手动清零按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MANUAL_CLEAR_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Product_Photoeye",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "产品完成光电输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRODUCT_PHOTOEYE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Material_Low",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "物料缺料输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MATERIAL_LOW",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Seal_Temperature_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "封口温度异常输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "SEAL_TEMPERATURE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Conveyor_Overload",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "传送带过载输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "CONVEYOR_OVERLOAD",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "E_Stop",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "急停输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "E_STOP",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Machine_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "包装机运行输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MACHINE_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Product_Count_Trigger",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "产品计数上升沿触发",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRODUCT_COUNT_TRIGGER",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Counter_Reset",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "CTU计数复位脉冲",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "COUNTER_RESET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Batch_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "批次完成状态，由CTU Q输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "BATCH_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Int_Batch_Set",
+        "type": "INT",
+        "initValue": "",
+        "address": "",
+        "comment": "批次设定数量",
+        "pathLabels": [
+          "base",
+          "INT"
+        ],
+        "id": "INT_BATCH_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Int_Batch_Count",
+        "type": "INT",
+        "initValue": "",
+        "address": "",
+        "comment": "当前批次计数，由CTU CV输出",
+        "pathLabels": [
+          "base",
+          "INT"
+        ],
+        "id": "INT_BATCH_COUNT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ctu_Batch_Count",
+        "type": "CTU",
+        "initValue": "",
+        "address": "",
+        "comment": "批次计数器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "CTU"
+        ],
+        "id": "CTU_BATCH_COUNT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障锁存",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障报警输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ALARM",
+        "isShow": true
+      }
+    ],
+    "pouType": "PROGRAM",
+    "pouName": "Packaging_Batch_Count_Control",
+    "extensionPath": ""
+  }
+]

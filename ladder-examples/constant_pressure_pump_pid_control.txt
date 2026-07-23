@@ -1,0 +1,3080 @@
+[
+  {
+    "segmentList": [
+      {
+        "id": "segment-30000006-1784940540006",
+        "label": "急停缺水变频器故障锁存",
+        "note": "急停、缺水保护或任一变频器故障时退出供水运行并锁存故障。",
+        "height": 300,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000001-1784940540001",
+              "contact-30000001-1784940540001",
+              "contact-30000002-1784940540002",
+              "contact-30000002-1784940540002",
+              "contact-30000003-1784940540003",
+              "contact-30000003-1784940540003",
+              "contact-30000004-1784940540004",
+              "contact-30000004-1784940540004"
+            ]
+          },
+          "contact-30000001-1784940540001": {
+            "id": "contact-30000001-1784940540001",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000002-1784940540002": {
+            "id": "contact-30000002-1784940540002",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Dry_Run_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000003-1784940540003": {
+            "id": "contact-30000003-1784940540003",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000004-1784940540004": {
+            "id": "contact-30000004-1784940540004",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000005-1784940540005": {
+            "id": "setCoil-30000005-1784940540005",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000001-1784940540001",
+              "contact-30000002-1784940540002",
+              "contact-30000003-1784940540003",
+              "contact-30000004-1784940540004"
+            ],
+            "targetIds": [
+              "setCoil-30000005-1784940540005"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000013-1784940540013",
+        "label": "故障确认复位",
+        "note": "仅在急停释放、缺水保护及两台变频器故障均恢复后允许复位。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-30000007-1784940540007",
+              "risingContact-30000007-1784940540007"
+            ]
+          },
+          "risingContact-30000007-1784940540007": {
+            "id": "risingContact-30000007-1784940540007",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-30000008-1784940540008"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Reset_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000008-1784940540008": {
+            "id": "negatedContact-30000008-1784940540008",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-30000007-1784940540007"
+            ],
+            "targetIds": [
+              "negatedContact-30000009-1784940540009"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000009-1784940540009": {
+            "id": "negatedContact-30000009-1784940540009",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000008-1784940540008"
+            ],
+            "targetIds": [
+              "negatedContact-30000010-1784940540010"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Dry_Run_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000010-1784940540010": {
+            "id": "negatedContact-30000010-1784940540010",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000009-1784940540009"
+            ],
+            "targetIds": [
+              "negatedContact-30000011-1784940540011"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000011-1784940540011": {
+            "id": "negatedContact-30000011-1784940540011",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000010-1784940540010"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000012-1784940540012": {
+            "id": "resetCoil-30000012-1784940540012",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000011-1784940540011"
+            ],
+            "targetIds": [
+              "resetCoil-30000012-1784940540012"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000023-1784940540023",
+        "label": "系统运行自保持",
+        "note": "急停为硬件常闭回路，断线即停。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "negatedContact-30000014-1784940540014",
+              "negatedContact-30000014-1784940540014",
+              "negatedContact-30000018-1784940540018",
+              "negatedContact-30000018-1784940540018"
+            ]
+          },
+          "negatedContact-30000014-1784940540014": {
+            "id": "negatedContact-30000014-1784940540014",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-30000015-1784940540015"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000015-1784940540015": {
+            "id": "negatedContact-30000015-1784940540015",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000014-1784940540014"
+            ],
+            "targetIds": [
+              "negatedContact-30000016-1784940540016"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000016-1784940540016": {
+            "id": "negatedContact-30000016-1784940540016",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000015-1784940540015"
+            ],
+            "targetIds": [
+              "contact-30000017-1784940540017"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000017-1784940540017": {
+            "id": "contact-30000017-1784940540017",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-30000016-1784940540016"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Start_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000018-1784940540018": {
+            "id": "negatedContact-30000018-1784940540018",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-30000019-1784940540019"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000019-1784940540019": {
+            "id": "negatedContact-30000019-1784940540019",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000018-1784940540018"
+            ],
+            "targetIds": [
+              "negatedContact-30000020-1784940540020"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000020-1784940540020": {
+            "id": "negatedContact-30000020-1784940540020",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000019-1784940540019"
+            ],
+            "targetIds": [
+              "contact-30000021-1784940540021"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000021-1784940540021": {
+            "id": "contact-30000021-1784940540021",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-30000020-1784940540020"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000022-1784940540022": {
+            "id": "setCoil-30000022-1784940540022",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000017-1784940540017",
+              "contact-30000021-1784940540021"
+            ],
+            "targetIds": [
+              "setCoil-30000022-1784940540022"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000031-1784940540031",
+        "label": "停止急停故障停止供水",
+        "note": "",
+        "height": 300,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000024-1784940540024",
+              "contact-30000024-1784940540024",
+              "contact-30000025-1784940540025",
+              "contact-30000025-1784940540025",
+              "contact-30000026-1784940540026",
+              "contact-30000026-1784940540026"
+            ]
+          },
+          "contact-30000024-1784940540024": {
+            "id": "contact-30000024-1784940540024",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000025-1784940540025": {
+            "id": "contact-30000025-1784940540025",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000026-1784940540026": {
+            "id": "contact-30000026-1784940540026",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000027-1784940540027": {
+            "id": "resetCoil-30000027-1784940540027",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000028-1784940540028": {
+            "id": "resetCoil-30000028-1784940540028",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000029-1784940540029": {
+            "id": "resetCoil-30000029-1784940540029",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000030-1784940540030": {
+            "id": "resetCoil-30000030-1784940540030",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "PID_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000024-1784940540024",
+              "contact-30000025-1784940540025",
+              "contact-30000026-1784940540026"
+            ],
+            "targetIds": [
+              "resetCoil-30000027-1784940540027",
+              "resetCoil-30000028-1784940540028",
+              "resetCoil-30000029-1784940540029",
+              "resetCoil-30000030-1784940540030"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000037-1784940540037",
+        "label": "PID调节使能",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000032-1784940540032",
+              "contact-30000032-1784940540032"
+            ]
+          },
+          "contact-30000032-1784940540032": {
+            "id": "contact-30000032-1784940540032",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000033-1784940540033"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000033-1784940540033": {
+            "id": "contact-30000033-1784940540033",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000032-1784940540032"
+            ],
+            "targetIds": [
+              "negatedContact-30000034-1784940540034"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000034-1784940540034": {
+            "id": "negatedContact-30000034-1784940540034",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-30000033-1784940540033"
+            ],
+            "targetIds": [
+              "negatedContact-30000035-1784940540035"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_At_Setpoint",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000035-1784940540035": {
+            "id": "negatedContact-30000035-1784940540035",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000034-1784940540034"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000036-1784940540036": {
+            "id": "setCoil-30000036-1784940540036",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "PID_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000035-1784940540035"
+            ],
+            "targetIds": [
+              "setCoil-30000036-1784940540036"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000040-1784940540040",
+        "label": "压力达到设定值停止PID",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000038-1784940540038",
+              "contact-30000038-1784940540038"
+            ]
+          },
+          "contact-30000038-1784940540038": {
+            "id": "contact-30000038-1784940540038",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_At_Setpoint",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000039-1784940540039": {
+            "id": "resetCoil-30000039-1784940540039",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "PID_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000038-1784940540038"
+            ],
+            "targetIds": [
+              "resetCoil-30000039-1784940540039"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000046-1784940540046",
+        "label": "低压持续延时",
+        "note": "低压持续达到设定时间后，允许投入辅助泵。",
+        "height": 182,
+        "width": 1100,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000042-1784940540042",
+              "contact-30000042-1784940540042"
+            ]
+          },
+          "contact-30000042-1784940540042": {
+            "id": "contact-30000042-1784940540042",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000043-1784940540043"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000043-1784940540043": {
+            "id": "contact-30000043-1784940540043",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000042-1784940540042"
+            ],
+            "targetIds": [
+              "contact-30000044-1784940540044"
+            ],
+            "varName": {
+              "name": "",
+              "value": "PID_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000044-1784940540044": {
+            "id": "contact-30000044-1784940540044",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000043-1784940540043"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-30000041-1784940540041"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-30000041-1784940540041": {
+            "id": "FBD-compartment-TON-30000041-1784940540041",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-30000044-1784940540044"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Pressure_Low_Alarm",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Low_Pressure_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Low_Pressure_Delay_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Low_Pressure_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Low_Pressure",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-30000045-1784940540045": {
+            "id": "end-node-line-30000045-1784940540045",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-30000041-1784940540041"
+            ],
+            "targetIds": [
+              "end-node-line-30000045-1784940540045"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000053-1784940540053",
+        "label": "首选泵一投入及故障跳过",
+        "note": "首选泵一故障时，该支路被禁止，由首选泵二或辅助泵逻辑跳过故障泵。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000047-1784940540047",
+              "contact-30000047-1784940540047"
+            ]
+          },
+          "contact-30000047-1784940540047": {
+            "id": "contact-30000047-1784940540047",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000048-1784940540048"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000048-1784940540048": {
+            "id": "contact-30000048-1784940540048",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000047-1784940540047"
+            ],
+            "targetIds": [
+              "contact-30000049-1784940540049"
+            ],
+            "varName": {
+              "name": "",
+              "value": "PID_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000049-1784940540049": {
+            "id": "contact-30000049-1784940540049",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000048-1784940540048"
+            ],
+            "targetIds": [
+              "negatedContact-30000050-1784940540050"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Preferred_Pump_1",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000050-1784940540050": {
+            "id": "negatedContact-30000050-1784940540050",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-30000049-1784940540049"
+            ],
+            "targetIds": [
+              "negatedContact-30000051-1784940540051"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000051-1784940540051": {
+            "id": "negatedContact-30000051-1784940540051",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000050-1784940540050"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Dry_Run_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000052-1784940540052": {
+            "id": "setCoil-30000052-1784940540052",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000051-1784940540051"
+            ],
+            "targetIds": [
+              "setCoil-30000052-1784940540052"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000060-1784940540060",
+        "label": "首选泵二投入及故障跳过",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000054-1784940540054",
+              "contact-30000054-1784940540054"
+            ]
+          },
+          "contact-30000054-1784940540054": {
+            "id": "contact-30000054-1784940540054",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000055-1784940540055"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000055-1784940540055": {
+            "id": "contact-30000055-1784940540055",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000054-1784940540054"
+            ],
+            "targetIds": [
+              "negatedContact-30000056-1784940540056"
+            ],
+            "varName": {
+              "name": "",
+              "value": "PID_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000056-1784940540056": {
+            "id": "negatedContact-30000056-1784940540056",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-30000055-1784940540055"
+            ],
+            "targetIds": [
+              "negatedContact-30000057-1784940540057"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Preferred_Pump_1",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000057-1784940540057": {
+            "id": "negatedContact-30000057-1784940540057",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000056-1784940540056"
+            ],
+            "targetIds": [
+              "negatedContact-30000058-1784940540058"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000058-1784940540058": {
+            "id": "negatedContact-30000058-1784940540058",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000057-1784940540057"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Dry_Run_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000059-1784940540059": {
+            "id": "setCoil-30000059-1784940540059",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000058-1784940540058"
+            ],
+            "targetIds": [
+              "setCoil-30000059-1784940540059"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000067-1784940540067",
+        "label": "辅助泵二低压投入",
+        "note": "首选泵一运行期间持续低压，投入泵二作为辅助泵。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000061-1784940540061",
+              "contact-30000061-1784940540061"
+            ]
+          },
+          "contact-30000061-1784940540061": {
+            "id": "contact-30000061-1784940540061",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000062-1784940540062"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000062-1784940540062": {
+            "id": "contact-30000062-1784940540062",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000061-1784940540061"
+            ],
+            "targetIds": [
+              "contact-30000063-1784940540063"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Pressure_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000063-1784940540063": {
+            "id": "contact-30000063-1784940540063",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000062-1784940540062"
+            ],
+            "targetIds": [
+              "negatedContact-30000064-1784940540064"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000064-1784940540064": {
+            "id": "negatedContact-30000064-1784940540064",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-30000063-1784940540063"
+            ],
+            "targetIds": [
+              "negatedContact-30000065-1784940540065"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000065-1784940540065": {
+            "id": "negatedContact-30000065-1784940540065",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000064-1784940540064"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000066-1784940540066": {
+            "id": "setCoil-30000066-1784940540066",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000065-1784940540065"
+            ],
+            "targetIds": [
+              "setCoil-30000066-1784940540066"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000074-1784940540074",
+        "label": "辅助泵一低压投入",
+        "note": "首选泵二运行期间持续低压，投入泵一作为辅助泵。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000068-1784940540068",
+              "contact-30000068-1784940540068"
+            ]
+          },
+          "contact-30000068-1784940540068": {
+            "id": "contact-30000068-1784940540068",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000069-1784940540069"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000069-1784940540069": {
+            "id": "contact-30000069-1784940540069",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000068-1784940540068"
+            ],
+            "targetIds": [
+              "contact-30000070-1784940540070"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Pressure_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000070-1784940540070": {
+            "id": "contact-30000070-1784940540070",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000069-1784940540069"
+            ],
+            "targetIds": [
+              "negatedContact-30000071-1784940540071"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000071-1784940540071": {
+            "id": "negatedContact-30000071-1784940540071",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-30000070-1784940540070"
+            ],
+            "targetIds": [
+              "negatedContact-30000072-1784940540072"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Vfd_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000072-1784940540072": {
+            "id": "negatedContact-30000072-1784940540072",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-30000071-1784940540071"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000073-1784940540073": {
+            "id": "setCoil-30000073-1784940540073",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000072-1784940540072"
+            ],
+            "targetIds": [
+              "setCoil-30000073-1784940540073"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000078-1784940540078",
+        "label": "泵一最小运行时间",
+        "note": "泵一启用后开始最小运行时间计时，未到时不得因压力恢复退出。",
+        "height": 182,
+        "width": 1100,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000076-1784940540076",
+              "contact-30000076-1784940540076"
+            ]
+          },
+          "contact-30000076-1784940540076": {
+            "id": "contact-30000076-1784940540076",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-30000075-1784940540075"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-30000075-1784940540075": {
+            "id": "FBD-compartment-TON-30000075-1784940540075",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-30000076-1784940540076"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Pump_1_Enable",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Pump_Min_Run_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Pump_1_Min_Run_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Pump_1_Min_Run_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Pump_1_Min_Run",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-30000077-1784940540077": {
+            "id": "end-node-line-30000077-1784940540077",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-30000075-1784940540075"
+            ],
+            "targetIds": [
+              "end-node-line-30000077-1784940540077"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000082-1784940540082",
+        "label": "泵二最小运行时间",
+        "note": "泵二启用后开始最小运行时间计时，未到时不得因压力恢复退出。",
+        "height": 182,
+        "width": 1100,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000080-1784940540080",
+              "contact-30000080-1784940540080"
+            ]
+          },
+          "contact-30000080-1784940540080": {
+            "id": "contact-30000080-1784940540080",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-30000079-1784940540079"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-30000079-1784940540079": {
+            "id": "FBD-compartment-TON-30000079-1784940540079",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-30000080-1784940540080"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Pump_2_Enable",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Pump_Min_Run_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Pump_2_Min_Run_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Pump_2_Min_Run_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Pump_2_Min_Run",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-30000081-1784940540081": {
+            "id": "end-node-line-30000081-1784940540081",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-30000079-1784940540079"
+            ],
+            "targetIds": [
+              "end-node-line-30000081-1784940540081"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000087-1784940540087",
+        "label": "压力恢复退出辅助泵二",
+        "note": "压力恢复且泵二最小运行时间到后，先退出辅助泵二。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000083-1784940540083",
+              "contact-30000083-1784940540083"
+            ]
+          },
+          "contact-30000083-1784940540083": {
+            "id": "contact-30000083-1784940540083",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000084-1784940540084"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_At_Setpoint",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000084-1784940540084": {
+            "id": "contact-30000084-1784940540084",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000083-1784940540083"
+            ],
+            "targetIds": [
+              "contact-30000085-1784940540085"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000085-1784940540085": {
+            "id": "contact-30000085-1784940540085",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000084-1784940540084"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Min_Run_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000086-1784940540086": {
+            "id": "resetCoil-30000086-1784940540086",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000085-1784940540085"
+            ],
+            "targetIds": [
+              "resetCoil-30000086-1784940540086"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000092-1784940540092",
+        "label": "压力恢复退出辅助泵一",
+        "note": "压力恢复且泵一最小运行时间到后，先退出辅助泵一。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000088-1784940540088",
+              "contact-30000088-1784940540088"
+            ]
+          },
+          "contact-30000088-1784940540088": {
+            "id": "contact-30000088-1784940540088",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000089-1784940540089"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_At_Setpoint",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000089-1784940540089": {
+            "id": "contact-30000089-1784940540089",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000088-1784940540088"
+            ],
+            "targetIds": [
+              "contact-30000090-1784940540090"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000090-1784940540090": {
+            "id": "contact-30000090-1784940540090",
+            "type": "contact",
+            "sourceIds": [
+              "contact-30000089-1784940540089"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Min_Run_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000091-1784940540091": {
+            "id": "resetCoil-30000091-1784940540091",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000090-1784940540090"
+            ],
+            "targetIds": [
+              "resetCoil-30000091-1784940540091"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000096-1784940540096",
+        "label": "运行周期首选泵轮换",
+        "note": "每个运行周期完成后切换首选泵；本梯级将下一周期设为泵二首选。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-30000093-1784940540093",
+              "risingContact-30000093-1784940540093"
+            ]
+          },
+          "risingContact-30000093-1784940540093": {
+            "id": "risingContact-30000093-1784940540093",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-30000094-1784940540094"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Rotation_Cycle_Complete",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-30000094-1784940540094": {
+            "id": "contact-30000094-1784940540094",
+            "type": "contact",
+            "sourceIds": [
+              "risingContact-30000093-1784940540093"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Preferred_Pump_1",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-30000095-1784940540095": {
+            "id": "resetCoil-30000095-1784940540095",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Preferred_Pump_1",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000094-1784940540094"
+            ],
+            "targetIds": [
+              "resetCoil-30000095-1784940540095"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000100-1784940540100",
+        "label": "运行周期首选泵轮换",
+        "note": "每个运行周期完成后切换首选泵；本梯级将下一周期设为泵一首选。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-30000097-1784940540097",
+              "risingContact-30000097-1784940540097"
+            ]
+          },
+          "risingContact-30000097-1784940540097": {
+            "id": "risingContact-30000097-1784940540097",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-30000098-1784940540098"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Rotation_Cycle_Complete",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-30000098-1784940540098": {
+            "id": "negatedContact-30000098-1784940540098",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-30000097-1784940540097"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Preferred_Pump_1",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-30000099-1784940540099": {
+            "id": "setCoil-30000099-1784940540099",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Preferred_Pump_1",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-30000098-1784940540098"
+            ],
+            "targetIds": [
+              "setCoil-30000099-1784940540099"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-30000103-1784940540103",
+        "label": "故障报警输出",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-30000101-1784940540101",
+              "contact-30000101-1784940540101"
+            ]
+          },
+          "contact-30000101-1784940540101": {
+            "id": "contact-30000101-1784940540101",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-30000102-1784940540102": {
+            "id": "coil-30000102-1784940540102",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-30000101-1784940540101"
+            ],
+            "targetIds": [
+              "coil-30000102-1784940540102"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      }
+    ],
+    "variableList": [
+      {
+        "scope": "VAR",
+        "name": "Start_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "启动按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "START_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Stop_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "停止按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "STOP_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Reset_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障复位按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RESET_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "E_Stop",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "急停输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "E_STOP",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pressure_Low_Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "压力低报警输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRESSURE_LOW_ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pressure_At_Setpoint",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "压力达到设定值输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRESSURE_AT_SETPOINT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Dry_Run_Protect",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "缺水保护输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DRY_RUN_PROTECT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Vfd_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵一变频器故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_VFD_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Vfd_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵二变频器故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_VFD_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Enable",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵一使能输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_ENABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Enable",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵二使能输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_ENABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "PID_Enable",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "PID调节使能",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PID_ENABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "System_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "供水系统运行状态",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "SYSTEM_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Preferred_Pump_1",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵一为首选泵轮换位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PREFERRED_PUMP_1",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Rotation_Cycle_Complete",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "运行周期完成轮换触发",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ROTATION_CYCLE_COMPLETE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Low_Pressure_Delay_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "低压延时完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LOW_PRESSURE_DELAY_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Min_Run_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵一最小运行时间完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_MIN_RUN_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Min_Run_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "泵二最小运行时间完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_MIN_RUN_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障锁存",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障报警输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Low_Pressure_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "低压延时设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_LOW_PRESSURE_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Low_Pressure_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "低压延时经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_LOW_PRESSURE_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_Min_Run_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "泵最小运行时间设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_MIN_RUN_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_1_Min_Run_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "泵一最小运行经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_1_MIN_RUN_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_2_Min_Run_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "泵二最小运行经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_2_MIN_RUN_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Low_Pressure",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "低压延时定时器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_LOW_PRESSURE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Pump_1_Min_Run",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "泵一最小运行定时器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_PUMP_1_MIN_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Pump_2_Min_Run",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "泵二最小运行定时器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_PUMP_2_MIN_RUN",
+        "isShow": true
+      }
+    ],
+    "pouType": "PROGRAM",
+    "pouName": "Constant_Pressure_Pump_Pid_Control",
+    "extensionPath": ""
+  }
+]

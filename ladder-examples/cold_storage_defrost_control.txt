@@ -1,0 +1,2701 @@
+[
+  {
+    "segmentList": [
+      {
+        "id": "segment-50000006-1784943840006",
+        "label": "急停压力加热器过热故障锁存",
+        "note": "急停、高压保护、低压保护或加热器过热保护动作时，立即退出制冷与除霜并锁存报警。",
+        "height": 300,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000001-1784943840001",
+              "contact-50000001-1784943840001",
+              "contact-50000002-1784943840002",
+              "contact-50000002-1784943840002",
+              "contact-50000003-1784943840003",
+              "contact-50000003-1784943840003",
+              "contact-50000004-1784943840004",
+              "contact-50000004-1784943840004"
+            ]
+          },
+          "contact-50000001-1784943840001": {
+            "id": "contact-50000001-1784943840001",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000002-1784943840002": {
+            "id": "contact-50000002-1784943840002",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "High_Pressure_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000003-1784943840003": {
+            "id": "contact-50000003-1784943840003",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Pressure_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000004-1784943840004": {
+            "id": "contact-50000004-1784943840004",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Heater_Overheat_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-50000005-1784943840005": {
+            "id": "setCoil-50000005-1784943840005",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000001-1784943840001",
+              "contact-50000002-1784943840002",
+              "contact-50000003-1784943840003",
+              "contact-50000004-1784943840004"
+            ],
+            "targetIds": [
+              "setCoil-50000005-1784943840005"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000013-1784943840013",
+        "label": "故障确认复位",
+        "note": "仅在全部保护输入恢复且现场确认安全后允许复位。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-50000007-1784943840007",
+              "risingContact-50000007-1784943840007"
+            ]
+          },
+          "risingContact-50000007-1784943840007": {
+            "id": "risingContact-50000007-1784943840007",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-50000008-1784943840008"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Reset_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000008-1784943840008": {
+            "id": "negatedContact-50000008-1784943840008",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-50000007-1784943840007"
+            ],
+            "targetIds": [
+              "negatedContact-50000009-1784943840009"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000009-1784943840009": {
+            "id": "negatedContact-50000009-1784943840009",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000008-1784943840008"
+            ],
+            "targetIds": [
+              "negatedContact-50000010-1784943840010"
+            ],
+            "varName": {
+              "name": "",
+              "value": "High_Pressure_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000010-1784943840010": {
+            "id": "negatedContact-50000010-1784943840010",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000009-1784943840009"
+            ],
+            "targetIds": [
+              "negatedContact-50000011-1784943840011"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Pressure_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000011-1784943840011": {
+            "id": "negatedContact-50000011-1784943840011",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000010-1784943840010"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Heater_Overheat_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000012-1784943840012": {
+            "id": "resetCoil-50000012-1784943840012",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-50000011-1784943840011"
+            ],
+            "targetIds": [
+              "resetCoil-50000012-1784943840012"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000023-1784943840023",
+        "label": "制冷启动自保持",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "negatedContact-50000014-1784943840014",
+              "negatedContact-50000014-1784943840014",
+              "negatedContact-50000018-1784943840018",
+              "negatedContact-50000018-1784943840018"
+            ]
+          },
+          "negatedContact-50000014-1784943840014": {
+            "id": "negatedContact-50000014-1784943840014",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-50000015-1784943840015"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000015-1784943840015": {
+            "id": "negatedContact-50000015-1784943840015",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000014-1784943840014"
+            ],
+            "targetIds": [
+              "negatedContact-50000016-1784943840016"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000016-1784943840016": {
+            "id": "negatedContact-50000016-1784943840016",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000015-1784943840015"
+            ],
+            "targetIds": [
+              "contact-50000017-1784943840017"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000017-1784943840017": {
+            "id": "contact-50000017-1784943840017",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-50000016-1784943840016"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Start_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000018-1784943840018": {
+            "id": "negatedContact-50000018-1784943840018",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-50000019-1784943840019"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000019-1784943840019": {
+            "id": "negatedContact-50000019-1784943840019",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000018-1784943840018"
+            ],
+            "targetIds": [
+              "negatedContact-50000020-1784943840020"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000020-1784943840020": {
+            "id": "negatedContact-50000020-1784943840020",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000019-1784943840019"
+            ],
+            "targetIds": [
+              "contact-50000021-1784943840021"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000021-1784943840021": {
+            "id": "contact-50000021-1784943840021",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-50000020-1784943840020"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-50000022-1784943840022": {
+            "id": "setCoil-50000022-1784943840022",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000017-1784943840017",
+              "contact-50000021-1784943840021"
+            ],
+            "targetIds": [
+              "setCoil-50000022-1784943840022"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000030-1784943840030",
+        "label": "停止急停故障退出全部阶段",
+        "note": "急停为硬件常闭回路，断线即停。",
+        "height": 300,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000024-1784943840024",
+              "contact-50000024-1784943840024",
+              "contact-50000025-1784943840025",
+              "contact-50000025-1784943840025",
+              "contact-50000026-1784943840026",
+              "contact-50000026-1784943840026"
+            ]
+          },
+          "contact-50000024-1784943840024": {
+            "id": "contact-50000024-1784943840024",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000025-1784943840025": {
+            "id": "contact-50000025-1784943840025",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000026-1784943840026": {
+            "id": "contact-50000026-1784943840026",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000027-1784943840027": {
+            "id": "resetCoil-50000027-1784943840027",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000028-1784943840028": {
+            "id": "resetCoil-50000028-1784943840028",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000029-1784943840029": {
+            "id": "resetCoil-50000029-1784943840029",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000024-1784943840024",
+              "contact-50000025-1784943840025",
+              "contact-50000026-1784943840026"
+            ],
+            "targetIds": [
+              "resetCoil-50000027-1784943840027",
+              "resetCoil-50000028-1784943840028",
+              "resetCoil-50000029-1784943840029"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000037-1784943840037",
+        "label": "除霜周期计时",
+        "note": "制冷稳定运行期间累计除霜周期，达到设定间隔后请求进入除霜。",
+        "height": 182,
+        "width": 1150,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000032-1784943840032",
+              "contact-50000032-1784943840032"
+            ]
+          },
+          "contact-50000032-1784943840032": {
+            "id": "contact-50000032-1784943840032",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-50000033-1784943840033"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000033-1784943840033": {
+            "id": "negatedContact-50000033-1784943840033",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-50000032-1784943840032"
+            ],
+            "targetIds": [
+              "negatedContact-50000034-1784943840034"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000034-1784943840034": {
+            "id": "negatedContact-50000034-1784943840034",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000033-1784943840033"
+            ],
+            "targetIds": [
+              "negatedContact-50000035-1784943840035"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000035-1784943840035": {
+            "id": "negatedContact-50000035-1784943840035",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000034-1784943840034"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-50000031-1784943840031"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-50000031-1784943840031": {
+            "id": "FBD-compartment-TON-50000031-1784943840031",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "negatedContact-50000035-1784943840035"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Cooling_Mode",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Defrost_Interval_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Defrost_Interval_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Defrost_Interval_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Defrost_Interval",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-50000036-1784943840036": {
+            "id": "end-node-line-50000036-1784943840036",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-50000031-1784943840031"
+            ],
+            "targetIds": [
+              "end-node-line-50000036-1784943840036"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000043-1784943840043",
+        "label": "进入除霜阶段",
+        "note": "达到除霜周期后先停止制冷，再置位除霜阶段。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000038-1784943840038",
+              "contact-50000038-1784943840038"
+            ]
+          },
+          "contact-50000038-1784943840038": {
+            "id": "contact-50000038-1784943840038",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-50000039-1784943840039"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000039-1784943840039": {
+            "id": "contact-50000039-1784943840039",
+            "type": "contact",
+            "sourceIds": [
+              "contact-50000038-1784943840038"
+            ],
+            "targetIds": [
+              "negatedContact-50000040-1784943840040"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Interval_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000040-1784943840040": {
+            "id": "negatedContact-50000040-1784943840040",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-50000039-1784943840039"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-50000041-1784943840041": {
+            "id": "setCoil-50000041-1784943840041",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000042-1784943840042": {
+            "id": "resetCoil-50000042-1784943840042",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-50000040-1784943840040"
+            ],
+            "targetIds": [
+              "setCoil-50000041-1784943840041",
+              "resetCoil-50000042-1784943840042"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000047-1784943840047",
+        "label": "除霜最大时间计时",
+        "note": "除霜开始后启动最大除霜时间监视。",
+        "height": 182,
+        "width": 1150,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000045-1784943840045",
+              "contact-50000045-1784943840045"
+            ]
+          },
+          "contact-50000045-1784943840045": {
+            "id": "contact-50000045-1784943840045",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-50000044-1784943840044"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-50000044-1784943840044": {
+            "id": "FBD-compartment-TON-50000044-1784943840044",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-50000045-1784943840045"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Defrost_Mode",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Defrost_Max_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Defrost_Max_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Defrost_Max_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Defrost_Max",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-50000046-1784943840046": {
+            "id": "end-node-line-50000046-1784943840046",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-50000044-1784943840044"
+            ],
+            "targetIds": [
+              "end-node-line-50000046-1784943840046"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000052-1784943840052",
+        "label": "蒸发器温度终止除霜",
+        "note": "蒸发器达到除霜终止温度即停止加热，转入滴水延时。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000048-1784943840048",
+              "contact-50000048-1784943840048"
+            ]
+          },
+          "contact-50000048-1784943840048": {
+            "id": "contact-50000048-1784943840048",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-50000049-1784943840049"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000049-1784943840049": {
+            "id": "contact-50000049-1784943840049",
+            "type": "contact",
+            "sourceIds": [
+              "contact-50000048-1784943840048"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Evaporator_Defrost_Temp_Reached",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000050-1784943840050": {
+            "id": "resetCoil-50000050-1784943840050",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-50000051-1784943840051": {
+            "id": "setCoil-50000051-1784943840051",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000049-1784943840049"
+            ],
+            "targetIds": [
+              "resetCoil-50000050-1784943840050",
+              "setCoil-50000051-1784943840051"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000057-1784943840057",
+        "label": "最大时间终止除霜",
+        "note": "若蒸发器温度未达到终止值，最大除霜时间到仍须退出除霜，避免持续加热。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000053-1784943840053",
+              "contact-50000053-1784943840053"
+            ]
+          },
+          "contact-50000053-1784943840053": {
+            "id": "contact-50000053-1784943840053",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-50000054-1784943840054"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000054-1784943840054": {
+            "id": "contact-50000054-1784943840054",
+            "type": "contact",
+            "sourceIds": [
+              "contact-50000053-1784943840053"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Max_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000055-1784943840055": {
+            "id": "resetCoil-50000055-1784943840055",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-50000056-1784943840056": {
+            "id": "setCoil-50000056-1784943840056",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000054-1784943840054"
+            ],
+            "targetIds": [
+              "resetCoil-50000055-1784943840055",
+              "setCoil-50000056-1784943840056"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000061-1784943840061",
+        "label": "滴水延时计时",
+        "note": "滴水阶段保持压缩机与加热器断开。",
+        "height": 182,
+        "width": 1150,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000059-1784943840059",
+              "contact-50000059-1784943840059"
+            ]
+          },
+          "contact-50000059-1784943840059": {
+            "id": "contact-50000059-1784943840059",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-50000058-1784943840058"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-50000058-1784943840058": {
+            "id": "FBD-compartment-TON-50000058-1784943840058",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-50000059-1784943840059"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Drip_Mode",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Drip_Delay_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Drip_Delay_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Drip_Delay_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Drip_Delay",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-50000060-1784943840060": {
+            "id": "end-node-line-50000060-1784943840060",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-50000058-1784943840058"
+            ],
+            "targetIds": [
+              "end-node-line-50000060-1784943840060"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000067-1784943840067",
+        "label": "滴水结束恢复制冷",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000062-1784943840062",
+              "contact-50000062-1784943840062"
+            ]
+          },
+          "contact-50000062-1784943840062": {
+            "id": "contact-50000062-1784943840062",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-50000063-1784943840063"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000063-1784943840063": {
+            "id": "contact-50000063-1784943840063",
+            "type": "contact",
+            "sourceIds": [
+              "contact-50000062-1784943840062"
+            ],
+            "targetIds": [
+              "negatedContact-50000064-1784943840064"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Drip_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000064-1784943840064": {
+            "id": "negatedContact-50000064-1784943840064",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-50000063-1784943840063"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000065-1784943840065": {
+            "id": "resetCoil-50000065-1784943840065",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-50000066-1784943840066": {
+            "id": "setCoil-50000066-1784943840066",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-50000064-1784943840064"
+            ],
+            "targetIds": [
+              "resetCoil-50000065-1784943840065",
+              "setCoil-50000066-1784943840066"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000076-1784943840076",
+        "label": "压缩机制冷温控输出",
+        "note": "压缩机仅在制冷阶段、温度高于上限且各保护正常时运行；除霜和滴水阶段形成互锁。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000068-1784943840068",
+              "contact-50000068-1784943840068"
+            ]
+          },
+          "contact-50000068-1784943840068": {
+            "id": "contact-50000068-1784943840068",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-50000069-1784943840069"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Cooling_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-50000069-1784943840069": {
+            "id": "contact-50000069-1784943840069",
+            "type": "contact",
+            "sourceIds": [
+              "contact-50000068-1784943840068"
+            ],
+            "targetIds": [
+              "negatedContact-50000070-1784943840070"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Temperature_High_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000070-1784943840070": {
+            "id": "negatedContact-50000070-1784943840070",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-50000069-1784943840069"
+            ],
+            "targetIds": [
+              "negatedContact-50000071-1784943840071"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000071-1784943840071": {
+            "id": "negatedContact-50000071-1784943840071",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000070-1784943840070"
+            ],
+            "targetIds": [
+              "negatedContact-50000072-1784943840072"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Drip_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000072-1784943840072": {
+            "id": "negatedContact-50000072-1784943840072",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000071-1784943840071"
+            ],
+            "targetIds": [
+              "negatedContact-50000073-1784943840073"
+            ],
+            "varName": {
+              "name": "",
+              "value": "High_Pressure_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000073-1784943840073": {
+            "id": "negatedContact-50000073-1784943840073",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000072-1784943840072"
+            ],
+            "targetIds": [
+              "negatedContact-50000074-1784943840074"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Pressure_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000074-1784943840074": {
+            "id": "negatedContact-50000074-1784943840074",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000073-1784943840073"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-50000075-1784943840075": {
+            "id": "coil-50000075-1784943840075",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Compressor_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-50000074-1784943840074"
+            ],
+            "targetIds": [
+              "coil-50000075-1784943840075"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000079-1784943840079",
+        "label": "温度下限停止压缩机",
+        "note": "温度低于下限时停止压缩机。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000077-1784943840077",
+              "contact-50000077-1784943840077"
+            ]
+          },
+          "contact-50000077-1784943840077": {
+            "id": "contact-50000077-1784943840077",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Temperature_Low_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-50000078-1784943840078": {
+            "id": "resetCoil-50000078-1784943840078",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Compressor_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000077-1784943840077"
+            ],
+            "targetIds": [
+              "resetCoil-50000078-1784943840078"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000085-1784943840085",
+        "label": "除霜加热器互锁输出",
+        "note": "除霜加热器与压缩机互锁；加热器过热、故障或非除霜阶段均断开。",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000080-1784943840080",
+              "contact-50000080-1784943840080"
+            ]
+          },
+          "contact-50000080-1784943840080": {
+            "id": "contact-50000080-1784943840080",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-50000081-1784943840081"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000081-1784943840081": {
+            "id": "negatedContact-50000081-1784943840081",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-50000080-1784943840080"
+            ],
+            "targetIds": [
+              "negatedContact-50000082-1784943840082"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Compressor_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000082-1784943840082": {
+            "id": "negatedContact-50000082-1784943840082",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000081-1784943840081"
+            ],
+            "targetIds": [
+              "negatedContact-50000083-1784943840083"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Heater_Overheat_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-50000083-1784943840083": {
+            "id": "negatedContact-50000083-1784943840083",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-50000082-1784943840082"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-50000084-1784943840084": {
+            "id": "coil-50000084-1784943840084",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Defrost_Heater",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-50000083-1784943840083"
+            ],
+            "targetIds": [
+              "coil-50000084-1784943840084"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-50000088-1784943840088",
+        "label": "故障报警输出",
+        "note": "",
+        "height": 82,
+        "width": 950,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-50000086-1784943840086",
+              "contact-50000086-1784943840086"
+            ]
+          },
+          "contact-50000086-1784943840086": {
+            "id": "contact-50000086-1784943840086",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-50000087-1784943840087": {
+            "id": "coil-50000087-1784943840087",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-50000086-1784943840086"
+            ],
+            "targetIds": [
+              "coil-50000087-1784943840087"
+            ],
+            "children": [
+              {
+                "id": "edit-node-rect-left-port",
+                "type": "node:edgePort",
+                "side": "left",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-left-port"
+                ],
+                "position": {
+                  "x": -45,
+                  "y": 0
+                },
+                "size": {
+                  "width": 45,
+                  "height": 22
+                }
+              },
+              {
+                "id": "edit-node-rect-bottom-port",
+                "type": "node:edgeBottomPort",
+                "side": "bottom",
+                "parentId": "edit-node-rect",
+                "cssClasses": [
+                  "contact-bottom-port"
+                ],
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "width": 70,
+                  "height": 22
+                }
+              }
+            ]
+          }
+        },
+        "edgesObj": {}
+      }
+    ],
+    "variableList": [
+      {
+        "scope": "VAR",
+        "name": "Start_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "启动按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "START_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Stop_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "停止按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "STOP_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Reset_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障复位按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RESET_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "E_Stop",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "急停输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "E_STOP",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Temperature_High_Limit",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "库温高于上限输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "TEMPERATURE_HIGH_LIMIT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Temperature_Low_Limit",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "库温低于下限输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "TEMPERATURE_LOW_LIMIT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Evaporator_Defrost_Temp_Reached",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "蒸发器达到除霜终止温度",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "EVAPORATOR_DEFROST_TEMP_REACHED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "High_Pressure_Protect",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "高压保护输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "HIGH_PRESSURE_PROTECT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Low_Pressure_Protect",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "低压保护输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LOW_PRESSURE_PROTECT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Heater_Overheat_Protect",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "加热器过热保护输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "HEATER_OVERHEAT_PROTECT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Cooling_Mode",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "制冷阶段位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "COOLING_MODE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Defrost_Mode",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "除霜阶段位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DEFROST_MODE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Drip_Mode",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "滴水阶段位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DRIP_MODE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Compressor_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "压缩机运行输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "COMPRESSOR_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Defrost_Heater",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "除霜加热器输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DEFROST_HEATER",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障锁存",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "报警输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Defrost_Interval_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "除霜周期到达",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DEFROST_INTERVAL_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Defrost_Max_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "最大除霜时间到达",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DEFROST_MAX_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Drip_Delay_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "滴水延时完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DRIP_DELAY_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Defrost_Interval_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "除霜周期设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DEFROST_INTERVAL_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Defrost_Interval_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "除霜周期经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DEFROST_INTERVAL_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Defrost_Max_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "最大除霜时间设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DEFROST_MAX_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Defrost_Max_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "最大除霜经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DEFROST_MAX_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Drip_Delay_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "滴水延时设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DRIP_DELAY_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Drip_Delay_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "滴水延时经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DRIP_DELAY_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Defrost_Interval",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "除霜周期定时器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DEFROST_INTERVAL",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Defrost_Max",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "最大除霜定时器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DEFROST_MAX",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Drip_Delay",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "滴水延时定时器实例",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DRIP_DELAY",
+        "isShow": true
+      }
+    ],
+    "pouType": "PROGRAM",
+    "pouName": "Cold_Storage_Defrost_Control",
+    "extensionPath": ""
+  }
+]

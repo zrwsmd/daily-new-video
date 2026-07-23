@@ -1,0 +1,3581 @@
+[
+  {
+    "segmentList": [
+      {
+        "id": "segment-60000010-1784968680010",
+        "label": "系统启动自保持",
+        "note": "自动供水仅在急停释放且总故障复位后允许启动。",
+        "height": 182,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "negatedContact-60000001-1784968680001",
+              "negatedContact-60000005-1784968680005"
+            ]
+          },
+          "negatedContact-60000001-1784968680001": {
+            "id": "negatedContact-60000001-1784968680001",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000002-1784968680002"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000002-1784968680002": {
+            "id": "negatedContact-60000002-1784968680002",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000001-1784968680001"
+            ],
+            "targetIds": [
+              "negatedContact-60000003-1784968680003"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000003-1784968680003": {
+            "id": "negatedContact-60000003-1784968680003",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000002-1784968680002"
+            ],
+            "targetIds": [
+              "contact-60000004-1784968680004"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000004-1784968680004": {
+            "id": "contact-60000004-1784968680004",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000003-1784968680003"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Start_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000005-1784968680005": {
+            "id": "negatedContact-60000005-1784968680005",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000006-1784968680006"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000006-1784968680006": {
+            "id": "negatedContact-60000006-1784968680006",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000005-1784968680005"
+            ],
+            "targetIds": [
+              "negatedContact-60000007-1784968680007"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000007-1784968680007": {
+            "id": "negatedContact-60000007-1784968680007",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000006-1784968680006"
+            ],
+            "targetIds": [
+              "contact-60000008-1784968680008"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000008-1784968680008": {
+            "id": "contact-60000008-1784968680008",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000007-1784968680007"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000009-1784968680009": {
+            "id": "setCoil-60000009-1784968680009",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000004-1784968680004",
+              "contact-60000008-1784968680008"
+            ],
+            "targetIds": [
+              "setCoil-60000009-1784968680009"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000015-1784968680015",
+        "label": "停止急停故障停机",
+        "note": "",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000011-1784968680011",
+              "contact-60000012-1784968680012",
+              "contact-60000013-1784968680013"
+            ]
+          },
+          "contact-60000011-1784968680011": {
+            "id": "contact-60000011-1784968680011",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000012-1784968680012": {
+            "id": "contact-60000012-1784968680012",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000013-1784968680013": {
+            "id": "contact-60000013-1784968680013",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-60000014-1784968680014": {
+            "id": "resetCoil-60000014-1784968680014",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000011-1784968680011",
+              "contact-60000012-1784968680012",
+              "contact-60000013-1784968680013"
+            ],
+            "targetIds": [
+              "resetCoil-60000014-1784968680014"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000025-1784968680025",
+        "label": "总故障汇总锁存",
+        "note": "任一急停、低液位或泵保护动作均锁存总故障。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000016-1784968680016",
+              "contact-60000017-1784968680017",
+              "contact-60000018-1784968680018",
+              "contact-60000019-1784968680019",
+              "contact-60000020-1784968680020",
+              "contact-60000021-1784968680021",
+              "contact-60000022-1784968680022",
+              "contact-60000023-1784968680023"
+            ]
+          },
+          "contact-60000016-1784968680016": {
+            "id": "contact-60000016-1784968680016",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000017-1784968680017": {
+            "id": "contact-60000017-1784968680017",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Level_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000018-1784968680018": {
+            "id": "contact-60000018-1784968680018",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000019-1784968680019": {
+            "id": "contact-60000019-1784968680019",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000020-1784968680020": {
+            "id": "contact-60000020-1784968680020",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000021-1784968680021": {
+            "id": "contact-60000021-1784968680021",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000022-1784968680022": {
+            "id": "contact-60000022-1784968680022",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000023-1784968680023": {
+            "id": "contact-60000023-1784968680023",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000024-1784968680024": {
+            "id": "setCoil-60000024-1784968680024",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000016-1784968680016",
+              "contact-60000017-1784968680017",
+              "contact-60000018-1784968680018",
+              "contact-60000019-1784968680019",
+              "contact-60000020-1784968680020",
+              "contact-60000021-1784968680021",
+              "contact-60000022-1784968680022",
+              "contact-60000023-1784968680023"
+            ],
+            "targetIds": [
+              "setCoil-60000024-1784968680024"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000036-1784968680036",
+        "label": "故障确认复位",
+        "note": "仅在所有保护恢复、现场确认安全后允许复位。",
+        "height": 182,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-60000026-1784968680026"
+            ]
+          },
+          "risingContact-60000026-1784968680026": {
+            "id": "risingContact-60000026-1784968680026",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000027-1784968680027"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Reset_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000027-1784968680027": {
+            "id": "negatedContact-60000027-1784968680027",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-60000026-1784968680026"
+            ],
+            "targetIds": [
+              "negatedContact-60000028-1784968680028"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000028-1784968680028": {
+            "id": "negatedContact-60000028-1784968680028",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000027-1784968680027"
+            ],
+            "targetIds": [
+              "negatedContact-60000029-1784968680029"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Level_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000029-1784968680029": {
+            "id": "negatedContact-60000029-1784968680029",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000028-1784968680028"
+            ],
+            "targetIds": [
+              "negatedContact-60000030-1784968680030"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000030-1784968680030": {
+            "id": "negatedContact-60000030-1784968680030",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000029-1784968680029"
+            ],
+            "targetIds": [
+              "negatedContact-60000031-1784968680031"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000031-1784968680031": {
+            "id": "negatedContact-60000031-1784968680031",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000030-1784968680030"
+            ],
+            "targetIds": [
+              "negatedContact-60000032-1784968680032"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000032-1784968680032": {
+            "id": "negatedContact-60000032-1784968680032",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000031-1784968680031"
+            ],
+            "targetIds": [
+              "negatedContact-60000033-1784968680033"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000033-1784968680033": {
+            "id": "negatedContact-60000033-1784968680033",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000032-1784968680032"
+            ],
+            "targetIds": [
+              "negatedContact-60000034-1784968680034"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000034-1784968680034": {
+            "id": "negatedContact-60000034-1784968680034",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000033-1784968680033"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-60000035-1784968680035": {
+            "id": "resetCoil-60000035-1784968680035",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-60000034-1784968680034"
+            ],
+            "targetIds": [
+              "resetCoil-60000035-1784968680035"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000049-1784968680049",
+        "label": "可用泵状态",
+        "note": "三个并联支路分别计算各泵可用状态。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "negatedContact-60000037-1784968680037",
+              "negatedContact-60000040-1784968680040",
+              "negatedContact-60000043-1784968680043"
+            ]
+          },
+          "negatedContact-60000037-1784968680037": {
+            "id": "negatedContact-60000037-1784968680037",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000038-1784968680038"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000038-1784968680038": {
+            "id": "negatedContact-60000038-1784968680038",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000037-1784968680037"
+            ],
+            "targetIds": [
+              "negatedContact-60000039-1784968680039"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000039-1784968680039": {
+            "id": "negatedContact-60000039-1784968680039",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000038-1784968680038"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Thermal",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000040-1784968680040": {
+            "id": "negatedContact-60000040-1784968680040",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000041-1784968680041"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000041-1784968680041": {
+            "id": "negatedContact-60000041-1784968680041",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000040-1784968680040"
+            ],
+            "targetIds": [
+              "negatedContact-60000042-1784968680042"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000042-1784968680042": {
+            "id": "negatedContact-60000042-1784968680042",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000041-1784968680041"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Thermal",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000043-1784968680043": {
+            "id": "negatedContact-60000043-1784968680043",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000044-1784968680044"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Overload",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000044-1784968680044": {
+            "id": "negatedContact-60000044-1784968680044",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000043-1784968680043"
+            ],
+            "targetIds": [
+              "negatedContact-60000045-1784968680045"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000045-1784968680045": {
+            "id": "negatedContact-60000045-1784968680045",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000044-1784968680044"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Thermal",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000046-1784968680046": {
+            "id": "coil-60000046-1784968680046",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000047-1784968680047": {
+            "id": "coil-60000047-1784968680047",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000048-1784968680048": {
+            "id": "coil-60000048-1784968680048",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-60000039-1784968680039",
+              "negatedContact-60000042-1784968680042",
+              "negatedContact-60000045-1784968680045"
+            ],
+            "targetIds": [
+              "coil-60000046-1784968680046",
+              "coil-60000047-1784968680047",
+              "coil-60000048-1784968680048"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000069-1784968680069",
+        "label": "低压启动请求",
+        "note": "压力低且任一泵可用时提出启动请求。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000050-1784968680050",
+              "contact-60000056-1784968680056",
+              "contact-60000062-1784968680062"
+            ]
+          },
+          "contact-60000050-1784968680050": {
+            "id": "contact-60000050-1784968680050",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000051-1784968680051"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000051-1784968680051": {
+            "id": "contact-60000051-1784968680051",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000050-1784968680050"
+            ],
+            "targetIds": [
+              "negatedContact-60000052-1784968680052"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Auto_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000052-1784968680052": {
+            "id": "negatedContact-60000052-1784968680052",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000051-1784968680051"
+            ],
+            "targetIds": [
+              "negatedContact-60000053-1784968680053"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Level_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000053-1784968680053": {
+            "id": "negatedContact-60000053-1784968680053",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000052-1784968680052"
+            ],
+            "targetIds": [
+              "contact-60000054-1784968680054"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000054-1784968680054": {
+            "id": "contact-60000054-1784968680054",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000053-1784968680053"
+            ],
+            "targetIds": [
+              "contact-60000055-1784968680055"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000055-1784968680055": {
+            "id": "contact-60000055-1784968680055",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000054-1784968680054"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000056-1784968680056": {
+            "id": "contact-60000056-1784968680056",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000057-1784968680057"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000057-1784968680057": {
+            "id": "contact-60000057-1784968680057",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000056-1784968680056"
+            ],
+            "targetIds": [
+              "negatedContact-60000058-1784968680058"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Auto_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000058-1784968680058": {
+            "id": "negatedContact-60000058-1784968680058",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000057-1784968680057"
+            ],
+            "targetIds": [
+              "negatedContact-60000059-1784968680059"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Level_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000059-1784968680059": {
+            "id": "negatedContact-60000059-1784968680059",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000058-1784968680058"
+            ],
+            "targetIds": [
+              "contact-60000060-1784968680060"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000060-1784968680060": {
+            "id": "contact-60000060-1784968680060",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000059-1784968680059"
+            ],
+            "targetIds": [
+              "contact-60000061-1784968680061"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000061-1784968680061": {
+            "id": "contact-60000061-1784968680061",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000060-1784968680060"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000062-1784968680062": {
+            "id": "contact-60000062-1784968680062",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000063-1784968680063"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000063-1784968680063": {
+            "id": "contact-60000063-1784968680063",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000062-1784968680062"
+            ],
+            "targetIds": [
+              "negatedContact-60000064-1784968680064"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Auto_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000064-1784968680064": {
+            "id": "negatedContact-60000064-1784968680064",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000063-1784968680063"
+            ],
+            "targetIds": [
+              "negatedContact-60000065-1784968680065"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Level_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000065-1784968680065": {
+            "id": "negatedContact-60000065-1784968680065",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000064-1784968680064"
+            ],
+            "targetIds": [
+              "contact-60000066-1784968680066"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000066-1784968680066": {
+            "id": "contact-60000066-1784968680066",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000065-1784968680065"
+            ],
+            "targetIds": [
+              "contact-60000067-1784968680067"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000067-1784968680067": {
+            "id": "contact-60000067-1784968680067",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000066-1784968680066"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000068-1784968680068": {
+            "id": "coil-60000068-1784968680068",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_Start_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000055-1784968680055",
+              "contact-60000061-1784968680061",
+              "contact-60000067-1784968680067"
+            ],
+            "targetIds": [
+              "coil-60000068-1784968680068"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000073-1784968680073",
+        "label": "主泵启动延时",
+        "note": "启动请求持续有效后延时投入当前优先泵。",
+        "height": 182,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000071-1784968680071"
+            ]
+          },
+          "contact-60000071-1784968680071": {
+            "id": "contact-60000071-1784968680071",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000070-1784968680070"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_Start_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-60000070-1784968680070": {
+            "id": "FBD-compartment-TON-60000070-1784968680070",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-60000071-1784968680071"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Pump_Start_Request",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Pump_Start_Delay_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Pump_Start_Delay_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Pump_Start_Delay_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Pump_Start",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-60000072-1784968680072": {
+            "id": "end-node-line-60000072-1784968680072",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-60000070-1784968680070"
+            ],
+            "targetIds": [
+              "end-node-line-60000072-1784968680072"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000092-1784968680092",
+        "label": "主泵选择与投入",
+        "note": "按轮换优先级选择一台可用泵，三台泵之间互锁。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000074-1784968680074",
+              "contact-60000079-1784968680079",
+              "contact-60000084-1784968680084"
+            ]
+          },
+          "contact-60000074-1784968680074": {
+            "id": "contact-60000074-1784968680074",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000075-1784968680075"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_Start_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000075-1784968680075": {
+            "id": "contact-60000075-1784968680075",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000074-1784968680074"
+            ],
+            "targetIds": [
+              "contact-60000076-1784968680076"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000076-1784968680076": {
+            "id": "contact-60000076-1784968680076",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000075-1784968680075"
+            ],
+            "targetIds": [
+              "negatedContact-60000077-1784968680077"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000077-1784968680077": {
+            "id": "negatedContact-60000077-1784968680077",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000076-1784968680076"
+            ],
+            "targetIds": [
+              "negatedContact-60000078-1784968680078"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000078-1784968680078": {
+            "id": "negatedContact-60000078-1784968680078",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000077-1784968680077"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000079-1784968680079": {
+            "id": "contact-60000079-1784968680079",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000080-1784968680080"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_Start_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000080-1784968680080": {
+            "id": "contact-60000080-1784968680080",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000079-1784968680079"
+            ],
+            "targetIds": [
+              "contact-60000081-1784968680081"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000081-1784968680081": {
+            "id": "contact-60000081-1784968680081",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000080-1784968680080"
+            ],
+            "targetIds": [
+              "negatedContact-60000082-1784968680082"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000082-1784968680082": {
+            "id": "negatedContact-60000082-1784968680082",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000081-1784968680081"
+            ],
+            "targetIds": [
+              "negatedContact-60000083-1784968680083"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000083-1784968680083": {
+            "id": "negatedContact-60000083-1784968680083",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000082-1784968680082"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000084-1784968680084": {
+            "id": "contact-60000084-1784968680084",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000085-1784968680085"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_Start_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000085-1784968680085": {
+            "id": "contact-60000085-1784968680085",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000084-1784968680084"
+            ],
+            "targetIds": [
+              "contact-60000086-1784968680086"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000086-1784968680086": {
+            "id": "contact-60000086-1784968680086",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000085-1784968680085"
+            ],
+            "targetIds": [
+              "negatedContact-60000087-1784968680087"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000087-1784968680087": {
+            "id": "negatedContact-60000087-1784968680087",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000086-1784968680086"
+            ],
+            "targetIds": [
+              "negatedContact-60000088-1784968680088"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000088-1784968680088": {
+            "id": "negatedContact-60000088-1784968680088",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000087-1784968680087"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000089-1784968680089": {
+            "id": "setCoil-60000089-1784968680089",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000090-1784968680090": {
+            "id": "setCoil-60000090-1784968680090",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000091-1784968680091": {
+            "id": "setCoil-60000091-1784968680091",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-60000078-1784968680078",
+              "negatedContact-60000083-1784968680083",
+              "negatedContact-60000088-1784968680088"
+            ],
+            "targetIds": [
+              "setCoil-60000089-1784968680089",
+              "setCoil-60000090-1784968680090",
+              "setCoil-60000091-1784968680091"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000101-1784968680101",
+        "label": "压力不足备用泵延时",
+        "note": "主泵运行后压力仍低，延时请求备用泵。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000094-1784968680094",
+              "contact-60000096-1784968680096",
+              "contact-60000098-1784968680098"
+            ]
+          },
+          "contact-60000094-1784968680094": {
+            "id": "contact-60000094-1784968680094",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000095-1784968680095"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000095-1784968680095": {
+            "id": "contact-60000095-1784968680095",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000094-1784968680094"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000093-1784968680093"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000096-1784968680096": {
+            "id": "contact-60000096-1784968680096",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000097-1784968680097"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000097-1784968680097": {
+            "id": "contact-60000097-1784968680097",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000096-1784968680096"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000093-1784968680093"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000098-1784968680098": {
+            "id": "contact-60000098-1784968680098",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000099-1784968680099"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000099-1784968680099": {
+            "id": "contact-60000099-1784968680099",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000098-1784968680098"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000093-1784968680093"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-60000093-1784968680093": {
+            "id": "FBD-compartment-TON-60000093-1784968680093",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-60000095-1784968680095",
+              "contact-60000097-1784968680097",
+              "contact-60000099-1784968680099"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Pressure_Low",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Backup_Start_Delay_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Backup_Start_Delay_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Backup_Start_Delay_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Backup_Start",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-60000100-1784968680100": {
+            "id": "end-node-line-60000100-1784968680100",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-60000093-1784968680093"
+            ],
+            "targetIds": [
+              "end-node-line-60000100-1784968680100"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000117-1784968680117",
+        "label": "备用泵依次投入",
+        "note": "",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000102-1784968680102",
+              "contact-60000106-1784968680106",
+              "contact-60000110-1784968680110"
+            ]
+          },
+          "contact-60000102-1784968680102": {
+            "id": "contact-60000102-1784968680102",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000103-1784968680103"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Backup_Start_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000103-1784968680103": {
+            "id": "contact-60000103-1784968680103",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000102-1784968680102"
+            ],
+            "targetIds": [
+              "contact-60000104-1784968680104"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000104-1784968680104": {
+            "id": "contact-60000104-1784968680104",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000103-1784968680103"
+            ],
+            "targetIds": [
+              "negatedContact-60000105-1784968680105"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000105-1784968680105": {
+            "id": "negatedContact-60000105-1784968680105",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000104-1784968680104"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000106-1784968680106": {
+            "id": "contact-60000106-1784968680106",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000107-1784968680107"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Backup_Start_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000107-1784968680107": {
+            "id": "contact-60000107-1784968680107",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000106-1784968680106"
+            ],
+            "targetIds": [
+              "contact-60000108-1784968680108"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000108-1784968680108": {
+            "id": "contact-60000108-1784968680108",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000107-1784968680107"
+            ],
+            "targetIds": [
+              "negatedContact-60000109-1784968680109"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000109-1784968680109": {
+            "id": "negatedContact-60000109-1784968680109",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000108-1784968680108"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000110-1784968680110": {
+            "id": "contact-60000110-1784968680110",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-60000111-1784968680111"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Backup_Start_Delay_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000111-1784968680111": {
+            "id": "contact-60000111-1784968680111",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000110-1784968680110"
+            ],
+            "targetIds": [
+              "contact-60000112-1784968680112"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000112-1784968680112": {
+            "id": "contact-60000112-1784968680112",
+            "type": "contact",
+            "sourceIds": [
+              "contact-60000111-1784968680111"
+            ],
+            "targetIds": [
+              "negatedContact-60000113-1784968680113"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000113-1784968680113": {
+            "id": "negatedContact-60000113-1784968680113",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000112-1784968680112"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000114-1784968680114": {
+            "id": "setCoil-60000114-1784968680114",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000115-1784968680115": {
+            "id": "setCoil-60000115-1784968680115",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000116-1784968680116": {
+            "id": "setCoil-60000116-1784968680116",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-60000105-1784968680105",
+              "negatedContact-60000109-1784968680109",
+              "negatedContact-60000113-1784968680113"
+            ],
+            "targetIds": [
+              "setCoil-60000114-1784968680114",
+              "setCoil-60000115-1784968680115",
+              "setCoil-60000116-1784968680116"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000124-1784968680124",
+        "label": "高压与保护停止各泵",
+        "note": "压力达到上限、低液位或故障时停止全部泵。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000118-1784968680118",
+              "contact-60000119-1784968680119",
+              "contact-60000120-1784968680120"
+            ]
+          },
+          "contact-60000118-1784968680118": {
+            "id": "contact-60000118-1784968680118",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_High",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000119-1784968680119": {
+            "id": "contact-60000119-1784968680119",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Low_Level_Protect",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000120-1784968680120": {
+            "id": "contact-60000120-1784968680120",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-60000121-1784968680121": {
+            "id": "resetCoil-60000121-1784968680121",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-60000122-1784968680122": {
+            "id": "resetCoil-60000122-1784968680122",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-60000123-1784968680123": {
+            "id": "resetCoil-60000123-1784968680123",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000118-1784968680118",
+              "contact-60000119-1784968680119",
+              "contact-60000120-1784968680120"
+            ],
+            "targetIds": [
+              "resetCoil-60000121-1784968680121",
+              "resetCoil-60000122-1784968680122",
+              "resetCoil-60000123-1784968680123"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000140-1784968680140",
+        "label": "泵运行输出与互锁",
+        "note": "",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000125-1784968680125",
+              "contact-60000129-1784968680129",
+              "contact-60000133-1784968680133"
+            ]
+          },
+          "contact-60000125-1784968680125": {
+            "id": "contact-60000125-1784968680125",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000126-1784968680126"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000126-1784968680126": {
+            "id": "negatedContact-60000126-1784968680126",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000125-1784968680125"
+            ],
+            "targetIds": [
+              "negatedContact-60000127-1784968680127"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000127-1784968680127": {
+            "id": "negatedContact-60000127-1784968680127",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000126-1784968680126"
+            ],
+            "targetIds": [
+              "contact-60000128-1784968680128"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000128-1784968680128": {
+            "id": "contact-60000128-1784968680128",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000127-1784968680127"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000129-1784968680129": {
+            "id": "contact-60000129-1784968680129",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000130-1784968680130"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000130-1784968680130": {
+            "id": "negatedContact-60000130-1784968680130",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000129-1784968680129"
+            ],
+            "targetIds": [
+              "negatedContact-60000131-1784968680131"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000131-1784968680131": {
+            "id": "negatedContact-60000131-1784968680131",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000130-1784968680130"
+            ],
+            "targetIds": [
+              "contact-60000132-1784968680132"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000132-1784968680132": {
+            "id": "contact-60000132-1784968680132",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000131-1784968680131"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000133-1784968680133": {
+            "id": "contact-60000133-1784968680133",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000134-1784968680134"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000134-1784968680134": {
+            "id": "negatedContact-60000134-1784968680134",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000133-1784968680133"
+            ],
+            "targetIds": [
+              "negatedContact-60000135-1784968680135"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000135-1784968680135": {
+            "id": "negatedContact-60000135-1784968680135",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-60000134-1784968680134"
+            ],
+            "targetIds": [
+              "contact-60000136-1784968680136"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000136-1784968680136": {
+            "id": "contact-60000136-1784968680136",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-60000135-1784968680135"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Available",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000137-1784968680137": {
+            "id": "coil-60000137-1784968680137",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000138-1784968680138": {
+            "id": "coil-60000138-1784968680138",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000139-1784968680139": {
+            "id": "coil-60000139-1784968680139",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000128-1784968680128",
+              "contact-60000132-1784968680132",
+              "contact-60000136-1784968680136"
+            ],
+            "targetIds": [
+              "coil-60000137-1784968680137",
+              "coil-60000138-1784968680138",
+              "coil-60000139-1784968680139"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000146-1784968680146",
+        "label": "轮换计时",
+        "note": "任一泵运行时累计轮换周期，周期到达后更新优先泵。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000142-1784968680142",
+              "contact-60000143-1784968680143",
+              "contact-60000144-1784968680144"
+            ]
+          },
+          "contact-60000142-1784968680142": {
+            "id": "contact-60000142-1784968680142",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000141-1784968680141"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000143-1784968680143": {
+            "id": "contact-60000143-1784968680143",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000141-1784968680141"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000144-1784968680144": {
+            "id": "contact-60000144-1784968680144",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-60000141-1784968680141"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-60000141-1784968680141": {
+            "id": "FBD-compartment-TON-60000141-1784968680141",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-60000142-1784968680142",
+              "contact-60000143-1784968680143",
+              "contact-60000144-1784968680144"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Pump_Any_Run",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Pump_Rotation_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Pump_Rotation_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Pump_Rotation_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Pump_Rotation",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-60000145-1784968680145": {
+            "id": "end-node-line-60000145-1784968680145",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-60000141-1784968680141"
+            ],
+            "targetIds": [
+              "end-node-line-60000145-1784968680145"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000155-1784968680155",
+        "label": "轮换请求与运行指示",
+        "note": "压力满足时完成轮换；任一泵运行时点亮运行指示。",
+        "height": 300,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000147-1784968680147",
+              "contact-60000149-1784968680149",
+              "contact-60000150-1784968680150",
+              "contact-60000151-1784968680151"
+            ]
+          },
+          "contact-60000147-1784968680147": {
+            "id": "contact-60000147-1784968680147",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-60000148-1784968680148"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_Rotation_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-60000148-1784968680148": {
+            "id": "negatedContact-60000148-1784968680148",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-60000147-1784968680147"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pressure_Low",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000149-1784968680149": {
+            "id": "contact-60000149-1784968680149",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_1_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000150-1784968680150": {
+            "id": "contact-60000150-1784968680150",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_2_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-60000151-1784968680151": {
+            "id": "contact-60000151-1784968680151",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Pump_3_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-60000152-1784968680152": {
+            "id": "setCoil-60000152-1784968680152",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Rotation_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000153-1784968680153": {
+            "id": "coil-60000153-1784968680153",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Pump_Any_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000154-1784968680154": {
+            "id": "coil-60000154-1784968680154",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Run_Indicator",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-60000148-1784968680148",
+              "contact-60000149-1784968680149",
+              "contact-60000150-1784968680150",
+              "contact-60000151-1784968680151"
+            ],
+            "targetIds": [
+              "setCoil-60000152-1784968680152",
+              "coil-60000153-1784968680153",
+              "coil-60000154-1784968680154"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-60000158-1784968680158",
+        "label": "故障报警输出",
+        "note": "",
+        "height": 182,
+        "width": 1250,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-60000156-1784968680156"
+            ]
+          },
+          "contact-60000156-1784968680156": {
+            "id": "contact-60000156-1784968680156",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-60000157-1784968680157": {
+            "id": "coil-60000157-1784968680157",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-60000156-1784968680156"
+            ],
+            "targetIds": [
+              "coil-60000157-1784968680157"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      }
+    ],
+    "variableList": [
+      {
+        "scope": "VAR",
+        "name": "Start_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Start_Button",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "START_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Stop_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Stop_Button",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "STOP_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Reset_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Reset_Button",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RESET_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "E_Stop",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "E_Stop",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "E_STOP",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Auto_Mode",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Auto_Mode",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "AUTO_MODE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "System_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "System_Run",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "SYSTEM_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Fault",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Alarm",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Run_Indicator",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Run_Indicator",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RUN_INDICATOR",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pressure_Low",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pressure_Low",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRESSURE_LOW",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pressure_High",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pressure_High",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRESSURE_HIGH",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Low_Level_Protect",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Low_Level_Protect",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LOW_LEVEL_PROTECT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Overload",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Overload",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_OVERLOAD",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Overload",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Overload",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_OVERLOAD",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Overload",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Overload",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_OVERLOAD",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Thermal",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Thermal",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_THERMAL",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Thermal",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Thermal",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_THERMAL",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Thermal",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Thermal",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_THERMAL",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Drive_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Drive_Fault",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_DRIVE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Drive_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Drive_Fault",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_DRIVE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Drive_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Drive_Fault",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_DRIVE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Available",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Available",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_AVAILABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Available",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Available",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_AVAILABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Available",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Available",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_AVAILABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Priority",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Priority",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_PRIORITY",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Priority",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Priority",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_PRIORITY",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Priority",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Priority",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_PRIORITY",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_Start_Request",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_Start_Request",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_START_REQUEST",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_Start_Delay_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_Start_Delay_Done",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_START_DELAY_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Backup_Start_Delay_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Backup_Start_Delay_Done",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "BACKUP_START_DELAY_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Run",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Run",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Run",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_Any_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_Any_Run",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_ANY_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_1_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_1_Output",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_1_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_2_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_2_Output",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_2_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_3_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_3_Output",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_3_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Pump_Rotation_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Pump_Rotation_Done",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PUMP_ROTATION_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Rotation_Request",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "Rotation_Request",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ROTATION_REQUEST",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_Start_Delay_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "Time_Pump_Start_Delay_Set",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_START_DELAY_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_Start_Delay_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "Time_Pump_Start_Delay_Elapsed",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_START_DELAY_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Backup_Start_Delay_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "Time_Backup_Start_Delay_Set",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_BACKUP_START_DELAY_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Backup_Start_Delay_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "Time_Backup_Start_Delay_Elapsed",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_BACKUP_START_DELAY_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_Rotation_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "Time_Pump_Rotation_Set",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_ROTATION_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Pump_Rotation_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "Time_Pump_Rotation_Elapsed",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_PUMP_ROTATION_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Pump_Start",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "Ton_Pump_Start",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_PUMP_START",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Backup_Start",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "Ton_Backup_Start",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_BACKUP_START",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Pump_Rotation",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "Ton_Pump_Rotation",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_PUMP_ROTATION",
+        "isShow": true
+      }
+    ],
+    "pouType": "PROGRAM",
+    "pouName": "Multi_Pump_Constant_Pressure_Control",
+    "extensionPath": ""
+  }
+]

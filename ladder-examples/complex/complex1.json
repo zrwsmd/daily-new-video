@@ -2907,7 +2907,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Start_Button",
+        "comment": "启动按钮",
         "pathLabels": [
           "base",
           "BOOL"
@@ -2921,7 +2921,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Stop_Button",
+        "comment": "停止按钮",
         "pathLabels": [
           "base",
           "BOOL"
@@ -2935,7 +2935,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Reset_Button",
+        "comment": "故障复位按钮",
         "pathLabels": [
           "base",
           "BOOL"
@@ -2949,7 +2949,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "E_Stop",
+        "comment": "急停输入",
         "pathLabels": [
           "base",
           "BOOL"
@@ -2963,7 +2963,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Auto_Mode",
+        "comment": "自动模式选择",
         "pathLabels": [
           "base",
           "BOOL"
@@ -2977,7 +2977,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "System_Run",
+        "comment": "系统运行状态",
         "pathLabels": [
           "base",
           "BOOL"
@@ -2991,7 +2991,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Fault",
+        "comment": "总故障锁存",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3005,7 +3005,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Alarm",
+        "comment": "故障报警输出",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3019,7 +3019,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Run_Indicator",
+        "comment": "系统运行指示灯",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3033,7 +3033,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pressure_Low",
+        "comment": "压力低于下限",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3047,7 +3047,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pressure_High",
+        "comment": "压力达到上限",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3061,7 +3061,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Low_Level_Protect",
+        "comment": "低液位保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3075,7 +3075,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Overload",
+        "comment": "1号泵过载保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3089,7 +3089,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Overload",
+        "comment": "2号泵过载保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3103,7 +3103,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Overload",
+        "comment": "3号泵过载保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3117,7 +3117,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Thermal",
+        "comment": "1号泵热继电器保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3131,7 +3131,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Thermal",
+        "comment": "2号泵热继电器保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3145,7 +3145,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Thermal",
+        "comment": "3号泵热继电器保护",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3159,7 +3159,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Drive_Fault",
+        "comment": "1号泵变频器故障",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3173,7 +3173,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Drive_Fault",
+        "comment": "2号泵变频器故障",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3187,7 +3187,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Drive_Fault",
+        "comment": "3号泵变频器故障",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3201,7 +3201,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Available",
+        "comment": "1号泵可用状态",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3215,7 +3215,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Available",
+        "comment": "2号泵可用状态",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3229,7 +3229,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Available",
+        "comment": "3号泵可用状态",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3243,7 +3243,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Priority",
+        "comment": "1号泵当前优先",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3257,7 +3257,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Priority",
+        "comment": "2号泵当前优先",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3271,7 +3271,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Priority",
+        "comment": "3号泵当前优先",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3285,7 +3285,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_Start_Request",
+        "comment": "水泵启动请求",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3299,7 +3299,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_Start_Delay_Done",
+        "comment": "主泵启动延时完成",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3313,7 +3313,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Backup_Start_Delay_Done",
+        "comment": "备用泵投入延时完成",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3327,7 +3327,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Run",
+        "comment": "1号泵运行命令",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3341,7 +3341,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Run",
+        "comment": "2号泵运行命令",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3355,7 +3355,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Run",
+        "comment": "3号泵运行命令",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3369,7 +3369,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_Any_Run",
+        "comment": "任一水泵运行状态",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3383,7 +3383,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_1_Output",
+        "comment": "1号供水泵运行输出",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3397,7 +3397,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_2_Output",
+        "comment": "2号供水泵运行输出",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3411,7 +3411,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_3_Output",
+        "comment": "3号供水泵运行输出",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3425,7 +3425,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Pump_Rotation_Done",
+        "comment": "水泵轮换周期到达",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3439,7 +3439,7 @@
         "type": "BOOL",
         "initValue": "",
         "address": "",
-        "comment": "Rotation_Request",
+        "comment": "轮换主泵请求",
         "pathLabels": [
           "base",
           "BOOL"
@@ -3453,7 +3453,7 @@
         "type": "TIME",
         "initValue": "",
         "address": "",
-        "comment": "Time_Pump_Start_Delay_Set",
+        "comment": "主泵启动延时设定",
         "pathLabels": [
           "base",
           "TIME"
@@ -3467,7 +3467,7 @@
         "type": "TIME",
         "initValue": "",
         "address": "",
-        "comment": "Time_Pump_Start_Delay_Elapsed",
+        "comment": "主泵启动延时经过时间",
         "pathLabels": [
           "base",
           "TIME"
@@ -3481,7 +3481,7 @@
         "type": "TIME",
         "initValue": "",
         "address": "",
-        "comment": "Time_Backup_Start_Delay_Set",
+        "comment": "备用泵投入延时设定",
         "pathLabels": [
           "base",
           "TIME"
@@ -3495,7 +3495,7 @@
         "type": "TIME",
         "initValue": "",
         "address": "",
-        "comment": "Time_Backup_Start_Delay_Elapsed",
+        "comment": "备用泵投入延时经过时间",
         "pathLabels": [
           "base",
           "TIME"
@@ -3509,7 +3509,7 @@
         "type": "TIME",
         "initValue": "",
         "address": "",
-        "comment": "Time_Pump_Rotation_Set",
+        "comment": "水泵轮换周期设定",
         "pathLabels": [
           "base",
           "TIME"
@@ -3523,7 +3523,7 @@
         "type": "TIME",
         "initValue": "",
         "address": "",
-        "comment": "Time_Pump_Rotation_Elapsed",
+        "comment": "水泵轮换周期经过时间",
         "pathLabels": [
           "base",
           "TIME"
@@ -3537,7 +3537,7 @@
         "type": "TON",
         "initValue": "",
         "address": "",
-        "comment": "Ton_Pump_Start",
+        "comment": "主泵启动延时定时器",
         "pathLabels": [
           "Standard function blocks",
           "TON"
@@ -3551,7 +3551,7 @@
         "type": "TON",
         "initValue": "",
         "address": "",
-        "comment": "Ton_Backup_Start",
+        "comment": "备用泵投入延时定时器",
         "pathLabels": [
           "Standard function blocks",
           "TON"
@@ -3565,7 +3565,7 @@
         "type": "TON",
         "initValue": "",
         "address": "",
-        "comment": "Ton_Pump_Rotation",
+        "comment": "水泵轮换定时器",
         "pathLabels": [
           "Standard function blocks",
           "TON"

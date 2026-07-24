@@ -1,0 +1,2878 @@
+[
+  {
+    "segmentList": [
+      {
+        "id": "segment-70000010-1784969520010",
+        "label": "系统启动自保持",
+        "note": "急停释放、无总故障时允许启动合流系统。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "negatedContact-70000001-1784969520001",
+              "negatedContact-70000005-1784969520005"
+            ]
+          },
+          "negatedContact-70000001-1784969520001": {
+            "id": "negatedContact-70000001-1784969520001",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000002-1784969520002"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000002-1784969520002": {
+            "id": "negatedContact-70000002-1784969520002",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000001-1784969520001"
+            ],
+            "targetIds": [
+              "negatedContact-70000003-1784969520003"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000003-1784969520003": {
+            "id": "negatedContact-70000003-1784969520003",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000002-1784969520002"
+            ],
+            "targetIds": [
+              "contact-70000004-1784969520004"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000004-1784969520004": {
+            "id": "contact-70000004-1784969520004",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-70000003-1784969520003"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Start_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000005-1784969520005": {
+            "id": "negatedContact-70000005-1784969520005",
+            "type": "negatedContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000006-1784969520006"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000006-1784969520006": {
+            "id": "negatedContact-70000006-1784969520006",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000005-1784969520005"
+            ],
+            "targetIds": [
+              "negatedContact-70000007-1784969520007"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000007-1784969520007": {
+            "id": "negatedContact-70000007-1784969520007",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000006-1784969520006"
+            ],
+            "targetIds": [
+              "contact-70000008-1784969520008"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000008-1784969520008": {
+            "id": "contact-70000008-1784969520008",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-70000007-1784969520007"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-70000009-1784969520009": {
+            "id": "setCoil-70000009-1784969520009",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-70000004-1784969520004",
+              "contact-70000008-1784969520008"
+            ],
+            "targetIds": [
+              "setCoil-70000009-1784969520009"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000017-1784969520017",
+        "label": "停止急停故障停止系统",
+        "note": "",
+        "height": 300,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000011-1784969520011",
+              "contact-70000012-1784969520012",
+              "contact-70000013-1784969520013"
+            ]
+          },
+          "contact-70000011-1784969520011": {
+            "id": "contact-70000011-1784969520011",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Stop_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000012-1784969520012": {
+            "id": "contact-70000012-1784969520012",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000013-1784969520013": {
+            "id": "contact-70000013-1784969520013",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-70000014-1784969520014": {
+            "id": "resetCoil-70000014-1784969520014",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-70000015-1784969520015": {
+            "id": "resetCoil-70000015-1784969520015",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-70000016-1784969520016": {
+            "id": "resetCoil-70000016-1784969520016",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-70000011-1784969520011",
+              "contact-70000012-1784969520012",
+              "contact-70000013-1784969520013"
+            ],
+            "targetIds": [
+              "resetCoil-70000014-1784969520014",
+              "resetCoil-70000015-1784969520015",
+              "resetCoil-70000016-1784969520016"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000026-1784969520026",
+        "label": "A线输送请求",
+        "note": "A线有料、下游允许且合流区空闲时提出输送请求。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000018-1784969520018"
+            ]
+          },
+          "contact-70000018-1784969520018": {
+            "id": "contact-70000018-1784969520018",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-70000019-1784969520019"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000019-1784969520019": {
+            "id": "contact-70000019-1784969520019",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000018-1784969520018"
+            ],
+            "targetIds": [
+              "contact-70000020-1784969520020"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Product_Photoelectric",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000020-1784969520020": {
+            "id": "contact-70000020-1784969520020",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000019-1784969520019"
+            ],
+            "targetIds": [
+              "negatedContact-70000021-1784969520021"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Allow",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000021-1784969520021": {
+            "id": "negatedContact-70000021-1784969520021",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000020-1784969520020"
+            ],
+            "targetIds": [
+              "negatedContact-70000022-1784969520022"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Jam",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000022-1784969520022": {
+            "id": "negatedContact-70000022-1784969520022",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000021-1784969520021"
+            ],
+            "targetIds": [
+              "negatedContact-70000023-1784969520023"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Zone_Occupied",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000023-1784969520023": {
+            "id": "negatedContact-70000023-1784969520023",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000022-1784969520022"
+            ],
+            "targetIds": [
+              "negatedContact-70000024-1784969520024"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000024-1784969520024": {
+            "id": "negatedContact-70000024-1784969520024",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000023-1784969520023"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-70000025-1784969520025": {
+            "id": "setCoil-70000025-1784969520025",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000024-1784969520024"
+            ],
+            "targetIds": [
+              "setCoil-70000025-1784969520025"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000035-1784969520035",
+        "label": "B线输送请求",
+        "note": "B线有料、下游允许且合流区空闲时提出输送请求。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000027-1784969520027"
+            ]
+          },
+          "contact-70000027-1784969520027": {
+            "id": "contact-70000027-1784969520027",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-70000028-1784969520028"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000028-1784969520028": {
+            "id": "contact-70000028-1784969520028",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000027-1784969520027"
+            ],
+            "targetIds": [
+              "contact-70000029-1784969520029"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Product_Photoelectric",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000029-1784969520029": {
+            "id": "contact-70000029-1784969520029",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000028-1784969520028"
+            ],
+            "targetIds": [
+              "negatedContact-70000030-1784969520030"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Allow",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000030-1784969520030": {
+            "id": "negatedContact-70000030-1784969520030",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000029-1784969520029"
+            ],
+            "targetIds": [
+              "negatedContact-70000031-1784969520031"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Jam",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000031-1784969520031": {
+            "id": "negatedContact-70000031-1784969520031",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000030-1784969520030"
+            ],
+            "targetIds": [
+              "negatedContact-70000032-1784969520032"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Zone_Occupied",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000032-1784969520032": {
+            "id": "negatedContact-70000032-1784969520032",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000031-1784969520031"
+            ],
+            "targetIds": [
+              "negatedContact-70000033-1784969520033"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000033-1784969520033": {
+            "id": "negatedContact-70000033-1784969520033",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000032-1784969520032"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-70000034-1784969520034": {
+            "id": "setCoil-70000034-1784969520034",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000033-1784969520033"
+            ],
+            "targetIds": [
+              "setCoil-70000034-1784969520034"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000044-1784969520044",
+        "label": "A线优先放行",
+        "note": "A/B放行输出互锁；当前优先线在满足合流间隔后方可放行。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000036-1784969520036"
+            ]
+          },
+          "contact-70000036-1784969520036": {
+            "id": "contact-70000036-1784969520036",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-70000037-1784969520037"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000037-1784969520037": {
+            "id": "contact-70000037-1784969520037",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000036-1784969520036"
+            ],
+            "targetIds": [
+              "contact-70000038-1784969520038"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000038-1784969520038": {
+            "id": "contact-70000038-1784969520038",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000037-1784969520037"
+            ],
+            "targetIds": [
+              "negatedContact-70000039-1784969520039"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Interval_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000039-1784969520039": {
+            "id": "negatedContact-70000039-1784969520039",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000038-1784969520038"
+            ],
+            "targetIds": [
+              "negatedContact-70000040-1784969520040"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000040-1784969520040": {
+            "id": "negatedContact-70000040-1784969520040",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000039-1784969520039"
+            ],
+            "targetIds": [
+              "negatedContact-70000041-1784969520041"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Zone_Occupied",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000041-1784969520041": {
+            "id": "negatedContact-70000041-1784969520041",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000040-1784969520040"
+            ],
+            "targetIds": [
+              "negatedContact-70000042-1784969520042"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Full",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000042-1784969520042": {
+            "id": "negatedContact-70000042-1784969520042",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000041-1784969520041"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-70000043-1784969520043": {
+            "id": "setCoil-70000043-1784969520043",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000042-1784969520042"
+            ],
+            "targetIds": [
+              "setCoil-70000043-1784969520043"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000053-1784969520053",
+        "label": "B线优先放行",
+        "note": "A/B放行输出互锁；当前优先线在满足合流间隔后方可放行。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000045-1784969520045"
+            ]
+          },
+          "contact-70000045-1784969520045": {
+            "id": "contact-70000045-1784969520045",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-70000046-1784969520046"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000046-1784969520046": {
+            "id": "contact-70000046-1784969520046",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000045-1784969520045"
+            ],
+            "targetIds": [
+              "contact-70000047-1784969520047"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000047-1784969520047": {
+            "id": "contact-70000047-1784969520047",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000046-1784969520046"
+            ],
+            "targetIds": [
+              "negatedContact-70000048-1784969520048"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Interval_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000048-1784969520048": {
+            "id": "negatedContact-70000048-1784969520048",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000047-1784969520047"
+            ],
+            "targetIds": [
+              "negatedContact-70000049-1784969520049"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000049-1784969520049": {
+            "id": "negatedContact-70000049-1784969520049",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000048-1784969520048"
+            ],
+            "targetIds": [
+              "negatedContact-70000050-1784969520050"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Zone_Occupied",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000050-1784969520050": {
+            "id": "negatedContact-70000050-1784969520050",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000049-1784969520049"
+            ],
+            "targetIds": [
+              "negatedContact-70000051-1784969520051"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Full",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000051-1784969520051": {
+            "id": "negatedContact-70000051-1784969520051",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000050-1784969520050"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-70000052-1784969520052": {
+            "id": "setCoil-70000052-1784969520052",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000051-1784969520051"
+            ],
+            "targetIds": [
+              "setCoil-70000052-1784969520052"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000064-1784969520064",
+        "label": "合流输送输出互锁",
+        "note": "两条输送线不得同时向合流区放料。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000054-1784969520054",
+              "contact-70000058-1784969520058"
+            ]
+          },
+          "contact-70000054-1784969520054": {
+            "id": "contact-70000054-1784969520054",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000055-1784969520055"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000055-1784969520055": {
+            "id": "negatedContact-70000055-1784969520055",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000054-1784969520054"
+            ],
+            "targetIds": [
+              "negatedContact-70000056-1784969520056"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000056-1784969520056": {
+            "id": "negatedContact-70000056-1784969520056",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000055-1784969520055"
+            ],
+            "targetIds": [
+              "negatedContact-70000057-1784969520057"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000057-1784969520057": {
+            "id": "negatedContact-70000057-1784969520057",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000056-1784969520056"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000058-1784969520058": {
+            "id": "contact-70000058-1784969520058",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000059-1784969520059"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000059-1784969520059": {
+            "id": "negatedContact-70000059-1784969520059",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000058-1784969520058"
+            ],
+            "targetIds": [
+              "negatedContact-70000060-1784969520060"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000060-1784969520060": {
+            "id": "negatedContact-70000060-1784969520060",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000059-1784969520059"
+            ],
+            "targetIds": [
+              "negatedContact-70000061-1784969520061"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000061-1784969520061": {
+            "id": "negatedContact-70000061-1784969520061",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000060-1784969520060"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000062-1784969520062": {
+            "id": "coil-70000062-1784969520062",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Conveyor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000063-1784969520063": {
+            "id": "coil-70000063-1784969520063",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Conveyor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000057-1784969520057",
+              "negatedContact-70000061-1784969520061"
+            ],
+            "targetIds": [
+              "coil-70000062-1784969520062",
+              "coil-70000063-1784969520063"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000069-1784969520069",
+        "label": "合流间隔定时",
+        "note": "任一线放行即启动合流间隔，间隔期间禁止另一线切入。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000066-1784969520066",
+              "contact-70000067-1784969520067"
+            ]
+          },
+          "contact-70000066-1784969520066": {
+            "id": "contact-70000066-1784969520066",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-70000065-1784969520065"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000067-1784969520067": {
+            "id": "contact-70000067-1784969520067",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-70000065-1784969520065"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Release",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-70000065-1784969520065": {
+            "id": "FBD-compartment-TON-70000065-1784969520065",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-70000066-1784969520066",
+              "contact-70000067-1784969520067"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Merge_Release_Active",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Merge_Interval_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Merge_Interval_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Merge_Interval_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Merge_Interval",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-70000068-1784969520068": {
+            "id": "end-node-line-70000068-1784969520068",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-70000065-1784969520065"
+            ],
+            "targetIds": [
+              "end-node-line-70000068-1784969520068"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000076-1784969520076",
+        "label": "合流完成切换优先级",
+        "note": "每次合流完成后切换下一次优先放行线路。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-70000070-1784969520070",
+              "risingContact-70000071-1784969520071"
+            ]
+          },
+          "risingContact-70000070-1784969520070": {
+            "id": "risingContact-70000070-1784969520070",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Merge_Complete",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "risingContact-70000071-1784969520071": {
+            "id": "risingContact-70000071-1784969520071",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Merge_Complete",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-70000072-1784969520072": {
+            "id": "resetCoil-70000072-1784969520072",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-70000073-1784969520073": {
+            "id": "resetCoil-70000073-1784969520073",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000074-1784969520074": {
+            "id": "coil-70000074-1784969520074",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000075-1784969520075": {
+            "id": "coil-70000075-1784969520075",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Priority",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "risingContact-70000070-1784969520070",
+              "risingContact-70000071-1784969520071"
+            ],
+            "targetIds": [
+              "resetCoil-70000072-1784969520072",
+              "resetCoil-70000073-1784969520073",
+              "coil-70000074-1784969520074",
+              "coil-70000075-1784969520075"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000081-1784969520081",
+        "label": "主线堵料超时监视",
+        "note": "合流区被占用且主线无运行反馈时开始堵料计时。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000078-1784969520078"
+            ]
+          },
+          "contact-70000078-1784969520078": {
+            "id": "contact-70000078-1784969520078",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000079-1784969520079"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Zone_Occupied",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000079-1784969520079": {
+            "id": "negatedContact-70000079-1784969520079",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000078-1784969520078"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-70000077-1784969520077"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Run_Feedback",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-70000077-1784969520077": {
+            "id": "FBD-compartment-TON-70000077-1784969520077",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "negatedContact-70000079-1784969520079"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Merge_Zone_Occupied",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Main_Line_Jam_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Main_Line_Jam_Timeout",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Main_Line_Jam_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Main_Line_Jam",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-70000080-1784969520080": {
+            "id": "end-node-line-70000080-1784969520080",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-70000077-1784969520077"
+            ],
+            "targetIds": [
+              "end-node-line-70000080-1784969520080"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000091-1784969520091",
+        "label": "故障源汇总锁存",
+        "note": "下游满料、堵料超时、任一变频器故障或急停均锁存报警。",
+        "height": 436,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000082-1784969520082",
+              "contact-70000083-1784969520083",
+              "contact-70000084-1784969520084",
+              "contact-70000085-1784969520085",
+              "contact-70000086-1784969520086",
+              "contact-70000087-1784969520087",
+              "contact-70000088-1784969520088"
+            ]
+          },
+          "contact-70000082-1784969520082": {
+            "id": "contact-70000082-1784969520082",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000083-1784969520083": {
+            "id": "contact-70000083-1784969520083",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Full",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000084-1784969520084": {
+            "id": "contact-70000084-1784969520084",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Jam_Timeout",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000085-1784969520085": {
+            "id": "contact-70000085-1784969520085",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000086-1784969520086": {
+            "id": "contact-70000086-1784969520086",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000087-1784969520087": {
+            "id": "contact-70000087-1784969520087",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000088-1784969520088": {
+            "id": "contact-70000088-1784969520088",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-70000089-1784969520089"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Merge_Zone_Occupied",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-70000089-1784969520089": {
+            "id": "contact-70000089-1784969520089",
+            "type": "contact",
+            "sourceIds": [
+              "contact-70000088-1784969520088"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Jam",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-70000090-1784969520090": {
+            "id": "setCoil-70000090-1784969520090",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-70000082-1784969520082",
+              "contact-70000083-1784969520083",
+              "contact-70000084-1784969520084",
+              "contact-70000085-1784969520085",
+              "contact-70000086-1784969520086",
+              "contact-70000087-1784969520087",
+              "contact-70000089-1784969520089"
+            ],
+            "targetIds": [
+              "setCoil-70000090-1784969520090"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000100-1784969520100",
+        "label": "故障人工确认复位",
+        "note": "仅在故障根因消除、现场确认安全后允许复位。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-70000092-1784969520092"
+            ]
+          },
+          "risingContact-70000092-1784969520092": {
+            "id": "risingContact-70000092-1784969520092",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000093-1784969520093"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Reset_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000093-1784969520093": {
+            "id": "negatedContact-70000093-1784969520093",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-70000092-1784969520092"
+            ],
+            "targetIds": [
+              "negatedContact-70000094-1784969520094"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000094-1784969520094": {
+            "id": "negatedContact-70000094-1784969520094",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000093-1784969520093"
+            ],
+            "targetIds": [
+              "negatedContact-70000095-1784969520095"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Full",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000095-1784969520095": {
+            "id": "negatedContact-70000095-1784969520095",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000094-1784969520094"
+            ],
+            "targetIds": [
+              "negatedContact-70000096-1784969520096"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000096-1784969520096": {
+            "id": "negatedContact-70000096-1784969520096",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000095-1784969520095"
+            ],
+            "targetIds": [
+              "negatedContact-70000097-1784969520097"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000097-1784969520097": {
+            "id": "negatedContact-70000097-1784969520097",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000096-1784969520096"
+            ],
+            "targetIds": [
+              "negatedContact-70000098-1784969520098"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000098-1784969520098": {
+            "id": "negatedContact-70000098-1784969520098",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000097-1784969520097"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Jam_Timeout",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-70000099-1784969520099": {
+            "id": "resetCoil-70000099-1784969520099",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000098-1784969520098"
+            ],
+            "targetIds": [
+              "resetCoil-70000099-1784969520099"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000104-1784969520104",
+        "label": "A线产品计数触发",
+        "note": "",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-70000101-1784969520101",
+              "risingContact-70000102-1784969520102"
+            ]
+          },
+          "risingContact-70000101-1784969520101": {
+            "id": "risingContact-70000101-1784969520101",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_A_Merge_Complete",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "risingContact-70000102-1784969520102": {
+            "id": "risingContact-70000102-1784969520102",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Line_B_Merge_Complete",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000103-1784969520103": {
+            "id": "coil-70000103-1784969520103",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Product_Count_Trigger",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "risingContact-70000101-1784969520101",
+              "risingContact-70000102-1784969520102"
+            ],
+            "targetIds": [
+              "coil-70000103-1784969520103"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000108-1784969520108",
+        "label": "合流产品CTU统计",
+        "note": "合流完成上升沿触发一次计数，避免持续信号重复计数。",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000106-1784969520106"
+            ]
+          },
+          "contact-70000106-1784969520106": {
+            "id": "contact-70000106-1784969520106",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "FBD-compartment-CTU-70000105-1784969520105"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Product_Count_Trigger",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-CTU-70000105-1784969520105": {
+            "id": "FBD-compartment-CTU-70000105-1784969520105",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "contact-70000106-1784969520106"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "CTU",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "CU",
+                  "value": "Product_Count_Trigger",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "R",
+                  "value": "Counter_Reset",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PV",
+                  "value": "Int_Product_Batch_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "INT"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Product_Batch_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "CV",
+                  "value": "Int_Merged_Product_Count",
+                  "scope": "VAR_OUTPUT",
+                  "type": "INT"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ctu_Merged_Product",
+                "type": "CTU",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-70000107-1784969520107": {
+            "id": "end-node-line-70000107-1784969520107",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-CTU-70000105-1784969520105"
+            ],
+            "targetIds": [
+              "end-node-line-70000107-1784969520107"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000111-1784969520111",
+        "label": "报警与运行指示",
+        "note": "",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000109-1784969520109"
+            ]
+          },
+          "contact-70000109-1784969520109": {
+            "id": "contact-70000109-1784969520109",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000110-1784969520110": {
+            "id": "coil-70000110-1784969520110",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-70000109-1784969520109"
+            ],
+            "targetIds": [
+              "coil-70000110-1784969520110"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-70000118-1784969520118",
+        "label": "主线运行输出",
+        "note": "",
+        "height": 182,
+        "width": 1400,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-70000112-1784969520112"
+            ]
+          },
+          "contact-70000112-1784969520112": {
+            "id": "contact-70000112-1784969520112",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-70000113-1784969520113"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Run",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000113-1784969520113": {
+            "id": "negatedContact-70000113-1784969520113",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-70000112-1784969520112"
+            ],
+            "targetIds": [
+              "negatedContact-70000114-1784969520114"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000114-1784969520114": {
+            "id": "negatedContact-70000114-1784969520114",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000113-1784969520113"
+            ],
+            "targetIds": [
+              "negatedContact-70000115-1784969520115"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Downstream_Full",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-70000115-1784969520115": {
+            "id": "negatedContact-70000115-1784969520115",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-70000114-1784969520114"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Drive_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000116-1784969520116": {
+            "id": "coil-70000116-1784969520116",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Main_Line_Conveyor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-70000117-1784969520117": {
+            "id": "coil-70000117-1784969520117",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Run_Indicator",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-70000115-1784969520115"
+            ],
+            "targetIds": [
+              "coil-70000116-1784969520116",
+              "coil-70000117-1784969520117"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      }
+    ],
+    "variableList": [
+      {
+        "scope": "VAR",
+        "name": "Start_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "启动按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "START_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Stop_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "停止按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "STOP_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Reset_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障复位按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RESET_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "E_Stop",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "急停输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "E_STOP",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "System_Run",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "系统运行状态",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "SYSTEM_RUN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "总故障锁存",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障报警输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Run_Indicator",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "系统运行指示灯",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RUN_INDICATOR",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Product_Photoelectric",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线产品光电",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_PRODUCT_PHOTOELECTRIC",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Product_Photoelectric",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线产品光电",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_PRODUCT_PHOTOELECTRIC",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Downstream_Allow",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "下游允许信号",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOWNSTREAM_ALLOW",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Downstream_Full",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "下游满料信号",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOWNSTREAM_FULL",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Merge_Zone_Occupied",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "合流区占用信号",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MERGE_ZONE_OCCUPIED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Main_Line_Jam",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "主线堵料信号",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MAIN_LINE_JAM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Main_Line_Run_Feedback",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "主线运行反馈",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MAIN_LINE_RUN_FEEDBACK",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Drive_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线变频器故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_DRIVE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Drive_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线变频器故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_DRIVE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Main_Line_Drive_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "主线变频器故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MAIN_LINE_DRIVE_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Request",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线输送请求",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_REQUEST",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Request",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线输送请求",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_REQUEST",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Priority",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线当前优先",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_PRIORITY",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Priority",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线当前优先",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_PRIORITY",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Release",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线合流放行命令",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_RELEASE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Release",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线合流放行命令",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_RELEASE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Conveyor_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线输送机输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_CONVEYOR_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Conveyor_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线输送机输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_CONVEYOR_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Main_Line_Conveyor_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "主线输送机输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MAIN_LINE_CONVEYOR_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Merge_Release_Active",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "合流放行有效",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MERGE_RELEASE_ACTIVE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Merge_Interval_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "合流间隔完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MERGE_INTERVAL_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_A_Merge_Complete",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "A线合流完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_A_MERGE_COMPLETE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Line_B_Merge_Complete",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "B线合流完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LINE_B_MERGE_COMPLETE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Main_Line_Jam_Timeout",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "主线堵料超时",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MAIN_LINE_JAM_TIMEOUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Product_Count_Trigger",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "产品计数触发",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRODUCT_COUNT_TRIGGER",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Counter_Reset",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "产品计数复位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "COUNTER_RESET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Product_Batch_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "产品批次完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "PRODUCT_BATCH_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Int_Product_Batch_Set",
+        "type": "INT",
+        "initValue": "",
+        "address": "",
+        "comment": "产品批次设定数量",
+        "pathLabels": [
+          "base",
+          "INT"
+        ],
+        "id": "INT_PRODUCT_BATCH_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Int_Merged_Product_Count",
+        "type": "INT",
+        "initValue": "",
+        "address": "",
+        "comment": "合流产品累计数量",
+        "pathLabels": [
+          "base",
+          "INT"
+        ],
+        "id": "INT_MERGED_PRODUCT_COUNT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Merge_Interval_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "合流间隔设定时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_MERGE_INTERVAL_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Merge_Interval_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "合流间隔经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_MERGE_INTERVAL_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Main_Line_Jam_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "主线堵料超时设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_MAIN_LINE_JAM_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Main_Line_Jam_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "主线堵料经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_MAIN_LINE_JAM_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Merge_Interval",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "合流间隔定时器",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_MERGE_INTERVAL",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Main_Line_Jam",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "主线堵料定时器",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_MAIN_LINE_JAM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ctu_Merged_Product",
+        "type": "CTU",
+        "initValue": "",
+        "address": "",
+        "comment": "合流产品计数器",
+        "pathLabels": [
+          "Standard function blocks",
+          "CTU"
+        ],
+        "id": "CTU_MERGED_PRODUCT",
+        "isShow": true
+      }
+    ],
+    "pouType": "PROGRAM",
+    "pouName": "Dual_Conveyor_Merge_Sorting_Control",
+    "extensionPath": ""
+  }
+]

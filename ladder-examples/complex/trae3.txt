@@ -1,0 +1,848 @@
+[{
+  "segmentList": [
+    {
+      "id": "segment-10000001-1700000000001",
+      "isExpand": true,
+      "label": "故障汇总（防夹、锁异常、超时）",
+      "note": "任一异常触发系统故障，锁存状态",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": [
+            "contact-10000001-1700000000001",
+            "contact-10000002-1700000000001",
+            "contact-10000003-1700000000001",
+            "contact-10000004-1700000000001"
+          ]
+        },
+        "contact-10000001-1700000000001": {
+          "id": "contact-10000001-1700000000001",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Anti_Pinch", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000002-1700000000001": {
+          "id": "contact-10000002-1700000000001",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Door_Lock_Anomaly", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000003-1700000000001": {
+          "id": "contact-10000003-1700000000001",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Open_Timeout", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000004-1700000000001": {
+          "id": "contact-10000004-1700000000001",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Close_Timeout", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": [
+            "contact-10000001-1700000000001",
+            "contact-10000002-1700000000001",
+            "contact-10000003-1700000000001",
+            "contact-10000004-1700000000001"
+          ],
+          "targetIds": ["setcoil-10000005-1700000000001"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "setcoil-10000005-1700000000001": {
+          "id": "setcoil-10000005-1700000000001",
+          "type": "setCoil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "System_Fault", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000002-1700000000002",
+      "isExpand": true,
+      "label": "故障复位",
+      "note": "按下复位按钮清除系统故障",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000006-1700000000002"]
+        },
+        "contact-10000006-1700000000002": {
+          "id": "contact-10000006-1700000000002",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Reset_Button", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-10000006-1700000000002"],
+          "targetIds": ["resetcoil-10000007-1700000000002"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "resetcoil-10000007-1700000000002": {
+          "id": "resetcoil-10000007-1700000000002",
+          "type": "resetCoil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "System_Fault", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000003-1700000000003",
+      "isExpand": true,
+      "label": "开门请求与保持",
+      "note": "内外感应器并联触发开门保持，消防联动直接触发",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000008-1700000000003", "contact-10000011-1700000000003"]
+        },
+        "contact-10000008-1700000000003": {
+          "id": "contact-10000008-1700000000003",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000009-1700000000003", "contact-10000010-1700000000003"],
+          "varName": { "name": "", "value": "Auto_Mode", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000009-1700000000003": {
+          "id": "contact-10000009-1700000000003",
+          "type": "contact",
+          "sourceIds": ["contact-10000008-1700000000003"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Inner_Sensor", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000010-1700000000003": {
+          "id": "contact-10000010-1700000000003",
+          "type": "contact",
+          "sourceIds": ["contact-10000008-1700000000003"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Outer_Sensor", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000011-1700000000003": {
+          "id": "contact-10000011-1700000000003",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Fire_Linkage", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-10000009-1700000000003", "contact-10000010-1700000000003", "contact-10000011-1700000000003"],
+          "targetIds": ["setcoil-10000012-1700000000003"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "setcoil-10000012-1700000000003": {
+          "id": "setcoil-10000012-1700000000003",
+          "type": "setCoil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "Door_Open_Hold", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000004-1700000000004",
+      "isExpand": true,
+      "label": "开门到位清除保持",
+      "note": "门完全打开后复位开门请求保持状态",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000013-1700000000004"]
+        },
+        "contact-10000013-1700000000004": {
+          "id": "contact-10000013-1700000000004",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Door_Open_Limit", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-10000013-1700000000004"],
+          "targetIds": ["resetcoil-10000014-1700000000004"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "resetcoil-10000014-1700000000004": {
+          "id": "resetcoil-10000014-1700000000004",
+          "type": "resetCoil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "Door_Open_Hold", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000005-1700000000005",
+      "isExpand": true,
+      "label": "开门后延时关门",
+      "note": "开门到位且无防夹信号时启动关门延时",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000015-1700000000005"]
+        },
+        "contact-10000015-1700000000005": {
+          "id": "contact-10000015-1700000000005",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["negcontact-10000016-1700000000005"],
+          "varName": { "name": "", "value": "Door_Open_Limit", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000016-1700000000005": {
+          "id": "negcontact-10000016-1700000000005",
+          "type": "negatedContact",
+          "sourceIds": ["contact-10000015-1700000000005"],
+          "targetIds": ["negcontact-10000017-1700000000005"],
+          "varName": { "name": "", "value": "Human_Presence", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000017-1700000000005": {
+          "id": "negcontact-10000017-1700000000005",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000016-1700000000005"],
+          "targetIds": ["fbd-ton-10000018-1700000000005"],
+          "varName": { "name": "", "value": "Light_Curtain", "type": "BOOL", "scope": "VAR" }
+        },
+        "fbd-ton-10000018-1700000000005": {
+          "id": "fbd-ton-10000018-1700000000005",
+          "type": "FBDCompartment",
+          "sourceIds": ["negcontact-10000017-1700000000005"],
+          "targetIds": ["edit-node-rect"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "portInputs": [
+              { "name": "EN", "value": "", "type": "", "scope": "" },
+              { "name": "IN", "value": "", "type": "BOOL", "scope": "VAR_INPUT" },
+              { "name": "PT", "value": "Time_Hold_Set", "type": "TIME", "scope": "VAR_INPUT" }
+            ],
+            "portOutputs": [
+              { "name": "ENO", "value": "", "type": "", "scope": "" },
+              { "name": "Q", "value": "Ton_Door_Hold_Q", "type": "BOOL", "scope": "VAR_OUTPUT" },
+              { "name": "ET", "value": "Time_Hold_Elapsed", "type": "TIME", "scope": "VAR_OUTPUT" }
+            ],
+            "varName": { "name": "", "value": "Ton_Door_Hold", "type": "TON", "scope": "VAR" }
+          }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["fbd-ton-10000018-1700000000005"],
+          "targetIds": ["endline-10000019-1700000000005"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "endline-10000019-1700000000005": {
+          "id": "endline-10000019-1700000000005",
+          "type": "endLine",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000006-1700000000006",
+      "isExpand": true,
+      "label": "开门方向切换延时",
+      "note": "手自动模式下，确认关门电机停止后延时，保护电机",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000020-1700000000006", "contact-10000022-1700000000006"]
+        },
+        "contact-10000020-1700000000006": {
+          "id": "contact-10000020-1700000000006",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000021-1700000000006"],
+          "varName": { "name": "", "value": "Auto_Mode", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000021-1700000000006": {
+          "id": "contact-10000021-1700000000006",
+          "type": "contact",
+          "sourceIds": ["contact-10000020-1700000000006"],
+          "targetIds": ["negcontact-10000024-1700000000006"],
+          "varName": { "name": "", "value": "Door_Open_Hold", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000022-1700000000006": {
+          "id": "contact-10000022-1700000000006",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000023-1700000000006"],
+          "varName": { "name": "", "value": "Manual_Mode", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000023-1700000000006": {
+          "id": "contact-10000023-1700000000006",
+          "type": "contact",
+          "sourceIds": ["contact-10000022-1700000000006"],
+          "targetIds": ["negcontact-10000024-1700000000006"],
+          "varName": { "name": "", "value": "Open_Button_Man", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000024-1700000000006": {
+          "id": "negcontact-10000024-1700000000006",
+          "type": "negatedContact",
+          "sourceIds": ["contact-10000021-1700000000006", "contact-10000023-1700000000006"],
+          "targetIds": ["fbd-ton-10000025-1700000000006"],
+          "varName": { "name": "", "value": "Close_Motor", "type": "BOOL", "scope": "VAR" }
+        },
+        "fbd-ton-10000025-1700000000006": {
+          "id": "fbd-ton-10000025-1700000000006",
+          "type": "FBDCompartment",
+          "sourceIds": ["negcontact-10000024-1700000000006"],
+          "targetIds": ["edit-node-rect"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "portInputs": [
+              { "name": "EN", "value": "", "type": "", "scope": "" },
+              { "name": "IN", "value": "", "type": "BOOL", "scope": "VAR_INPUT" },
+              { "name": "PT", "value": "Time_Dir_Open_Set", "type": "TIME", "scope": "VAR_INPUT" }
+            ],
+            "portOutputs": [
+              { "name": "ENO", "value": "", "type": "", "scope": "" },
+              { "name": "Q", "value": "Ton_Dir_Open_Q", "type": "BOOL", "scope": "VAR_OUTPUT" },
+              { "name": "ET", "value": "Time_Dir_Open_Elapsed", "type": "TIME", "scope": "VAR_OUTPUT" }
+            ],
+            "varName": { "name": "", "value": "Ton_Dir_Open", "type": "TON", "scope": "VAR" }
+          }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["fbd-ton-10000025-1700000000006"],
+          "targetIds": ["endline-10000026-1700000000006"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "endline-10000026-1700000000006": {
+          "id": "endline-10000026-1700000000006",
+          "type": "endLine",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000007-1700000000007",
+      "isExpand": true,
+      "label": "关门方向切换延时",
+      "note": "手自动模式下，确认开门电机停止后延时",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000027-1700000000007", "contact-10000029-1700000000007"]
+        },
+        "contact-10000027-1700000000007": {
+          "id": "contact-10000027-1700000000007",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000028-1700000000007"],
+          "varName": { "name": "", "value": "Auto_Mode", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000028-1700000000007": {
+          "id": "contact-10000028-1700000000007",
+          "type": "contact",
+          "sourceIds": ["contact-10000027-1700000000007"],
+          "targetIds": ["negcontact-10000031-1700000000007"],
+          "varName": { "name": "", "value": "Ton_Door_Hold_Q", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000029-1700000000007": {
+          "id": "contact-10000029-1700000000007",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000030-1700000000007"],
+          "varName": { "name": "", "value": "Manual_Mode", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000030-1700000000007": {
+          "id": "contact-10000030-1700000000007",
+          "type": "contact",
+          "sourceIds": ["contact-10000029-1700000000007"],
+          "targetIds": ["negcontact-10000031-1700000000007"],
+          "varName": { "name": "", "value": "Close_Button_Man", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000031-1700000000007": {
+          "id": "negcontact-10000031-1700000000007",
+          "type": "negatedContact",
+          "sourceIds": ["contact-10000028-1700000000007", "contact-10000030-1700000000007"],
+          "targetIds": ["fbd-ton-10000032-1700000000007"],
+          "varName": { "name": "", "value": "Open_Motor", "type": "BOOL", "scope": "VAR" }
+        },
+        "fbd-ton-10000032-1700000000007": {
+          "id": "fbd-ton-10000032-1700000000007",
+          "type": "FBDCompartment",
+          "sourceIds": ["negcontact-10000031-1700000000007"],
+          "targetIds": ["edit-node-rect"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "portInputs": [
+              { "name": "EN", "value": "", "type": "", "scope": "" },
+              { "name": "IN", "value": "", "type": "BOOL", "scope": "VAR_INPUT" },
+              { "name": "PT", "value": "Time_Dir_Close_Set", "type": "TIME", "scope": "VAR_INPUT" }
+            ],
+            "portOutputs": [
+              { "name": "ENO", "value": "", "type": "", "scope": "" },
+              { "name": "Q", "value": "Ton_Dir_Close_Q", "type": "BOOL", "scope": "VAR_OUTPUT" },
+              { "name": "ET", "value": "Time_Dir_Close_Elapsed", "type": "TIME", "scope": "VAR_OUTPUT" }
+            ],
+            "varName": { "name": "", "value": "Ton_Dir_Close", "type": "TON", "scope": "VAR" }
+          }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["fbd-ton-10000032-1700000000007"],
+          "targetIds": ["endline-10000033-1700000000007"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "endline-10000033-1700000000007": {
+          "id": "endline-10000033-1700000000007",
+          "type": "endLine",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000008-1700000000008",
+      "isExpand": true,
+      "label": "开门电机互锁控制",
+      "note": "多重安全互锁：门锁、限位、急停、故障及关门电机互锁",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000034-1700000000008"]
+        },
+        "contact-10000034-1700000000008": {
+          "id": "contact-10000034-1700000000008",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000035-1700000000008"],
+          "varName": { "name": "", "value": "Ton_Dir_Open_Q", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000035-1700000000008": {
+          "id": "contact-10000035-1700000000008",
+          "type": "contact",
+          "sourceIds": ["contact-10000034-1700000000008"],
+          "targetIds": ["negcontact-10000036-1700000000008"],
+          "varName": { "name": "", "value": "Door_Lock_Status", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000036-1700000000008": {
+          "id": "negcontact-10000036-1700000000008",
+          "type": "negatedContact",
+          "sourceIds": ["contact-10000035-1700000000008"],
+          "targetIds": ["negcontact-10000037-1700000000008"],
+          "varName": { "name": "", "value": "Door_Open_Limit", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000037-1700000000008": {
+          "id": "negcontact-10000037-1700000000008",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000036-1700000000008"],
+          "targetIds": ["negcontact-10000038-1700000000008"],
+          "varName": { "name": "", "value": "E_Stop", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000038-1700000000008": {
+          "id": "negcontact-10000038-1700000000008",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000037-1700000000008"],
+          "targetIds": ["negcontact-10000039-1700000000008"],
+          "varName": { "name": "", "value": "System_Fault", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000039-1700000000008": {
+          "id": "negcontact-10000039-1700000000008",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000038-1700000000008"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Close_Motor", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["negcontact-10000039-1700000000008"],
+          "targetIds": ["coil-10000040-1700000000008"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "coil-10000040-1700000000008": {
+          "id": "coil-10000040-1700000000008",
+          "type": "coil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "Open_Motor", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000009-1700000000009",
+      "isExpand": true,
+      "label": "关门电机互锁控制",
+      "note": "关门时增加防夹、光幕多支路安全互锁",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000041-1700000000009"]
+        },
+        "contact-10000041-1700000000009": {
+          "id": "contact-10000041-1700000000009",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["contact-10000042-1700000000009"],
+          "varName": { "name": "", "value": "Ton_Dir_Close_Q", "type": "BOOL", "scope": "VAR" }
+        },
+        "contact-10000042-1700000000009": {
+          "id": "contact-10000042-1700000000009",
+          "type": "contact",
+          "sourceIds": ["contact-10000041-1700000000009"],
+          "targetIds": ["negcontact-10000043-1700000000009"],
+          "varName": { "name": "", "value": "Door_Lock_Status", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000043-1700000000009": {
+          "id": "negcontact-10000043-1700000000009",
+          "type": "negatedContact",
+          "sourceIds": ["contact-10000042-1700000000009"],
+          "targetIds": ["negcontact-10000044-1700000000009"],
+          "varName": { "name": "", "value": "Door_Close_Limit", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000044-1700000000009": {
+          "id": "negcontact-10000044-1700000000009",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000043-1700000000009"],
+          "targetIds": ["negcontact-10000045-1700000000009"],
+          "varName": { "name": "", "value": "Human_Presence", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000045-1700000000009": {
+          "id": "negcontact-10000045-1700000000009",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000044-1700000000009"],
+          "targetIds": ["negcontact-10000046-1700000000009"],
+          "varName": { "name": "", "value": "Light_Curtain", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000046-1700000000009": {
+          "id": "negcontact-10000046-1700000000009",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000045-1700000000009"],
+          "targetIds": ["negcontact-10000047-1700000000009"],
+          "varName": { "name": "", "value": "E_Stop", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000047-1700000000009": {
+          "id": "negcontact-10000047-1700000000009",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000046-1700000000009"],
+          "targetIds": ["negcontact-10000048-1700000000009"],
+          "varName": { "name": "", "value": "System_Fault", "type": "BOOL", "scope": "VAR" }
+        },
+        "negcontact-10000048-1700000000009": {
+          "id": "negcontact-10000048-1700000000009",
+          "type": "negatedContact",
+          "sourceIds": ["negcontact-10000047-1700000000009"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "Open_Motor", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["negcontact-10000048-1700000000009"],
+          "targetIds": ["coil-10000049-1700000000009"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "coil-10000049-1700000000009": {
+          "id": "coil-10000049-1700000000009",
+          "type": "coil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "Close_Motor", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000010-1700000000010",
+      "isExpand": true,
+      "label": "开门超时监测",
+      "note": "电机运行过久未到达限位则触发超时",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000050-1700000000010"]
+        },
+        "contact-10000050-1700000000010": {
+          "id": "contact-10000050-1700000000010",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["fbd-ton-10000051-1700000000010"],
+          "varName": { "name": "", "value": "Open_Motor", "type": "BOOL", "scope": "VAR" }
+        },
+        "fbd-ton-10000051-1700000000010": {
+          "id": "fbd-ton-10000051-1700000000010",
+          "type": "FBDCompartment",
+          "sourceIds": ["contact-10000050-1700000000010"],
+          "targetIds": ["edit-node-rect"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "portInputs": [
+              { "name": "EN", "value": "", "type": "", "scope": "" },
+              { "name": "IN", "value": "", "type": "BOOL", "scope": "VAR_INPUT" },
+              { "name": "PT", "value": "Time_Open_Time_Set", "type": "TIME", "scope": "VAR_INPUT" }
+            ],
+            "portOutputs": [
+              { "name": "ENO", "value": "", "type": "", "scope": "" },
+              { "name": "Q", "value": "Open_Timeout", "type": "BOOL", "scope": "VAR_OUTPUT" },
+              { "name": "ET", "value": "Time_Open_Time_Elapsed", "type": "TIME", "scope": "VAR_OUTPUT" }
+            ],
+            "varName": { "name": "", "value": "Ton_Open_Time", "type": "TON", "scope": "VAR" }
+          }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["fbd-ton-10000051-1700000000010"],
+          "targetIds": ["endline-10000052-1700000000010"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "endline-10000052-1700000000010": {
+          "id": "endline-10000052-1700000000010",
+          "type": "endLine",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000011-1700000000011",
+      "isExpand": true,
+      "label": "关门超时监测",
+      "note": "电机运行过久未到达限位则触发超时",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000053-1700000000011"]
+        },
+        "contact-10000053-1700000000011": {
+          "id": "contact-10000053-1700000000011",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["fbd-ton-10000054-1700000000011"],
+          "varName": { "name": "", "value": "Close_Motor", "type": "BOOL", "scope": "VAR" }
+        },
+        "fbd-ton-10000054-1700000000011": {
+          "id": "fbd-ton-10000054-1700000000011",
+          "type": "FBDCompartment",
+          "sourceIds": ["contact-10000053-1700000000011"],
+          "targetIds": ["edit-node-rect"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "portInputs": [
+              { "name": "EN", "value": "", "type": "", "scope": "" },
+              { "name": "IN", "value": "", "type": "BOOL", "scope": "VAR_INPUT" },
+              { "name": "PT", "value": "Time_Close_Time_Set", "type": "TIME", "scope": "VAR_INPUT" }
+            ],
+            "portOutputs": [
+              { "name": "ENO", "value": "", "type": "", "scope": "" },
+              { "name": "Q", "value": "Close_Timeout", "type": "BOOL", "scope": "VAR_OUTPUT" },
+              { "name": "ET", "value": "Time_Close_Time_Elapsed", "type": "TIME", "scope": "VAR_OUTPUT" }
+            ],
+            "varName": { "name": "", "value": "Ton_Close_Time", "type": "TON", "scope": "VAR" }
+          }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["fbd-ton-10000054-1700000000011"],
+          "targetIds": ["endline-10000055-1700000000011"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "endline-10000055-1700000000011": {
+          "id": "endline-10000055-1700000000011",
+          "type": "endLine",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-10000012-1700000000012",
+      "isExpand": true,
+      "label": "报警输出",
+      "note": "系统故障时驱动报警指示",
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-10000056-1700000000012"]
+        },
+        "contact-10000056-1700000000012": {
+          "id": "contact-10000056-1700000000012",
+          "type": "contact",
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"],
+          "varName": { "name": "", "value": "System_Fault", "type": "BOOL", "scope": "VAR" }
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-10000056-1700000000012"],
+          "targetIds": ["coil-10000057-1700000000012"],
+          "children": [
+            { "id": "edit-node-rect-left-port", "type": "node:edgePort", "side": "left", "parentId": "edit-node-rect", "cssClasses": ["contact-left-port"], "position": { "x": -45, "y": 0 }, "size": { "width": 45, "height": 22 } },
+            { "id": "edit-node-rect-bottom-port", "type": "node:edgeBottomPort", "side": "bottom", "parentId": "edit-node-rect", "cssClasses": ["contact-bottom-port"], "position": { "x": 0, "y": 0 }, "size": { "width": 70, "height": 22 } }
+          ]
+        },
+        "coil-10000057-1700000000012": {
+          "id": "coil-10000057-1700000000012",
+          "type": "coil",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": [],
+          "varName": { "name": "", "value": "Alarm", "type": "BOOL", "scope": "VAR" }
+        }
+      },
+      "edgesObj": {}
+    }
+  ],
+  "variableList": [
+    { "scope": "VAR", "name": "Anti_Pinch", "type": "BOOL", "initValue": "", "address": "", "comment": "防夹信号", "pathLabels": ["base", "BOOL"], "id": "ANTI_PINCH", "isShow": true },
+    { "scope": "VAR", "name": "Door_Lock_Anomaly", "type": "BOOL", "initValue": "", "address": "", "comment": "门锁异常", "pathLabels": ["base", "BOOL"], "id": "DOOR_LOCK_ANOMALY", "isShow": true },
+    { "scope": "VAR", "name": "Open_Timeout", "type": "BOOL", "initValue": "", "address": "", "comment": "开门超时", "pathLabels": ["base", "BOOL"], "id": "OPEN_TIMEOUT", "isShow": true },
+    { "scope": "VAR", "name": "Close_Timeout", "type": "BOOL", "initValue": "", "address": "", "comment": "关门超时", "pathLabels": ["base", "BOOL"], "id": "CLOSE_TIMEOUT", "isShow": true },
+    { "scope": "VAR", "name": "System_Fault", "type": "BOOL", "initValue": "", "address": "", "comment": "系统故障", "pathLabels": ["base", "BOOL"], "id": "SYSTEM_FAULT", "isShow": true },
+    { "scope": "VAR", "name": "Reset_Button", "type": "BOOL", "initValue": "", "address": "", "comment": "复位按钮", "pathLabels": ["base", "BOOL"], "id": "RESET_BUTTON", "isShow": true },
+    { "scope": "VAR", "name": "Auto_Mode", "type": "BOOL", "initValue": "", "address": "", "comment": "自动模式", "pathLabels": ["base", "BOOL"], "id": "AUTO_MODE", "isShow": true },
+    { "scope": "VAR", "name": "Inner_Sensor", "type": "BOOL", "initValue": "", "address": "", "comment": "内侧感应器", "pathLabels": ["base", "BOOL"], "id": "INNER_SENSOR", "isShow": true },
+    { "scope": "VAR", "name": "Outer_Sensor", "type": "BOOL", "initValue": "", "address": "", "comment": "外侧感应器", "pathLabels": ["base", "BOOL"], "id": "OUTER_SENSOR", "isShow": true },
+    { "scope": "VAR", "name": "Fire_Linkage", "type": "BOOL", "initValue": "", "address": "", "comment": "消防联动", "pathLabels": ["base", "BOOL"], "id": "FIRE_LINKAGE", "isShow": true },
+    { "scope": "VAR", "name": "Door_Open_Hold", "type": "BOOL", "initValue": "", "address": "", "comment": "开门保持状态", "pathLabels": ["base", "BOOL"], "id": "DOOR_OPEN_HOLD", "isShow": true },
+    { "scope": "VAR", "name": "Door_Open_Limit", "type": "BOOL", "initValue": "", "address": "", "comment": "门开到位限位", "pathLabels": ["base", "BOOL"], "id": "DOOR_OPEN_LIMIT", "isShow": true },
+    { "scope": "VAR", "name": "Human_Presence", "type": "BOOL", "initValue": "", "address": "", "comment": "有人保护", "pathLabels": ["base", "BOOL"], "id": "HUMAN_PRESENCE", "isShow": true },
+    { "scope": "VAR", "name": "Light_Curtain", "type": "BOOL", "initValue": "", "address": "", "comment": "光幕保护", "pathLabels": ["base", "BOOL"], "id": "LIGHT_CURTAIN", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Door_Hold", "type": "TON", "initValue": "", "address": "", "comment": "开门后保持定时器", "pathLabels": ["Standard function blocks", "TON"], "id": "TON_DOOR_HOLD", "isShow": true },
+    { "scope": "VAR", "name": "Time_Hold_Set", "type": "TIME", "initValue": "", "address": "", "comment": "开门保持设定时间", "pathLabels": ["base", "TIME"], "id": "TIME_HOLD_SET", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Door_Hold_Q", "type": "BOOL", "initValue": "", "address": "", "comment": "开门保持完成", "pathLabels": ["base", "BOOL"], "id": "TON_DOOR_HOLD_Q", "isShow": true },
+    { "scope": "VAR", "name": "Time_Hold_Elapsed", "type": "TIME", "initValue": "", "address": "", "comment": "开门保持流逝时间", "pathLabels": ["base", "TIME"], "id": "TIME_HOLD_ELAPSED", "isShow": true },
+    { "scope": "VAR", "name": "Manual_Mode", "type": "BOOL", "initValue": "", "address": "", "comment": "手动模式", "pathLabels": ["base", "BOOL"], "id": "MANUAL_MODE", "isShow": true },
+    { "scope": "VAR", "name": "Open_Button_Man", "type": "BOOL", "initValue": "", "address": "", "comment": "手动开门按钮", "pathLabels": ["base", "BOOL"], "id": "OPEN_BUTTON_MAN", "isShow": true },
+    { "scope": "VAR", "name": "Close_Motor", "type": "BOOL", "initValue": "", "address": "", "comment": "关门电机", "pathLabels": ["base", "BOOL"], "id": "CLOSE_MOTOR", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Dir_Open", "type": "TON", "initValue": "", "address": "", "comment": "开门方向切换延时器", "pathLabels": ["Standard function blocks", "TON"], "id": "TON_DIR_OPEN", "isShow": true },
+    { "scope": "VAR", "name": "Time_Dir_Open_Set", "type": "TIME", "initValue": "", "address": "", "comment": "开门方向延时设定", "pathLabels": ["base", "TIME"], "id": "TIME_DIR_OPEN_SET", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Dir_Open_Q", "type": "BOOL", "initValue": "", "address": "", "comment": "开门方向延时完成", "pathLabels": ["base", "BOOL"], "id": "TON_DIR_OPEN_Q", "isShow": true },
+    { "scope": "VAR", "name": "Time_Dir_Open_Elapsed", "type": "TIME", "initValue": "", "address": "", "comment": "开门方向延时流逝", "pathLabels": ["base", "TIME"], "id": "TIME_DIR_OPEN_ELAPSED", "isShow": true },
+    { "scope": "VAR", "name": "Close_Button_Man", "type": "BOOL", "initValue": "", "address": "", "comment": "手动关门按钮", "pathLabels": ["base", "BOOL"], "id": "CLOSE_BUTTON_MAN", "isShow": true },
+    { "scope": "VAR", "name": "Open_Motor", "type": "BOOL", "initValue": "", "address": "", "comment": "开门电机", "pathLabels": ["base", "BOOL"], "id": "OPEN_MOTOR", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Dir_Close", "type": "TON", "initValue": "", "address": "", "comment": "关门方向切换延时器", "pathLabels": ["Standard function blocks", "TON"], "id": "TON_DIR_CLOSE", "isShow": true },
+    { "scope": "VAR", "name": "Time_Dir_Close_Set", "type": "TIME", "initValue": "", "address": "", "comment": "关门方向延时设定", "pathLabels": ["base", "TIME"], "id": "TIME_DIR_CLOSE_SET", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Dir_Close_Q", "type": "BOOL", "initValue": "", "address": "", "comment": "关门方向延时完成", "pathLabels": ["base", "BOOL"], "id": "TON_DIR_CLOSE_Q", "isShow": true },
+    { "scope": "VAR", "name": "Time_Dir_Close_Elapsed", "type": "TIME", "initValue": "", "address": "", "comment": "关门方向延时流逝", "pathLabels": ["base", "TIME"], "id": "TIME_DIR_CLOSE_ELAPSED", "isShow": true },
+    { "scope": "VAR", "name": "Door_Lock_Status", "type": "BOOL", "initValue": "", "address": "", "comment": "门锁状态(解锁为1)", "pathLabels": ["base", "BOOL"], "id": "DOOR_LOCK_STATUS", "isShow": true },
+    { "scope": "VAR", "name": "E_Stop", "type": "BOOL", "initValue": "", "address": "", "comment": "急停", "pathLabels": ["base", "BOOL"], "id": "E_STOP", "isShow": true },
+    { "scope": "VAR", "name": "Door_Close_Limit", "type": "BOOL", "initValue": "", "address": "", "comment": "门关到位限位", "pathLabels": ["base", "BOOL"], "id": "DOOR_CLOSE_LIMIT", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Open_Time", "type": "TON", "initValue": "", "address": "", "comment": "开门超时监测", "pathLabels": ["Standard function blocks", "TON"], "id": "TON_OPEN_TIME", "isShow": true },
+    { "scope": "VAR", "name": "Time_Open_Time_Set", "type": "TIME", "initValue": "", "address": "", "comment": "开门超时设定时间", "pathLabels": ["base", "TIME"], "id": "TIME_OPEN_TIME_SET", "isShow": true },
+    { "scope": "VAR", "name": "Time_Open_Time_Elapsed", "type": "TIME", "initValue": "", "address": "", "comment": "开门超时流逝时间", "pathLabels": ["base", "TIME"], "id": "TIME_OPEN_TIME_ELAPSED", "isShow": true },
+    { "scope": "VAR", "name": "Ton_Close_Time", "type": "TON", "initValue": "", "address": "", "comment": "关门超时监测", "pathLabels": ["Standard function blocks", "TON"], "id": "TON_CLOSE_TIME", "isShow": true },
+    { "scope": "VAR", "name": "Time_Close_Time_Set", "type": "TIME", "initValue": "", "address": "", "comment": "关门超时设定时间", "pathLabels": ["base", "TIME"], "id": "TIME_CLOSE_TIME_SET", "isShow": true },
+    { "scope": "VAR", "name": "Time_Close_Time_Elapsed", "type": "TIME", "initValue": "", "address": "", "comment": "关门超时流逝时间", "pathLabels": ["base", "TIME"], "id": "TIME_CLOSE_TIME_ELAPSED", "isShow": true },
+    { "scope": "VAR", "name": "Alarm", "type": "BOOL", "initValue": "", "address": "", "comment": "报警输出", "pathLabels": ["base", "BOOL"], "id": "ALARM", "isShow": true }
+  ],
+  "pouType": "PROGRAM",
+  "pouName": "MAIN",
+  "extensionPath": ""
+}]

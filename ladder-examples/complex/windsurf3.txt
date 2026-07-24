@@ -1,0 +1,1975 @@
+[{
+  "segmentList": [
+    {
+      "id": "segment-84729103-1785143220000",
+      "isExpand": true,
+      "label": "开门请求并联触发",
+      "note": "内外侧感应器并联触发开门请求",
+      "height": 82,
+      "width": 500,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729104-1785143220000", "contact-84729105-1785143220000"]
+        },
+        "contact-84729104-1785143220000": {
+          "id": "contact-84729104-1785143220000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Inner_Sensor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729105-1785143220000": {
+          "id": "contact-84729105-1785143220000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Outer_Sensor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729104-1785143220000", "contact-84729105-1785143220000"],
+          "targetIds": ["setCoil-84729106-1785143220000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "setCoil-84729106-1785143220000": {
+          "id": "setCoil-84729106-1785143220000",
+          "type": "setCoil",
+          "varName": {
+            "name": "",
+            "value": "Door_Open_Request",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729203-1785143221000",
+      "isExpand": true,
+      "label": "开门互锁条件",
+      "note": "门开到位、门关到位、有人保护、光幕、消防联动、急停、门锁状态多支路互锁",
+      "height": 300,
+      "width": 900,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729204-1785143221000", "contact-84729205-1785143221000", "contact-84729206-1785143221000", "contact-84729207-1785143221000", "contact-84729208-1785143221000", "contact-84729209-1785143221000", "contact-84729210-1785143221000"]
+        },
+        "contact-84729204-1785143221000": {
+          "id": "contact-84729204-1785143221000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Door_Fully_Open",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729205-1785143221000": {
+          "id": "contact-84729205-1785143221000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Door_Fully_Closed",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729206-1785143221000": {
+          "id": "contact-84729206-1785143221000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Person_Protection",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729207-1785143221000": {
+          "id": "contact-84729207-1785143221000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Light_Curtain_OK",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729208-1785143221000": {
+          "id": "contact-84729208-1785143221000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Fire_Linkage",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729209-1785143221000": {
+          "id": "contact-84729209-1785143221000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "E_Stop",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729210-1785143221000": {
+          "id": "contact-84729210-1785143221000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Door_Lock_OK",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729204-1785143221000", "contact-84729205-1785143221000", "contact-84729206-1785143221000", "contact-84729207-1785143221000", "contact-84729208-1785143221000", "contact-84729209-1785143221000", "contact-84729210-1785143221000"],
+          "targetIds": ["coil-84729211-1785143221000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "coil-84729211-1785143221000": {
+          "id": "coil-84729211-1785143221000",
+          "type": "coil",
+          "varName": {
+            "name": "",
+            "value": "Interlock_OK",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729303-1785143222000",
+      "isExpand": true,
+      "label": "开门电机控制",
+      "note": "开门请求且互锁正常且自动模式时驱动开门电机",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729304-1785143222000", "contact-84729305-1785143222000", "contact-84729306-1785143222000"]
+        },
+        "contact-84729304-1785143222000": {
+          "id": "contact-84729304-1785143222000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Door_Open_Request",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729305-1785143222000": {
+          "id": "contact-84729305-1785143222000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Interlock_OK",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729306-1785143222000": {
+          "id": "contact-84729306-1785143222000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Auto_Mode",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729304-1785143222000", "contact-84729305-1785143222000", "contact-84729306-1785143222000"],
+          "targetIds": ["negatedContact-84729307-1785143222000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "negatedContact-84729307-1785143222000": {
+          "id": "negatedContact-84729307-1785143222000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Close_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": ["coil-84729308-1785143222000"]
+        },
+        "coil-84729308-1785143222000": {
+          "id": "coil-84729308-1785143222000",
+          "type": "coil",
+          "varName": {
+            "name": "",
+            "value": "Open_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["negatedContact-84729307-1785143222000"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729403-1785143223000",
+      "isExpand": true,
+      "label": "开门到位复位请求并启动延时关门",
+      "height": 218,
+      "width": 800,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729404-1785143223000", "contact-84729405-1785143223000"]
+        },
+        "contact-84729404-1785143223000": {
+          "id": "contact-84729404-1785143223000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Door_Fully_Open",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729405-1785143223000": {
+          "id": "contact-84729405-1785143223000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Auto_Mode",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729404-1785143223000", "contact-84729405-1785143223000"],
+          "targetIds": ["resetCoil-84729406-1785143223000", "FBD-compartment-TON-84729407-1785143223000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "resetCoil-84729406-1785143223000": {
+          "id": "resetCoil-84729406-1785143223000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Door_Open_Request",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "FBD-compartment-TON-84729407-1785143223000": {
+          "id": "FBD-compartment-TON-84729407-1785143223000",
+          "type": "FBDCompartment",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": ["edit-node-rect-2"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "varName": {
+              "name": "",
+              "value": "Ton_Close_Delay",
+              "type": "TON",
+              "scope": "VAR"
+            },
+            "portInputs": [
+              {
+                "name": "EN",
+                "value": "",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "IN",
+                "value": "TRUE",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "PT",
+                "value": "Time_Close_Delay_Set",
+                "scope": "",
+                "type": "TIME"
+              }
+            ],
+            "portOutputs": [
+              {
+                "name": "ENO",
+                "value": "",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "Q",
+                "value": "Ton_Close_Delay_Q",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "ET",
+                "value": "Ton_Close_Delay_ET",
+                "scope": "",
+                "type": "TIME"
+              }
+            ]
+          }
+        },
+        "edit-node-rect-2": {
+          "id": "edit-node-rect-2",
+          "type": "editRect",
+          "sourceIds": ["FBD-compartment-TON-84729407-1785143223000"],
+          "targetIds": ["end-node-line-84729408-1785143223000"],
+          "children": [
+            {
+              "id": "edit-node-rect-2-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect-2",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-2-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect-2",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "end-node-line-84729408-1785143223000": {
+          "id": "end-node-line-84729408-1785143223000",
+          "type": "endLine",
+          "sourceIds": ["edit-node-rect-2"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729503-1785143224000",
+      "isExpand": true,
+      "label": "关门电机控制",
+      "note": "延时到且互锁正常且自动模式时驱动关门电机",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729504-1785143224000", "contact-84729505-1785143224000", "contact-84729506-1785143224000"]
+        },
+        "contact-84729504-1785143224000": {
+          "id": "contact-84729504-1785143224000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Ton_Close_Delay_Q",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729505-1785143224000": {
+          "id": "contact-84729505-1785143224000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Interlock_OK",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729506-1785143224000": {
+          "id": "contact-84729506-1785143224000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Auto_Mode",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729504-1785143224000", "contact-84729505-1785143224000", "contact-84729506-1785143224000"],
+          "targetIds": ["negatedContact-84729507-1785143224000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "negatedContact-84729507-1785143224000": {
+          "id": "negatedContact-84729507-1785143224000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Open_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": ["coil-84729508-1785143224000"]
+        },
+        "coil-84729508-1785143224000": {
+          "id": "coil-84729508-1785143224000",
+          "type": "coil",
+          "varName": {
+            "name": "",
+            "value": "Close_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["negatedContact-84729507-1785143224000"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729603-1785143225000",
+      "isExpand": true,
+      "label": "关门到位停止电机并复位定时器",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729604-1785143225000"]
+        },
+        "contact-84729604-1785143225000": {
+          "id": "contact-84729604-1785143225000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Door_Fully_Closed",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729604-1785143225000"],
+          "targetIds": ["resetCoil-84729605-1785143225000", "resetCoil-84729606-1785143225000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "resetCoil-84729605-1785143225000": {
+          "id": "resetCoil-84729605-1785143225000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Close_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "resetCoil-84729606-1785143225000": {
+          "id": "resetCoil-84729606-1785143225000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Open_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729703-1785143226000",
+      "isExpand": true,
+      "label": "防夹检测故障",
+      "note": "防夹信号触发时锁存故障",
+      "height": 82,
+      "width": 500,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729704-1785143226000"]
+        },
+        "contact-84729704-1785143226000": {
+          "id": "contact-84729704-1785143226000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Anti_Pinch",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729704-1785143226000"],
+          "targetIds": ["setCoil-84729705-1785143226000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "setCoil-84729705-1785143226000": {
+          "id": "setCoil-84729705-1785143226000",
+          "type": "setCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Anti_Pinch",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729803-1785143227000",
+      "isExpand": true,
+      "label": "开门超时故障",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729804-1785143227000", "contact-84729805-1785143227000"]
+        },
+        "contact-84729804-1785143227000": {
+          "id": "contact-84729804-1785143227000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Open_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729805-1785143227000": {
+          "id": "contact-84729805-1785143227000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Door_Fully_Open",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729804-1785143227000", "contact-84729805-1785143227000"],
+          "targetIds": ["FBD-compartment-TON-84729806-1785143227000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "FBD-compartment-TON-84729806-1785143227000": {
+          "id": "FBD-compartment-TON-84729806-1785143227000",
+          "type": "FBDCompartment",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": ["edit-node-rect-2"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "varName": {
+              "name": "",
+              "value": "Ton_Open_Timeout",
+              "type": "TON",
+              "scope": "VAR"
+            },
+            "portInputs": [
+              {
+                "name": "EN",
+                "value": "",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "IN",
+                "value": "TRUE",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "PT",
+                "value": "Time_Open_Timeout_Set",
+                "scope": "",
+                "type": "TIME"
+              }
+            ],
+            "portOutputs": [
+              {
+                "name": "ENO",
+                "value": "",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "Q",
+                "value": "Ton_Open_Timeout_Q",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "ET",
+                "value": "Ton_Open_Timeout_ET",
+                "scope": "",
+                "type": "TIME"
+              }
+            ]
+          }
+        },
+        "edit-node-rect-2": {
+          "id": "edit-node-rect-2",
+          "type": "editRect",
+          "sourceIds": ["FBD-compartment-TON-84729806-1785143227000"],
+          "targetIds": ["setCoil-84729807-1785143227000"],
+          "children": [
+            {
+              "id": "edit-node-rect-2-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect-2",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-2-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect-2",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "setCoil-84729807-1785143227000": {
+          "id": "setCoil-84729807-1785143227000",
+          "type": "setCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Open_Timeout",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect-2"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84729903-1785143228000",
+      "isExpand": true,
+      "label": "关门超时故障",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84729904-1785143228000", "contact-84729905-1785143228000"]
+        },
+        "contact-84729904-1785143228000": {
+          "id": "contact-84729904-1785143228000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Close_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84729905-1785143228000": {
+          "id": "contact-84729905-1785143228000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Door_Fully_Closed",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84729904-1785143228000", "contact-84729905-1785143228000"],
+          "targetIds": ["FBD-compartment-TON-84729906-1785143228000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "FBD-compartment-TON-84729906-1785143228000": {
+          "id": "FBD-compartment-TON-84729906-1785143228000",
+          "type": "FBDCompartment",
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": ["edit-node-rect-2"],
+          "childrenNode": {
+            "type": "TON",
+            "isFunction": false,
+            "varName": {
+              "name": "",
+              "value": "Ton_Close_Timeout",
+              "type": "TON",
+              "scope": "VAR"
+            },
+            "portInputs": [
+              {
+                "name": "EN",
+                "value": "",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "IN",
+                "value": "TRUE",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "PT",
+                "value": "Time_Close_Timeout_Set",
+                "scope": "",
+                "type": "TIME"
+              }
+            ],
+            "portOutputs": [
+              {
+                "name": "ENO",
+                "value": "",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "Q",
+                "value": "Ton_Close_Timeout_Q",
+                "scope": "",
+                "type": "BOOL"
+              },
+              {
+                "name": "ET",
+                "value": "Ton_Close_Timeout_ET",
+                "scope": "",
+                "type": "TIME"
+              }
+            ]
+          }
+        },
+        "edit-node-rect-2": {
+          "id": "edit-node-rect-2",
+          "type": "editRect",
+          "sourceIds": ["FBD-compartment-TON-84729906-1785143228000"],
+          "targetIds": ["setCoil-84729907-1785143228000"],
+          "children": [
+            {
+              "id": "edit-node-rect-2-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect-2",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-2-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect-2",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "setCoil-84729907-1785143228000": {
+          "id": "setCoil-84729907-1785143228000",
+          "type": "setCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Close_Timeout",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect-2"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84730003-1785143229000",
+      "isExpand": true,
+      "label": "门锁异常故障",
+      "height": 82,
+      "width": 500,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["negatedContact-84730004-1785143229000"]
+        },
+        "negatedContact-84730004-1785143229000": {
+          "id": "negatedContact-84730004-1785143229000",
+          "type": "negatedContact",
+          "varName": {
+            "name": "",
+            "value": "Door_Lock_OK",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["negatedContact-84730004-1785143229000"],
+          "targetIds": ["setCoil-84730005-1785143229000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "setCoil-84730005-1785143229000": {
+          "id": "setCoil-84730005-1785143229000",
+          "type": "setCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Door_Lock",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84730103-1785143230000",
+      "isExpand": true,
+      "label": "故障汇总",
+      "note": "任一故障触发汇总故障信号",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84730104-1785143230000", "contact-84730105-1785143230000", "contact-84730106-1785143230000", "contact-84730107-1785143230000"]
+        },
+        "contact-84730104-1785143230000": {
+          "id": "contact-84730104-1785143230000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Fault_Anti_Pinch",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84730105-1785143230000": {
+          "id": "contact-84730105-1785143230000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Fault_Open_Timeout",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84730106-1785143230000": {
+          "id": "contact-84730106-1785143230000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Fault_Close_Timeout",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "contact-84730107-1785143230000": {
+          "id": "contact-84730107-1785143230000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Fault_Door_Lock",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84730104-1785143230000", "contact-84730105-1785143230000", "contact-84730106-1785143230000", "contact-84730107-1785143230000"],
+          "targetIds": ["setCoil-84730108-1785143230000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "setCoil-84730108-1785143230000": {
+          "id": "setCoil-84730108-1785143230000",
+          "type": "setCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Summary",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84730203-1785143231000",
+      "isExpand": true,
+      "label": "故障报警输出",
+      "note": "故障汇总驱动报警输出",
+      "height": 82,
+      "width": 500,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84730204-1785143231000"]
+        },
+        "contact-84730204-1785143231000": {
+          "id": "contact-84730204-1785143231000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Fault_Summary",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84730204-1785143231000"],
+          "targetIds": ["coil-84730205-1785143231000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "coil-84730205-1785143231000": {
+          "id": "coil-84730205-1785143231000",
+          "type": "coil",
+          "varName": {
+            "name": "",
+            "value": "Alarm_Output",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84730303-1785143232000",
+      "isExpand": true,
+      "label": "故障复位",
+      "note": "复位按钮清除所有故障",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84730304-1785143232000"]
+        },
+        "contact-84730304-1785143232000": {
+          "id": "contact-84730304-1785143232000",
+          "type": "risingContact",
+          "varName": {
+            "name": "",
+            "value": "Reset_Button",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84730304-1785143232000"],
+          "targetIds": ["resetCoil-84730305-1785143232000", "resetCoil-84730306-1785143232000", "resetCoil-84730307-1785143232000", "resetCoil-84730308-1785143232000", "resetCoil-84730309-1785143232000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "resetCoil-84730305-1785143232000": {
+          "id": "resetCoil-84730305-1785143232000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Anti_Pinch",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "resetCoil-84730306-1785143232000": {
+          "id": "resetCoil-84730306-1785143232000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Open_Timeout",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "resetCoil-84730307-1785143232000": {
+          "id": "resetCoil-84730307-1785143232000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Close_Timeout",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "resetCoil-84730308-1785143232000": {
+          "id": "resetCoil-84730308-1785143232000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Door_Lock",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "resetCoil-84730309-1785143232000": {
+          "id": "resetCoil-84730309-1785143232000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Fault_Summary",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84730403-1785143233000",
+      "isExpand": true,
+      "label": "手自动模式切换",
+      "height": 82,
+      "width": 500,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84730404-1785143233000"]
+        },
+        "contact-84730404-1785143233000": {
+          "id": "contact-84730404-1785143233000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Auto_Mode_Select",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84730404-1785143233000"],
+          "targetIds": ["coil-84730405-1785143233000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "coil-84730405-1785143233000": {
+          "id": "coil-84730405-1785143233000",
+          "type": "coil",
+          "varName": {
+            "name": "",
+            "value": "Auto_Mode",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    },
+    {
+      "id": "segment-84730503-1785143234000",
+      "isExpand": true,
+      "label": "故障时停止电机",
+      "note": "故障汇总时立即停止开门和关门电机",
+      "height": 218,
+      "width": 700,
+      "nodesObj": {
+        "start-node-line": {
+          "id": "start-node-line",
+          "type": "startLine",
+          "Xlayer": 0,
+          "Ylayer": 0,
+          "sourceIds": [],
+          "targetIds": ["contact-84730504-1785143234000"]
+        },
+        "contact-84730504-1785143234000": {
+          "id": "contact-84730504-1785143234000",
+          "type": "contact",
+          "varName": {
+            "name": "",
+            "value": "Fault_Summary",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["start-node-line"],
+          "targetIds": ["edit-node-rect"]
+        },
+        "edit-node-rect": {
+          "id": "edit-node-rect",
+          "type": "editRect",
+          "sourceIds": ["contact-84730504-1785143234000"],
+          "targetIds": ["resetCoil-84730505-1785143234000", "resetCoil-84730506-1785143234000"],
+          "children": [
+            {
+              "id": "edit-node-rect-left-port",
+              "type": "node:edgePort",
+              "side": "left",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-left-port"],
+              "position": {"x": -45, "y": 0},
+              "size": {"width": 45, "height": 22}
+            },
+            {
+              "id": "edit-node-rect-bottom-port",
+              "type": "node:edgeBottomPort",
+              "side": "bottom",
+              "parentId": "edit-node-rect",
+              "cssClasses": ["contact-bottom-port"],
+              "position": {"x": 0, "y": 0},
+              "size": {"width": 70, "height": 22}
+            }
+          ]
+        },
+        "resetCoil-84730505-1785143234000": {
+          "id": "resetCoil-84730505-1785143234000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Open_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        },
+        "resetCoil-84730506-1785143234000": {
+          "id": "resetCoil-84730506-1785143234000",
+          "type": "resetCoil",
+          "varName": {
+            "name": "",
+            "value": "Close_Motor",
+            "type": "BOOL",
+            "scope": "VAR"
+          },
+          "sourceIds": ["edit-node-rect"],
+          "targetIds": []
+        }
+      },
+      "edgesObj": {}
+    }
+  ],
+  "variableList": [
+    {
+      "scope": "VAR",
+      "name": "Inner_Sensor",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "内侧感应器",
+      "pathLabels": ["base", "BOOL"],
+      "id": "INNER_SENSOR",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Outer_Sensor",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "外侧感应器",
+      "pathLabels": ["base", "BOOL"],
+      "id": "OUTER_SENSOR",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Door_Open_Request",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "开门请求信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "DOOR_OPEN_REQUEST",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Door_Fully_Open",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "门开到位信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "DOOR_FULLY_OPEN",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Door_Fully_Closed",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "门关到位信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "DOOR_FULLY_CLOSED",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Person_Protection",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "有人保护信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "PERSON_PROTECTION",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Light_Curtain_OK",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "光幕正常信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "LIGHT_CURTAIN_OK",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Fire_Linkage",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "消防联动信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "FIRE_LINKAGE",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "E_Stop",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "急停信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "E_STOP",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Door_Lock_OK",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "门锁正常信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "DOOR_LOCK_OK",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Interlock_OK",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "互锁条件满足",
+      "pathLabels": ["base", "BOOL"],
+      "id": "INTERLOCK_OK",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Open_Motor",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "开门电机输出",
+      "pathLabels": ["base", "BOOL"],
+      "id": "OPEN_MOTOR",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Close_Motor",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "关门电机输出",
+      "pathLabels": ["base", "BOOL"],
+      "id": "CLOSE_MOTOR",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Close_Delay",
+      "type": "TON",
+      "initValue": "",
+      "address": "",
+      "comment": "关门延时定时器",
+      "pathLabels": ["Standard function blocks", "TON"],
+      "id": "TON_CLOSE_DELAY",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Time_Close_Delay_Set",
+      "type": "TIME",
+      "initValue": "T#5S",
+      "address": "",
+      "comment": "关门延时设定值",
+      "pathLabels": ["base", "TIME"],
+      "id": "TIME_CLOSE_DELAY_SET",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Close_Delay_Q",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "关门延时完成输出",
+      "pathLabels": ["base", "BOOL"],
+      "id": "TON_CLOSE_DELAY_Q",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Close_Delay_ET",
+      "type": "TIME",
+      "initValue": "",
+      "address": "",
+      "comment": "关门延时当前值",
+      "pathLabels": ["base", "TIME"],
+      "id": "TON_CLOSE_DELAY_ET",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Anti_Pinch",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "防夹检测信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "ANTI_PINCH",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Fault_Anti_Pinch",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "防夹故障",
+      "pathLabels": ["base", "BOOL"],
+      "id": "FAULT_ANTI_PINCH",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Open_Timeout",
+      "type": "TON",
+      "initValue": "",
+      "address": "",
+      "comment": "开门超时定时器",
+      "pathLabels": ["Standard function blocks", "TON"],
+      "id": "TON_OPEN_TIMEOUT",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Time_Open_Timeout_Set",
+      "type": "TIME",
+      "initValue": "T#10S",
+      "address": "",
+      "comment": "开门超时设定值",
+      "pathLabels": ["base", "TIME"],
+      "id": "TIME_OPEN_TIMEOUT_SET",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Open_Timeout_Q",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "开门超时输出",
+      "pathLabels": ["base", "BOOL"],
+      "id": "TON_OPEN_TIMEOUT_Q",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Open_Timeout_ET",
+      "type": "TIME",
+      "initValue": "",
+      "address": "",
+      "comment": "开门超时当前值",
+      "pathLabels": ["base", "TIME"],
+      "id": "TON_OPEN_TIMEOUT_ET",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Fault_Open_Timeout",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "开门超时故障",
+      "pathLabels": ["base", "BOOL"],
+      "id": "FAULT_OPEN_TIMEOUT",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Close_Timeout",
+      "type": "TON",
+      "initValue": "",
+      "address": "",
+      "comment": "关门超时定时器",
+      "pathLabels": ["Standard function blocks", "TON"],
+      "id": "TON_CLOSE_TIMEOUT",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Time_Close_Timeout_Set",
+      "type": "TIME",
+      "initValue": "T#10S",
+      "address": "",
+      "comment": "关门超时设定值",
+      "pathLabels": ["base", "TIME"],
+      "id": "TIME_CLOSE_TIMEOUT_SET",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Close_Timeout_Q",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "关门超时输出",
+      "pathLabels": ["base", "BOOL"],
+      "id": "TON_CLOSE_TIMEOUT_Q",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Ton_Close_Timeout_ET",
+      "type": "TIME",
+      "initValue": "",
+      "address": "",
+      "comment": "关门超时当前值",
+      "pathLabels": ["base", "TIME"],
+      "id": "TON_CLOSE_TIMEOUT_ET",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Fault_Close_Timeout",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "关门超时故障",
+      "pathLabels": ["base", "BOOL"],
+      "id": "FAULT_CLOSE_TIMEOUT",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Fault_Door_Lock",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "门锁异常故障",
+      "pathLabels": ["base", "BOOL"],
+      "id": "FAULT_DOOR_LOCK",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Fault_Summary",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "故障汇总信号",
+      "pathLabels": ["base", "BOOL"],
+      "id": "FAULT_SUMMARY",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Alarm_Output",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "报警输出",
+      "pathLabels": ["base", "BOOL"],
+      "id": "ALARM_OUTPUT",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Reset_Button",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "复位按钮",
+      "pathLabels": ["base", "BOOL"],
+      "id": "RESET_BUTTON",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Auto_Mode_Select",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "自动模式选择",
+      "pathLabels": ["base", "BOOL"],
+      "id": "AUTO_MODE_SELECT",
+      "isShow": true
+    },
+    {
+      "scope": "VAR",
+      "name": "Auto_Mode",
+      "type": "BOOL",
+      "initValue": "",
+      "address": "",
+      "comment": "自动模式状态",
+      "pathLabels": ["base", "BOOL"],
+      "id": "AUTO_MODE",
+      "isShow": true
+    }
+  ],
+  "pouType": "PROGRAM",
+  "pouName": "MAIN",
+  "extensionPath": ""
+}]

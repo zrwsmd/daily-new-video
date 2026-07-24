@@ -1,0 +1,2450 @@
+[
+  {
+    "segmentList": [
+      {
+        "id": "segment-81000018-1785031020018",
+        "label": "自动模式双向开门请求",
+        "note": "内外感应器均可申请开门；安全保护动作时禁止自动开门。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000001-1785031020001",
+              "contact-81000009-1785031020009"
+            ]
+          },
+          "contact-81000001-1785031020001": {
+            "id": "contact-81000001-1785031020001",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-81000002-1785031020002"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Auto_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000002-1785031020002": {
+            "id": "contact-81000002-1785031020002",
+            "type": "contact",
+            "sourceIds": [
+              "contact-81000001-1785031020001"
+            ],
+            "targetIds": [
+              "negatedContact-81000003-1785031020003"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000003-1785031020003": {
+            "id": "negatedContact-81000003-1785031020003",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000002-1785031020002"
+            ],
+            "targetIds": [
+              "negatedContact-81000004-1785031020004"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000004-1785031020004": {
+            "id": "negatedContact-81000004-1785031020004",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000003-1785031020003"
+            ],
+            "targetIds": [
+              "negatedContact-81000005-1785031020005"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000005-1785031020005": {
+            "id": "negatedContact-81000005-1785031020005",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000004-1785031020004"
+            ],
+            "targetIds": [
+              "negatedContact-81000006-1785031020006"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Lock_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000006-1785031020006": {
+            "id": "negatedContact-81000006-1785031020006",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000005-1785031020005"
+            ],
+            "targetIds": [
+              "contact-81000007-1785031020007"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Light_Curtain",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000007-1785031020007": {
+            "id": "contact-81000007-1785031020007",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-81000006-1785031020006"
+            ],
+            "targetIds": [
+              "negatedContact-81000008-1785031020008"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Inner_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000008-1785031020008": {
+            "id": "negatedContact-81000008-1785031020008",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000007-1785031020007"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000009-1785031020009": {
+            "id": "contact-81000009-1785031020009",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-81000010-1785031020010"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Auto_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000010-1785031020010": {
+            "id": "contact-81000010-1785031020010",
+            "type": "contact",
+            "sourceIds": [
+              "contact-81000009-1785031020009"
+            ],
+            "targetIds": [
+              "negatedContact-81000011-1785031020011"
+            ],
+            "varName": {
+              "name": "",
+              "value": "System_Enable",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000011-1785031020011": {
+            "id": "negatedContact-81000011-1785031020011",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000010-1785031020010"
+            ],
+            "targetIds": [
+              "negatedContact-81000012-1785031020012"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000012-1785031020012": {
+            "id": "negatedContact-81000012-1785031020012",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000011-1785031020011"
+            ],
+            "targetIds": [
+              "negatedContact-81000013-1785031020013"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000013-1785031020013": {
+            "id": "negatedContact-81000013-1785031020013",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000012-1785031020012"
+            ],
+            "targetIds": [
+              "negatedContact-81000014-1785031020014"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Lock_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000014-1785031020014": {
+            "id": "negatedContact-81000014-1785031020014",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000013-1785031020013"
+            ],
+            "targetIds": [
+              "contact-81000015-1785031020015"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Light_Curtain",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000015-1785031020015": {
+            "id": "contact-81000015-1785031020015",
+            "type": "contact",
+            "sourceIds": [
+              "negatedContact-81000014-1785031020014"
+            ],
+            "targetIds": [
+              "negatedContact-81000016-1785031020016"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Outer_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000016-1785031020016": {
+            "id": "negatedContact-81000016-1785031020016",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000015-1785031020015"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-81000017-1785031020017": {
+            "id": "setCoil-81000017-1785031020017",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-81000008-1785031020008",
+              "negatedContact-81000016-1785031020016"
+            ],
+            "targetIds": [
+              "setCoil-81000017-1785031020017"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000026-1785031020026",
+        "label": "手动开门请求",
+        "note": "",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000019-1785031020019"
+            ]
+          },
+          "contact-81000019-1785031020019": {
+            "id": "contact-81000019-1785031020019",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-81000020-1785031020020"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Manual_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000020-1785031020020": {
+            "id": "contact-81000020-1785031020020",
+            "type": "contact",
+            "sourceIds": [
+              "contact-81000019-1785031020019"
+            ],
+            "targetIds": [
+              "negatedContact-81000021-1785031020021"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Manual_Open_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000021-1785031020021": {
+            "id": "negatedContact-81000021-1785031020021",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000020-1785031020020"
+            ],
+            "targetIds": [
+              "negatedContact-81000022-1785031020022"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000022-1785031020022": {
+            "id": "negatedContact-81000022-1785031020022",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000021-1785031020021"
+            ],
+            "targetIds": [
+              "negatedContact-81000023-1785031020023"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000023-1785031020023": {
+            "id": "negatedContact-81000023-1785031020023",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000022-1785031020022"
+            ],
+            "targetIds": [
+              "negatedContact-81000024-1785031020024"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Lock_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000024-1785031020024": {
+            "id": "negatedContact-81000024-1785031020024",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000023-1785031020023"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-81000025-1785031020025": {
+            "id": "setCoil-81000025-1785031020025",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-81000024-1785031020024"
+            ],
+            "targetIds": [
+              "setCoil-81000025-1785031020025"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000034-1785031020034",
+        "label": "开门请求保持与解除",
+        "note": "开门请求、光幕或防夹触发时保持开门；开到位后解除。",
+        "height": 300,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000027-1785031020027",
+              "contact-81000029-1785031020029",
+              "contact-81000031-1785031020031"
+            ]
+          },
+          "contact-81000027-1785031020027": {
+            "id": "contact-81000027-1785031020027",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000028-1785031020028"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000028-1785031020028": {
+            "id": "negatedContact-81000028-1785031020028",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000027-1785031020027"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000029-1785031020029": {
+            "id": "contact-81000029-1785031020029",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000030-1785031020030"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Light_Curtain",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000030-1785031020030": {
+            "id": "negatedContact-81000030-1785031020030",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000029-1785031020029"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000031-1785031020031": {
+            "id": "contact-81000031-1785031020031",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000032-1785031020032"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Anti_Pinch_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000032-1785031020032": {
+            "id": "negatedContact-81000032-1785031020032",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000031-1785031020031"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-81000033-1785031020033": {
+            "id": "coil-81000033-1785031020033",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Hold",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-81000028-1785031020028",
+              "negatedContact-81000030-1785031020030",
+              "negatedContact-81000032-1785031020032"
+            ],
+            "targetIds": [
+              "coil-81000033-1785031020033"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000042-1785031020042",
+        "label": "开门电机互锁输出",
+        "note": "开门与关门电机硬逻辑互锁，禁止同时输出。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000035-1785031020035"
+            ]
+          },
+          "contact-81000035-1785031020035": {
+            "id": "contact-81000035-1785031020035",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000036-1785031020036"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Hold",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000036-1785031020036": {
+            "id": "negatedContact-81000036-1785031020036",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000035-1785031020035"
+            ],
+            "targetIds": [
+              "negatedContact-81000037-1785031020037"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000037-1785031020037": {
+            "id": "negatedContact-81000037-1785031020037",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000036-1785031020036"
+            ],
+            "targetIds": [
+              "negatedContact-81000038-1785031020038"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000038-1785031020038": {
+            "id": "negatedContact-81000038-1785031020038",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000037-1785031020037"
+            ],
+            "targetIds": [
+              "negatedContact-81000039-1785031020039"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000039-1785031020039": {
+            "id": "negatedContact-81000039-1785031020039",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000038-1785031020038"
+            ],
+            "targetIds": [
+              "negatedContact-81000040-1785031020040"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000040-1785031020040": {
+            "id": "negatedContact-81000040-1785031020040",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000039-1785031020039"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-81000041-1785031020041": {
+            "id": "coil-81000041-1785031020041",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-81000040-1785031020040"
+            ],
+            "targetIds": [
+              "coil-81000041-1785031020041"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000047-1785031020047",
+        "label": "开门超时监视",
+        "note": "开门电机运行后未在设定时间内到达开门限位则报故障。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000044-1785031020044"
+            ]
+          },
+          "contact-81000044-1785031020044": {
+            "id": "contact-81000044-1785031020044",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000045-1785031020045"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000045-1785031020045": {
+            "id": "negatedContact-81000045-1785031020045",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000044-1785031020044"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-81000043-1785031020043"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-81000043-1785031020043": {
+            "id": "FBD-compartment-TON-81000043-1785031020043",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "negatedContact-81000045-1785031020045"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Door_Open_Motor_Output",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Door_Open_Timeout_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Door_Open_Timeout",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Door_Open_Timeout_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Door_Open_Timeout",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-81000046-1785031020046": {
+            "id": "end-node-line-81000046-1785031020046",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-81000043-1785031020043"
+            ],
+            "targetIds": [
+              "end-node-line-81000046-1785031020046"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000055-1785031020055",
+        "label": "开门后延时关门",
+        "note": "门完全打开且感应区、光幕和防夹区域均无触发时开始延时关门。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000049-1785031020049"
+            ]
+          },
+          "contact-81000049-1785031020049": {
+            "id": "contact-81000049-1785031020049",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000050-1785031020050"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000050-1785031020050": {
+            "id": "negatedContact-81000050-1785031020050",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000049-1785031020049"
+            ],
+            "targetIds": [
+              "negatedContact-81000051-1785031020051"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Inner_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000051-1785031020051": {
+            "id": "negatedContact-81000051-1785031020051",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000050-1785031020050"
+            ],
+            "targetIds": [
+              "negatedContact-81000052-1785031020052"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Outer_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000052-1785031020052": {
+            "id": "negatedContact-81000052-1785031020052",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000051-1785031020051"
+            ],
+            "targetIds": [
+              "negatedContact-81000053-1785031020053"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Light_Curtain",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000053-1785031020053": {
+            "id": "negatedContact-81000053-1785031020053",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000052-1785031020052"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-81000048-1785031020048"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Anti_Pinch_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-81000048-1785031020048": {
+            "id": "FBD-compartment-TON-81000048-1785031020048",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "negatedContact-81000053-1785031020053"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Door_Open_Limit",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Door_Close_Delay_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Door_Close_Request",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Door_Close_Delay_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Door_Close_Delay",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-81000054-1785031020054": {
+            "id": "end-node-line-81000054-1785031020054",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-81000048-1785031020048"
+            ],
+            "targetIds": [
+              "end-node-line-81000054-1785031020054"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000063-1785031020063",
+        "label": "方向切换延时",
+        "note": "开门电机断开后，经方向切换延时才允许关门。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000057-1785031020057",
+              "contact-81000059-1785031020059"
+            ]
+          },
+          "contact-81000057-1785031020057": {
+            "id": "contact-81000057-1785031020057",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000058-1785031020058"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000058-1785031020058": {
+            "id": "negatedContact-81000058-1785031020058",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000057-1785031020057"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-81000056-1785031020056"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000059-1785031020059": {
+            "id": "contact-81000059-1785031020059",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "contact-81000060-1785031020060"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Manual_Close_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000060-1785031020060": {
+            "id": "contact-81000060-1785031020060",
+            "type": "contact",
+            "sourceIds": [
+              "contact-81000059-1785031020059"
+            ],
+            "targetIds": [
+              "negatedContact-81000061-1785031020061"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Manual_Mode",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000061-1785031020061": {
+            "id": "negatedContact-81000061-1785031020061",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000060-1785031020060"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-81000056-1785031020056"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-81000056-1785031020056": {
+            "id": "FBD-compartment-TON-81000056-1785031020056",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "negatedContact-81000058-1785031020058",
+              "negatedContact-81000061-1785031020061"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Door_Close_Request",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Direction_Change_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Direction_Change_Done",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Direction_Change_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Direction_Change",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-81000062-1785031020062": {
+            "id": "end-node-line-81000062-1785031020062",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-81000056-1785031020056"
+            ],
+            "targetIds": [
+              "end-node-line-81000062-1785031020062"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000073-1785031020073",
+        "label": "关门电机互锁输出",
+        "note": "防夹、光幕或任一安全故障发生时立即禁止关门。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000064-1785031020064"
+            ]
+          },
+          "contact-81000064-1785031020064": {
+            "id": "contact-81000064-1785031020064",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000065-1785031020065"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Direction_Change_Done",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000065-1785031020065": {
+            "id": "negatedContact-81000065-1785031020065",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000064-1785031020064"
+            ],
+            "targetIds": [
+              "negatedContact-81000066-1785031020066"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000066-1785031020066": {
+            "id": "negatedContact-81000066-1785031020066",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000065-1785031020065"
+            ],
+            "targetIds": [
+              "negatedContact-81000067-1785031020067"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000067-1785031020067": {
+            "id": "negatedContact-81000067-1785031020067",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000066-1785031020066"
+            ],
+            "targetIds": [
+              "negatedContact-81000068-1785031020068"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Light_Curtain",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000068-1785031020068": {
+            "id": "negatedContact-81000068-1785031020068",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000067-1785031020067"
+            ],
+            "targetIds": [
+              "negatedContact-81000069-1785031020069"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Anti_Pinch_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000069-1785031020069": {
+            "id": "negatedContact-81000069-1785031020069",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000068-1785031020068"
+            ],
+            "targetIds": [
+              "negatedContact-81000070-1785031020070"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000070-1785031020070": {
+            "id": "negatedContact-81000070-1785031020070",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000069-1785031020069"
+            ],
+            "targetIds": [
+              "negatedContact-81000071-1785031020071"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000071-1785031020071": {
+            "id": "negatedContact-81000071-1785031020071",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000070-1785031020070"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-81000072-1785031020072": {
+            "id": "coil-81000072-1785031020072",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-81000071-1785031020071"
+            ],
+            "targetIds": [
+              "coil-81000072-1785031020072"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000078-1785031020078",
+        "label": "关门超时监视",
+        "note": "关门电机运行后未在设定时间内到达关门限位则报故障。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000075-1785031020075"
+            ]
+          },
+          "contact-81000075-1785031020075": {
+            "id": "contact-81000075-1785031020075",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000076-1785031020076"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Motor_Output",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000076-1785031020076": {
+            "id": "negatedContact-81000076-1785031020076",
+            "type": "negatedContact",
+            "sourceIds": [
+              "contact-81000075-1785031020075"
+            ],
+            "targetIds": [
+              "FBD-compartment-TON-81000074-1785031020074"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Limit",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "FBD-compartment-TON-81000074-1785031020074": {
+            "id": "FBD-compartment-TON-81000074-1785031020074",
+            "type": "FBDCompartment",
+            "sourceIds": [
+              "negatedContact-81000076-1785031020076"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "childrenNode": {
+              "type": "TON",
+              "isFunction": false,
+              "portInputs": [
+                {
+                  "name": "EN",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "IN",
+                  "value": "Door_Close_Motor_Output",
+                  "scope": "VAR_INPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "PT",
+                  "value": "Time_Door_Close_Timeout_Set",
+                  "scope": "VAR_INPUT",
+                  "type": "TIME"
+                }
+              ],
+              "portOutputs": [
+                {
+                  "name": "ENO",
+                  "value": "",
+                  "scope": "",
+                  "type": ""
+                },
+                {
+                  "name": "Q",
+                  "value": "Door_Close_Timeout",
+                  "scope": "VAR_OUTPUT",
+                  "type": "BOOL"
+                },
+                {
+                  "name": "ET",
+                  "value": "Time_Door_Close_Timeout_Elapsed",
+                  "scope": "VAR_OUTPUT",
+                  "type": "TIME"
+                }
+              ],
+              "varName": {
+                "name": "",
+                "value": "Ton_Door_Close_Timeout",
+                "type": "TON",
+                "scope": "VAR"
+              }
+            }
+          },
+          "end-node-line-81000077-1785031020077": {
+            "id": "end-node-line-81000077-1785031020077",
+            "type": "endLine",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": []
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "FBD-compartment-TON-81000074-1785031020074"
+            ],
+            "targetIds": [
+              "end-node-line-81000077-1785031020077"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000086-1785031020086",
+        "label": "故障源汇总锁存",
+        "note": "急停、消防联动、防夹、门锁异常或开关门超时均锁存总故障。",
+        "height": 436,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000079-1785031020079",
+              "contact-81000080-1785031020080",
+              "contact-81000081-1785031020081",
+              "contact-81000082-1785031020082",
+              "contact-81000083-1785031020083",
+              "contact-81000084-1785031020084"
+            ]
+          },
+          "contact-81000079-1785031020079": {
+            "id": "contact-81000079-1785031020079",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000080-1785031020080": {
+            "id": "contact-81000080-1785031020080",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000081-1785031020081": {
+            "id": "contact-81000081-1785031020081",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Anti_Pinch_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000082-1785031020082": {
+            "id": "contact-81000082-1785031020082",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Lock_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000083-1785031020083": {
+            "id": "contact-81000083-1785031020083",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Timeout",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "contact-81000084-1785031020084": {
+            "id": "contact-81000084-1785031020084",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Timeout",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "setCoil-81000085-1785031020085": {
+            "id": "setCoil-81000085-1785031020085",
+            "type": "setCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-81000079-1785031020079",
+              "contact-81000080-1785031020080",
+              "contact-81000081-1785031020081",
+              "contact-81000082-1785031020082",
+              "contact-81000083-1785031020083",
+              "contact-81000084-1785031020084"
+            ],
+            "targetIds": [
+              "setCoil-81000085-1785031020085"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000096-1785031020096",
+        "label": "故障人工确认复位",
+        "note": "确认门体无夹人、故障根因已消除后，方可人工复位。",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "risingContact-81000087-1785031020087"
+            ]
+          },
+          "risingContact-81000087-1785031020087": {
+            "id": "risingContact-81000087-1785031020087",
+            "type": "risingContact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "negatedContact-81000088-1785031020088"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Reset_Button",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000088-1785031020088": {
+            "id": "negatedContact-81000088-1785031020088",
+            "type": "negatedContact",
+            "sourceIds": [
+              "risingContact-81000087-1785031020087"
+            ],
+            "targetIds": [
+              "negatedContact-81000089-1785031020089"
+            ],
+            "varName": {
+              "name": "",
+              "value": "E_Stop",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000089-1785031020089": {
+            "id": "negatedContact-81000089-1785031020089",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000088-1785031020088"
+            ],
+            "targetIds": [
+              "negatedContact-81000090-1785031020090"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fire_Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000090-1785031020090": {
+            "id": "negatedContact-81000090-1785031020090",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000089-1785031020089"
+            ],
+            "targetIds": [
+              "negatedContact-81000091-1785031020091"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Anti_Pinch_Sensor",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000091-1785031020091": {
+            "id": "negatedContact-81000091-1785031020091",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000090-1785031020090"
+            ],
+            "targetIds": [
+              "negatedContact-81000092-1785031020092"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Lock_Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000092-1785031020092": {
+            "id": "negatedContact-81000092-1785031020092",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000091-1785031020091"
+            ],
+            "targetIds": [
+              "negatedContact-81000093-1785031020093"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Timeout",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "negatedContact-81000093-1785031020093": {
+            "id": "negatedContact-81000093-1785031020093",
+            "type": "negatedContact",
+            "sourceIds": [
+              "negatedContact-81000092-1785031020092"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Door_Close_Timeout",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-81000094-1785031020094": {
+            "id": "resetCoil-81000094-1785031020094",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "resetCoil-81000095-1785031020095": {
+            "id": "resetCoil-81000095-1785031020095",
+            "type": "resetCoil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Door_Open_Request",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "negatedContact-81000093-1785031020093"
+            ],
+            "targetIds": [
+              "resetCoil-81000094-1785031020094",
+              "resetCoil-81000095-1785031020095"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      },
+      {
+        "id": "segment-81000099-1785031020099",
+        "label": "报警与门状态指示",
+        "note": "",
+        "height": 218,
+        "width": 1300,
+        "isExpand": true,
+        "nodesObj": {
+          "start-node-line": {
+            "id": "start-node-line",
+            "type": "startLine",
+            "Xlayer": 0,
+            "Ylayer": 0,
+            "sourceIds": [],
+            "targetIds": [
+              "contact-81000097-1785031020097"
+            ]
+          },
+          "contact-81000097-1785031020097": {
+            "id": "contact-81000097-1785031020097",
+            "type": "contact",
+            "sourceIds": [
+              "start-node-line"
+            ],
+            "targetIds": [
+              "edit-node-rect"
+            ],
+            "varName": {
+              "name": "",
+              "value": "Fault",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "coil-81000098-1785031020098": {
+            "id": "coil-81000098-1785031020098",
+            "type": "coil",
+            "sourceIds": [
+              "edit-node-rect"
+            ],
+            "targetIds": [],
+            "varName": {
+              "name": "",
+              "value": "Alarm",
+              "type": "BOOL",
+              "scope": "VAR"
+            }
+          },
+          "edit-node-rect": {
+            "id": "edit-node-rect",
+            "type": "editRect",
+            "sourceIds": [
+              "contact-81000097-1785031020097"
+            ],
+            "targetIds": [
+              "coil-81000098-1785031020098"
+            ],
+            "children": []
+          }
+        },
+        "edgesObj": {}
+      }
+    ],
+    "variableList": [
+      {
+        "scope": "VAR",
+        "name": "Auto_Mode",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "自动模式选择",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "AUTO_MODE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Manual_Mode",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "手动模式选择",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MANUAL_MODE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "System_Enable",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "系统使能",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "SYSTEM_ENABLE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "E_Stop",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "急停输入",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "E_STOP",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fire_Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "消防联动信号",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FIRE_ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Inner_Sensor",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "内侧感应器",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "INNER_SENSOR",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Outer_Sensor",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "外侧感应器",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "OUTER_SENSOR",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Light_Curtain",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "安全光幕",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "LIGHT_CURTAIN",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Anti_Pinch_Sensor",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "防夹传感器",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ANTI_PINCH_SENSOR",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Lock_Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "门锁异常",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_LOCK_FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Open_Limit",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "开门到位限位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_OPEN_LIMIT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Close_Limit",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "关门到位限位",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_CLOSE_LIMIT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Manual_Open_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "手动开门按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MANUAL_OPEN_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Manual_Close_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "手动关门按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "MANUAL_CLOSE_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Open_Request",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "开门请求锁存",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_OPEN_REQUEST",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Open_Hold",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "开门保持状态",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_OPEN_HOLD",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Close_Request",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "延时关门请求",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_CLOSE_REQUEST",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Direction_Change_Done",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "方向切换延时完成",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DIRECTION_CHANGE_DONE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Open_Motor_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "开门电机输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_OPEN_MOTOR_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Close_Motor_Output",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "关门电机输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_CLOSE_MOTOR_OUTPUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Open_Timeout",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "开门超时故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_OPEN_TIMEOUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Door_Close_Timeout",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "关门超时故障",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "DOOR_CLOSE_TIMEOUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Fault",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "总故障锁存",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "FAULT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Alarm",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障报警输出",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "ALARM",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Reset_Button",
+        "type": "BOOL",
+        "initValue": "",
+        "address": "",
+        "comment": "故障复位按钮",
+        "pathLabels": [
+          "base",
+          "BOOL"
+        ],
+        "id": "RESET_BUTTON",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Door_Open_Timeout_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "开门超时设定时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DOOR_OPEN_TIMEOUT_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Door_Open_Timeout_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "开门超时经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DOOR_OPEN_TIMEOUT_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Door_Close_Delay_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "延时关门设定时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DOOR_CLOSE_DELAY_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Door_Close_Delay_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "延时关门经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DOOR_CLOSE_DELAY_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Direction_Change_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "方向切换延时设定",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DIRECTION_CHANGE_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Direction_Change_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "方向切换延时经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DIRECTION_CHANGE_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Door_Close_Timeout_Set",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "关门超时设定时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DOOR_CLOSE_TIMEOUT_SET",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Time_Door_Close_Timeout_Elapsed",
+        "type": "TIME",
+        "initValue": "",
+        "address": "",
+        "comment": "关门超时经过时间",
+        "pathLabels": [
+          "base",
+          "TIME"
+        ],
+        "id": "TIME_DOOR_CLOSE_TIMEOUT_ELAPSED",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Door_Open_Timeout",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "开门超时定时器",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DOOR_OPEN_TIMEOUT",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Door_Close_Delay",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "延时关门定时器",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DOOR_CLOSE_DELAY",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Direction_Change",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "方向切换延时定时器",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DIRECTION_CHANGE",
+        "isShow": true
+      },
+      {
+        "scope": "VAR",
+        "name": "Ton_Door_Close_Timeout",
+        "type": "TON",
+        "initValue": "",
+        "address": "",
+        "comment": "关门超时定时器",
+        "pathLabels": [
+          "Standard function blocks",
+          "TON"
+        ],
+        "id": "TON_DOOR_CLOSE_TIMEOUT",
+        "isShow": true
+      }
+    ],
+    "pouType": "PROGRAM",
+    "pouName": "Bidirectional_Automatic_Door_Interlock",
+    "extensionPath": ""
+  }
+]
